@@ -1,0 +1,20 @@
+{
+    "name": "sociallove/sociallove",
+    "description": "proyecto de fin de grado",
+    "type": "project",
+    "require": {
+        "victorjfg/dawfony": "dev-master"
+    },
+    "require-dev": {
+        "noahbuscher/macaw": "dev-master",
+        "twbs/bootstrap": "dev-master"
+    },
+    "license": "copy right",
+    "authors": [
+        {
+            "name": "1web914",
+            "email": "carlos_fmartinez@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
