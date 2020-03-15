@@ -1,0 +1,62 @@
+<?php
+// necesitamos la trayectoria de la URL para formar las rutas:
+global $URL_PATH;
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+
+    <title>
+        <?php \dawfony\Ti::startBlock("title"); ?>
+        Tiendaw
+        <?php \dawfony\Ti::endBlock(); ?>
+    </title>
+
+    <?php /* jquery cdn */ ?>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <?php /* Bootstrap. Las rutas deben ser absolutas, porque estamos haciendo rewrite */ ?>
+    <link rel="stylesheet" href="<?= $URL_PATH ?>/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+    <script src="<?= $URL_PATH ?>/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <?php /* Font awesome CDN */ ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <?php /* Animate.css CDN */ ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+    
+   
+    <?php /*Para añadir lineas al head desde las plantillas derivadas*/ ?>
+    <?php \dawfony\Ti::startBlock("head"); ?>
+    <?php \dawfony\Ti::endBlock(); ?>
+
+</head>
+
+<body class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="text-center myfont">
+            <h1>Bienvenido a Social Love</h1>
+        </div>
+    </div>
+           
+        
+
+
+
+
+    <?php \dawfony\Ti::startBlock("content"); ?>
+
+
+    <?php \dawfony\Ti::endBlock(); ?>
+    <footer class="rounded p-4 mt-2 text-center bg-light myfont">
+        © <?= date("Y") ?> 2ºDAW
+    </footer>
+</body>
+
+
+
+</html>

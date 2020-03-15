@@ -9,8 +9,8 @@ use controller\PruebaController;
 /* echo "<pre>" . var_dump($_SERVER["REQUEST_URI"]) . var_dump($_SERVER["QUERY_STRING"]) . "</pre>"; */
 /*
 //pagina principal
-Macaw::get($URL_PATH . '/', "controller\PostController@listado");
-
+*/Macaw::get($URL_PATH . '/', "controller\PostController@listado");
+/*
 //lo ultimo
 Macaw::get($URL_PATH . '/loUltimo', "controller\PostController@listado");
 Macaw::get($URL_PATH . '/loUltimo/page/(:num)', "controller\PostController@listado");
