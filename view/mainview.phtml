@@ -13,7 +13,7 @@ global $URL_PATH;
 
     <title>
         <?php \dawfony\Ti::startBlock("title"); ?>
-        Tiendaw
+        SocialLove
         <?php \dawfony\Ti::endBlock(); ?>
     </title>
 
@@ -21,38 +21,153 @@ global $URL_PATH;
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <?php /* Bootstrap. Las rutas deben ser absolutas, porque estamos haciendo rewrite */ ?>
     <link rel="stylesheet" href="<?= $URL_PATH ?>/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+
     <script src="<?= $URL_PATH ?>/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="<?= $URL_PATH ?>/node_modules/bootstrap-social/bootstrap-social.css">
     <?php /* Font awesome CDN */ ?>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= $URL_PATH ?>/node_modules/font-awesome/css/font-awesome.min.css">
     <?php /* Animate.css CDN */ ?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
-    
-   
     <?php /*Para añadir lineas al head desde las plantillas derivadas*/ ?>
     <?php \dawfony\Ti::startBlock("head"); ?>
     <?php \dawfony\Ti::endBlock(); ?>
 
+    <style>
+        body {
+            background-color: #1c2228;
+        }
+
+        footer {
+            color: white;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        .acepted {
+            color: white;
+            background-color: purple;
+        }
+
+        p{
+            color: white;
+            text-align: center;
+        }
+
+        .imagen-fondo {
+            background-image: url("<?= $URL_PATH ?>/assets/fotosInterfaces/redsocial.png");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            height: 450px;
+        }
+
+        .inscripcion {
+            float: right;
+        }
+
+        .flickr {
+            background: #f40083;
+            color: white;
+        }
+    </style>
+
 </head>
 
-<body class="container">
-    <div class="jumbotron jumbotron-fluid">
-        <div class="text-center myfont">
-            <h1>Bienvenido a Social Love</h1>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <header class="header-content" id="header-content">
+                    <h1 class="">
+                        <img class="img-fluid" src="<?= $URL_PATH ?>/assets/fotosInterfaces/logo.png" data-srcpng="" alt="socialLove.localhost">
+                    </h1>
+            </div>
+            <br>
+            <center>
+                <div class="col">
+                    <form class="form-loggin excluded-bind-register" action="#" method="post">
+                        <div class="form-row">
+                            <div class="col ">
+                                <input class="input-square" type="text" id="mail" name="username" placeholder="correo electrónico" value="">
+                            </div>
+                            <div class="col ">
+                                <input class="input-square" type="password" id="password" name="password" value="" placeholder="contraseña">
+                            </div>
+                            <div class="col ">
+                                <button type="submit" class="btn acepted">OK</button>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-cell form-cell-large">
+                                <a class="password-lost-link white open-modal" href="#">¿Has olvidado tu contraseña?</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </center>
         </div>
     </div>
-           
-        
+
+    </header>
+    <hr>
+    <br>
 
 
+    <div class="imagen-fondo">
+        <div class="container-fluid ">
+            <div class="inscripcion">
+                <br>
+                <h1>Inscripción gratuita</h1>
+                <p class="">en menos de un minuto</p>
+                <div class="">
+                    <div class="form-row">
+                        <form action="#" method="post">
 
+                    </div>
+                    <form action="#" class="">
+                        <button id="b" type="submit" class="btn btn-block flickr">ME INSCRIBO</button>
+                        <button class="btn btn-block btn-social btn-facebook">
+                            <i class="fa fa-facebook"></i> Conexión vía Facebook </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ********************** Modal ******************************************* -->
+<script>
+    function verRegistro() {
+        console.log("En verRegistro "); // mensaje de depuración
+        // Esto es jquery, copiado de la documentación de bootstrap.
+        $('#viajeModal').modal('show');  // mostrar div oculto de manera modal. 
+    }
+</script>
+
+<div class="modal fade" id="viajeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="titulo">titulo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="descripcion">descripcion</p>
+        <p id="precioprivado" class="text-success font-weight-bold">precioprivado</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <?php \dawfony\Ti::startBlock("content"); ?>
 
 
     <?php \dawfony\Ti::endBlock(); ?>
-    <footer class="rounded p-4 mt-2 text-center bg-light myfont">
+    <footer class="rounded p-4 mt-2 text-center  myfont">
         © <?= date("Y") ?> 2ºDAW
     </footer>
 </body>
