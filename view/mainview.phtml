@@ -50,7 +50,7 @@ global $URL_PATH;
             background-color: purple;
         }
 
-        p{
+        p {
             color: white;
             text-align: center;
         }
@@ -69,6 +69,12 @@ global $URL_PATH;
         .flickr {
             background: #f40083;
             color: white;
+        }
+
+        .g{
+            background-color: rgba(0, 0, 0, 0.2);
+            margin: 45px;
+            padding: 25px;
         }
     </style>
 
@@ -116,7 +122,7 @@ global $URL_PATH;
 
     <div class="imagen-fondo">
         <div class="container-fluid ">
-            <div class="inscripcion">
+            <div class="inscripcion g">
                 <br>
                 <h1>Inscripción gratuita</h1>
                 <p class="">en menos de un minuto</p>
@@ -126,7 +132,10 @@ global $URL_PATH;
 
                     </div>
                     <form action="#" class="">
-                        <button id="b" type="submit" class="btn btn-block flickr">ME INSCRIBO</button>
+                        <div class="text-center">
+                            <a href="" class="btn btn-block mb-4 flickr" data-toggle="modal" data-target="#modalContactForm">
+                                ME INSCRIBO</a>
+                        </div>
                         <button class="btn btn-block btn-social btn-facebook">
                             <i class="fa fa-facebook"></i> Conexión vía Facebook </button>
                     </form>
@@ -135,33 +144,47 @@ global $URL_PATH;
         </div>
     </div>
     <!-- ********************** Modal ******************************************* -->
-<script>
-    function verRegistro() {
-        console.log("En verRegistro "); // mensaje de depuración
-        // Esto es jquery, copiado de la documentación de bootstrap.
-        $('#viajeModal').modal('show');  // mostrar div oculto de manera modal. 
-    }
-</script>
+    <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Write to us</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <i class="fas fa-user prefix grey-text"></i>
+                        <input type="text" id="form34" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="form34">Your name</label>
+                    </div>
 
-<div class="modal fade" id="viajeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="titulo">titulo</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p id="descripcion">descripcion</p>
-        <p id="precioprivado" class="text-success font-weight-bold">precioprivado</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-      </div>
+                    <div class="md-form mb-5">
+                        <i class="fas fa-envelope prefix grey-text"></i>
+                        <input type="email" id="form29" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="form29">Your email</label>
+                    </div>
+
+                    <div class="md-form mb-5">
+                        <i class="fas fa-tag prefix grey-text"></i>
+                        <input type="text" id="form32" class="form-control validate">
+                        <label data-error="wrong" data-success="right" for="form32">Subject</label>
+                    </div>
+
+                    <div class="md-form">
+                        <i class="fas fa-pencil prefix grey-text"></i>
+                        <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
+                        <label data-error="wrong" data-success="right" for="form8">Your message</label>
+                    </div>
+
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-unique">Send <i class="fas fa-paper-plane-o ml-1"></i></button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
     <?php \dawfony\Ti::startBlock("content"); ?>
 
