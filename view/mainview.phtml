@@ -1,7 +1,7 @@
 <?php
 // necesitamos la trayectoria de la URL para formar las rutas:
 global $URL_PATH;
-
+global $login_url;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,101 +31,114 @@ global $URL_PATH;
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <?php /*Para añadir lineas al head desde las plantillas derivadas*/ ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="<?= $URL_PATH ?>/js/mostrarContraseña.js"></script>
+    <link rel="stylesheet" href="<?= $URL_PATH ?>/css/cssMainView.css">
 
     <?php \dawfony\Ti::startBlock("head"); ?>
     <?php \dawfony\Ti::endBlock(); ?>
-
     <style>
-        body {
-            background-color: #1c2228;
+        img {
+            float: left;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        /* #btn-entrada-ok:hover{
+            background-color: pink;
+            border:pink;
+        } */
+        .btn1>button:hover{
+            background-color: pink;
+            border-radius: 10px;
+        }
+        .btn-primary{
+            background-color: #FF69B4;
+            border:#FF69B4;
+            border-radius: 10px;
         }
 
-        footer {
-            color: white;
+        form {
+            float: right;
+            width: 50%;
+        }
+        .img-container {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
         }
 
-        h1 {
-            color: white;
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
         }
 
-        .acepted {
-            color: white;
-            background-color: purple;
+        .imagen-fondo-body {
+            background-image: url("/sociallove/assets/fotosInterfaces/fondoBody.png");
+            background-repeat: repeat;
+            
         }
-
-        p {
-            color: white;
+        #fbook{
             text-align: center;
         }
-
-        .imagen-fondo {
-            background-image: url("<?= $URL_PATH ?>/assets/fotosInterfaces/redsocial.png");
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            height: 450px;
-        }
-
-        .inscripcion {
-            float: right;
-        }
-
-        .flickr {
-            background: #f40083;
-            color: white;
-        }
-
-        .g {
-            background-color: rgba(0, 0, 0, 0.2);
-            margin: 45px;
-            padding: 25px;
-        }
-        .prueba{
-            background-color: #1c2228 ;
-        }
-        
     </style>
-
 </head>
 
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <header class="header-content" id="header-content">
-                    <h1 class="">
-                        <img class="img-fluid" src="<?= $URL_PATH ?>/assets/fotosInterfaces/logo.png" data-srcpng="" alt="socialLove.localhost">
-                    </h1>
-            </div>
-            <br>
-            <center>
-                <div class="col">
-                    <form class="form-loggin excluded-bind-register" action="#" method="post">
-                        <div class="form-row">
-                            <div class="col ">
-                                <input class="input-square" type="text" id="mail" name="username" placeholder="correo electrónico" value="">
+<body class="imagen-fondo-body">
+
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <header>
+                <div class="clearfix">
+                    <div class="img-container">
+                        <img class="img-fluid" style="width:600px;height:100px" src="<?= $URL_PATH ?>/assets/fotosInterfaces/logo.png" data-srcpng="" alt="socialLove.localhost">
+                    </div>
+                    <div class="img-container">
+                        <form class="form-inline" action="#" method="post">
+                            <div class="form-group">
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <input type="text" id="mail" name="email" placeholder="correo electrónico" value="">
+                                </div>
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <input type="password" id="password" name="password" value="" placeholder="contraseña">
+                                    <a href="#">¿Has olvidado tu contraseña?</a>
+                                </div>
+                                <div class="btn1">
+                                    <button type="submit" id="btn-entrada-ok"class="btn btn-primary mb-2">OK</button>
+                                </div>
                             </div>
-                            <div class="col ">
-                                <input class="input-square" type="password" id="password" name="password" value="" placeholder="contraseña">
-                            </div>
-                            <div class="col ">
-                                <button type="submit" class="btn acepted">OK</button>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-cell form-cell-large">
-                                <a class="password-lost-link white open-modal" href="#">¿Has olvidado tu contraseña?</a>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
-            </center>
+            </header>
         </div>
-    </div>
-
-    </header>
-    <hr>
-    <br>
-
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
+            
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1">MUJERES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"  data-toggle="modal" data-target="#modalContactForm" tabindex="-1">HOMBRES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"  data-toggle="modal" data-target="#modalContactForm" tabindex="-1">NUEVA COLECCIÓN</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1">NUESTRA SELECCIÓN</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1">ESTILOS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1">GENTE DE TU REGIÓN</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1"><i class="fas fa-search"></i>BÚSQUEDA</a>
+                </li>
+            </ul>
+            
+        </nav>
+    
 
     <div class="imagen-fondo">
         <div class="container-fluid ">
@@ -138,24 +151,27 @@ global $URL_PATH;
                         <form action="#" method="post">
 
                     </div>
-                    <form action="#" class="">
+                    
                         <div class="text-center">
                             <a href="" class="btn btn-block mb-4 flickr" data-toggle="modal" data-target="#modalContactForm">
                                 ME INSCRIBO</a>
                         </div>
-                        <button class="btn btn-default btn-social btn-facebook">
-                            <i class="fa fa-facebook"></i> Conexión vía Facebook </button>
-                    </form>
+                        <a href=" <?=$login_url?>"class="btn btn-block mb-4 btn-social btn-facebook" id="fbook">
+                            <i class="fa fa-facebook"></i> Conexión vía Facebook </a>
+                    
                 </div>
             </div>
         </div>
     </div>
+    <div>
+        AQUI VA EL LISTADO DE PERSONAS FALSAS PARA SER LINKEADAS Y SI PINCHA Y NO ESTA CONECTADO SALE EL TEMA DE REGISTRO.
+    </div>
 
     <!-- ********************** Modal ******************************************* -->
     <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog"  role="document">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header text-center" >
+                <div class="modal-header text-center">
                     <h4 class="modal-title w-100 font-weight-bold">Regístrate</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -177,23 +193,23 @@ global $URL_PATH;
                         <i class="fas fa-user prefix grey-text"></i>
                         <label data-error="wrong" data-success="right" for="form34">Nombre</label>
                         <input type="text" id="form34" class="form-control validate">
-                        
+
                     </div>
                     <div class="md-form mb-5">
                         <i class="fas fa-envelope prefix grey-text"></i>
                         <label data-error="wrong" data-success="right" for="form29">E-mail</label>
                         <input type="email" id="form29" class="form-control validate">
-                        
+
                     </div>
                     <div class="md-form mb-5">
                         <i class="fas fa-lock"></i>
-                                <label>Contraseña</label>
-                                <div class="input-group">
-                                    <input ID="txtPassword" type="Password" Class="form-control">
-                                    <div class="input-group-append">
-                                        <button id="show_password" class="btn btn-dark" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
-                                    </div>
-                                </div>
+                        <label>Contraseña</label>
+                        <div class="input-group">
+                            <input ID="txtPassword" type="Password" Class="form-control">
+                            <div class="input-group-append">
+                                <button id="show_password" class="btn btn-dark" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                            </div>
+                        </div>
                         </label>
                     </div>
                     <div class="md-form mb-5">
@@ -328,35 +344,18 @@ global $URL_PATH;
             </div>
         </div>
     </div>
-
+    </div>
     <?php \dawfony\Ti::startBlock("content"); ?>
 
-
     <?php \dawfony\Ti::endBlock(); ?>
-    <footer class="rounded p-4 mt-2 text-center  myfont">
+
+        <div class="container-fluid">
+    <footer class="rounded p-4 mt-2 text-center myfont">
+        <div>
+            SocialLove es una de las plataformas pioneras en unir personas. Su concepto innovador ha seducido a más de 25 millones, siendo de los únicos en garantizar el mismo número de chicas que de chicos.
+        </div>
         © <?= date("Y") ?> 2ºDAW
     </footer>
+    </div>
 </body>
-
-<script type="text/javascript">
-    function mostrarPassword() {
-        var cambio = document.getElementById("txtPassword");
-        if (cambio.type == "password") {
-            cambio.type = "text";
-            $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
-        } else {
-            cambio.type = "password";
-            $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
-        }
-    }
-
-    $(document).ready(function() {
-        //CheckBox mostrar contraseña
-        $('#ShowPassword').click(function() {
-            $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
-        });
-    });
-</script>
-
-
 </html>
