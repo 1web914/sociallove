@@ -1,6 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 require 'cargarconfig.php';
+require 'fb-login/fb-init.php';
 session_start();
 
 use NoahBuscher\Macaw\Macaw;
