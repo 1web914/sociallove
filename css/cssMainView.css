@@ -18,6 +18,10 @@
 
 footer {
     color: white;
+    height: auto !important;
+}
+.bg-footer {
+    background-color: #1c2228;
 }
 
 h1 {
@@ -35,10 +39,10 @@ p {
 }
 
 .imagen-fondo {
-    background-image: url("/sociallove/assets/fotosInterfaces/redsocial.png");
+    background-image: url("/sociallove/assets/fotosInterfaces/timido.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    height: 450px;
+    height: 350px;
 }
 
 .inscripcion {

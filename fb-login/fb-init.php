@@ -26,7 +26,7 @@ try {
 }
 
 //para coger el nombre,email etc
-if ($_SESSION['acceso_fb']) {
+/* if ($_SESSION['acceso_fb']) {
 
     try {
 
@@ -38,4 +38,4 @@ if ($_SESSION['acceso_fb']) {
     } catch (Exception $exc) {
         echo $exc->getTraceAsString();
     }
-}
+} */

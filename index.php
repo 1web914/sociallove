@@ -2,7 +2,7 @@
 require 'vendor/autoload.php';
 require 'cargarconfig.php';
 require 'fb-login/fb-init.php';
-session_start();
+/* session_start(); */
 
 use NoahBuscher\Macaw\Macaw;
 use controller\PruebaController;
@@ -11,6 +11,8 @@ use controller\PruebaController;
 /*
 //pagina principal
 */Macaw::get($URL_PATH . '/', "controller\PostController@listado");
+//contador mensajes intercambiados
+Macaw::get($URL_PATH . '/contador', "controller\PostController@contador");
 /*
 //lo ultimo
 Macaw::get($URL_PATH . '/loUltimo', "controller\PostController@listado");
