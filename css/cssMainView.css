@@ -97,7 +97,7 @@ form {
     display: table;
 }
 
-.imagen-fondo-body {
+.imagen-fondo-body .body-register {
     background-image: url("/sociallove/assets/fotosInterfaces/fondoBody.png");
     background-repeat: repeat;
     background-color: #fbf6f9;
@@ -113,6 +113,10 @@ form {
     grid-gap: 5px;
     grid-template-columns: auto auto auto auto auto auto;
     padding: 2px;
+}
+.grid-container-select-register{
+    display: grid;
+    grid-template-columns: auto auto auto;
 }
 
 .grid-container-chicos1 {
