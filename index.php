@@ -60,6 +60,7 @@ Macaw ::post($URL_PATH . '/leerMas/(:num)/comentario/new', "controller\PostContr
 //api JSON
 
 Macaw::get($URL_PATH . '/api/like/(:num)', "controller\ApiController@likeClick");
+
 //validarLogin
 Macaw::get($URL_PATH . '/existe/(:any)', "controller\ApiController@existeLogin");*/
 

@@ -1,6 +1,7 @@
 .jumbotron{
     background-color: #1c2228;
     margin:0;
+    height: 150px;
 }
 .navbar{
     background-color: #1c2228;
@@ -54,7 +55,7 @@ p {
     color: white;
 }
 
-.g {
+.cajaInscripcion {
     background-color: rgba(0, 0, 0, 0.2);
     margin: 45px;
     padding: 25px;
@@ -62,3 +63,172 @@ p {
 .prueba{
     background-color: #1c2228 ;
 }
+img {
+
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.btn1>button:hover {
+    background-color: pink;
+    border-radius: 10px;
+}
+
+.btn-primary {
+    background-color: #FF69B4;
+    border: #FF69B4;
+    border-radius: 10px;
+}
+
+form {
+    float: right;
+    width: 50%;
+}
+
+.img-container {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.imagen-fondo-body {
+    background-image: url("/sociallove/assets/fotosInterfaces/fondoBody.png");
+    background-repeat: repeat;
+    background-color: #fbf6f9;
+
+}
+
+#fbook {
+    text-align: center;
+}
+
+.grid-container-chicos {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: auto auto auto auto auto auto;
+    padding: 2px;
+}
+
+.grid-container-chicos1 {
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: auto auto auto;
+    padding: 2px;
+}
+
+.fondo-personas {
+    background-color: white;
+}
+
+.container-images {
+    position: relative;
+    width: 160px;
+    height: 160px;
+}
+
+.imagenes-chicas {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.middle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: black;
+}
+
+.container-images:hover .imagenes-chicas {
+    opacity: 0.3;
+}
+
+.container-images:hover .middle {
+    opacity: 0.7;
+}
+
+.text {
+    color: white;
+    font-size: 14px;
+    position: relative;
+    top: 30%;
+    text-align: center;
+}
+.item1 {
+    grid-area: header;
+}
+
+.item2 {
+    grid-area: menu;
+}
+
+.item4 {
+    grid-area: right;
+    font-size: 250%;
+}
+
+.item5 {
+    grid-area: footer;
+}
+
+.grid-contador {
+    display: grid;
+    grid-template-areas:
+        'menu menu header header header header'
+        'menu menu right right right right'
+        'menu menu footer footer footer footer';
+    border-color: white;
+    padding: 1px;
+    margin-right: 15%;
+    margin-left: 15%;
+    margin-top: 30px;
+}
+
+.grid-contador>div {
+    border: 1px solid gray;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.caja-footer {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+}
+#contador {
+    color:#f40083;
+    font-size: 25px;
+}
+#contadorMensaje{
+    color: white;
+    font-size:16px;
+}
+.custom-control-label:before{
+    background-color:gray;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+    background-color:pink;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::after{
+    background-image:url("/sociallove/assets/fotosInterfaces/descarga.svg");}
+.custom-control-input:active~.custom-control-label::before{
+    background-color:lightpink;
+}
+
+
+
+
+

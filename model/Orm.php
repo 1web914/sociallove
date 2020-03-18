@@ -24,5 +24,13 @@ class Orm
             "UPDATE contador SET contador=$contador + 2 where id=1",
         );
     }
+
+    /*****Vemos si hay login existente, sino no entra *****/
+    public function loginExistente($login){
+        return Klasto::getInstance()->queryOne(
+            "SELECT login FROM `usuario` WHERE login=?",
+            [$login]
+        );
+    }
     
 }

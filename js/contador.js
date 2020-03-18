@@ -3,6 +3,6 @@ function contador() {
 
         .then((res) => res.json())
         .then((res) => {
-            $("#contador").html(res + " <span style='color:white'>mensajes intercambiados...</span>");
+            $("#contador").html(res + " <span id='contadorMensaje' style='color:white'>mensajes intercambiados...</span>");
         })
 }
