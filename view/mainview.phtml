@@ -16,7 +16,7 @@ global $login_url;
         SocialLove
         <?php \dawfony\Ti::endBlock(); ?>
     </title>
-
+    <link rel='stylesheet' type='text/css' href='css/cssMain.php' />
     <?php /* jquery cdn */ ?>
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <?php /* Bootstrap. Las rutas deben ser absolutas, porque estamos haciendo rewrite */ ?>
@@ -41,10 +41,11 @@ global $login_url;
     <script src="<?= $URL_PATH ?>/js/mensajesContadores.js"></script>
     <script src="<?= $URL_PATH ?>/js/contador.js"></script>
     <script src="<?= $URL_PATH ?>/js/comprobarlogin.js"></script>
+    <script src="<?= $URL_PATH ?>/js/busquedaUsuario.js"></script>
 
     <script>
         var URL_PATH = "<?= $URL_PATH ?>"; // Pasamos el URL_PATH de php a Javascript.
-        var error = false; //esto es para el login comprobamos si el email que ha introducido está bien sino que lo escriba de nuevo.
+        var error = false; //esto es para el formulario login y  comprobamos si el email que ha introducido está bien sino que lo escriba de nuevo.
     </script>
 
     <?php \dawfony\Ti::startBlock("head"); ?>
@@ -63,289 +64,321 @@ global $login_url;
         <div class="container-fluid">
             <div class="jumbotron">
                 <header>
-                    <div class="clearfix">
-                        
-
-                    <?php else : ?>
-                        <div class="container-fluid">
-                            <div class="jumbotron">
-                                <header>
-                                    <div class="clearfix">
-                                        <div class="img-container">
-                                            <img class="img-fluid" style="width:600px;height:100px" src="" data-srcpng="" alt="socialLove.localhost">
-                                        </div>
-                                        <div class="img-container">
-                                            <?php $error_msg = $error_msg ?? ""; ?>
-
-                                            <?php if ($error_msg) : ?>
-                                                <span Style=" color:red">
-                                                    <?= $error_msg ?>
-                                                </span>
-                                            <?php endif; ?>
-                                            <form class="form-inline" action="<?= $URL_PATH ?>/login" method="post">
-                                                <div class="form-group">
-                                                    <div class="form-group  mb-2">
-                                                        <input class="form-control form-control-sm" type="text" onchange="comprobarlogin()" id="mail" name="email" placeholder="correo electrónico" value="" required>
-                                                    </div>
-                                                    <div class="form-group mx-3 mb-2">
-                                                        <input class="form-control form-control-sm" type="password" id="password" name="password" value="" placeholder="contraseña" required>
-                                                    </div>
-                                                    <div class="btn1">
-                                                        <button type="submit" id="btn-entrada-ok" class="btn btn-primary mb-2">OK</button>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <div class="custom-control custom-checkbox mb-2">
-                                                        <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
-                                                        <label class="custom-control-label" for="customCheck"><span style="color:white">recordar mis datos</span></label>
-                                                    </div>
-                                                    <div class="form-group mx-5 ">
-                                                        <!-- Hacer la referencia por si ha olvidado la contraseña, mandar a una pagina y que saque su contraseña. -->
-                                                        <a class="password-lost-link white open-modal" href="#">¿Has olvidado tu contraseña?</a>
-                                                    </div>
-                                                </div>
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                </header>
-                            </div>
-
-                            <!-- ********************** Navbar para engaño del usuario para poder hacerse que se registre ******************************************* -->
-                            <nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
-
-                                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar-center">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1">MUJERES</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1">HOMBRES</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1">NUEVA COLECCIÓN</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1">NUESTRA SELECCIÓN</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1">ESTILOS</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1">GENTE DE TU REGIÓN</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1"><i class="fas fa-search"></i>BÚSQUEDA</a>
-                                    </li>
-                                </ul>
-
-                            </nav>
-
-
-                            <!-- ********************** Modal registro ******************************************* -->
-                            <form action="<?= $URL_PATH ?>/registro" method="get">
-                                <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header text-center" style="background-color:#1c2228">
-                                                <h4 class="modal-title w-100 font-weight-bold" style="color:White">Regístrate</h4>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true" style="color:White">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body body-register">
-                                                <div class="md-form mb-3">
-                                                    <i class="fas fa-venus-mars"></i>
-                                                    <label for="register-sex" class="register-sex">Género</label>
-                                                    <select name="sex" id="register-sex" class="form-control form-control">
-                                                        <option value="">yo soy...</option>
-                                                        <option value="1">una mujer</option>
-                                                        <option value="0">un hombre</option>
-                                                    </select>
-
-                                                </div>
-                                                <div class="md-form mb-3">
-                                                    <i class="fas fa-user prefix grey-text"></i>
-                                                    <label data-error="wrong" data-success="right" for="form34">Nombre</label>
-                                                    <input type="text" id="form34" class="form-control validate">
-
-                                                </div>
-                                                <div class="md-form mb-3">
-                                                    <i class="fas fa-envelope prefix grey-text"></i>
-                                                    <label data-error="wrong" data-success="right" for="form29">E-mail</label>
-                                                    <input type="email" id="form29" class="form-control validate">
-
-                                                </div>
-                                                <div class="md-form mb-3">
-                                                    <i class="fas fa-lock"></i>
-                                                    <label>Contraseña</label>
-                                                    <div class="input-group">
-                                                        <input ID="txtPassword" type="Password" Class="form-control">
-                                                        <div class="input-group-append">
-                                                            <button id="show_password" class="btn btn-dark" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                                <div class="md-form mb-3">
-
-                                                    <i class="fas fa-calendar"></i>
-                                                    <label>Fecha Nacimiento</label><br>
-                                                    <div class="grid-container-select-register">
-                                                        <select id="day" name="day" class="form-control form-control">
-                                                            <option value="JJ">DD</option>
-                                                            <option value="01">01</option>
-                                                            <option value="02">02</option>
-                                                            <option value="03">03</option>
-                                                            <option value="04">04</option>
-                                                            <option value="05">05</option>
-                                                            <option value="06">06</option>
-                                                            <option value="07">07</option>
-                                                            <option value="08">08</option>
-                                                            <option value="09">09</option>
-                                                            <option value="10">10</option>
-                                                            <option value="11">11</option>
-                                                            <option value="12">12</option>
-                                                            <option value="13">13</option>
-                                                            <option value="14">14</option>
-                                                            <option value="15">15</option>
-                                                            <option value="16">16</option>
-                                                            <option value="17">17</option>
-                                                            <option value="18">18</option>
-                                                            <option value="19">19</option>
-                                                            <option value="20">20</option>
-                                                            <option value="21">21</option>
-                                                            <option value="22">22</option>
-                                                            <option value="23">23</option>
-                                                            <option value="24">24</option>
-                                                            <option value="25">25</option>
-                                                            <option value="26">26</option>
-                                                            <option value="27">27</option>
-                                                            <option value="28">28</option>
-                                                            <option value="29">29</option>
-                                                            <option value="30">30</option>
-                                                            <option value="31">31</option>
-                                                        </select>
-                                                        <select id="month" name="month" class="form-control form-control">
-                                                            <option value="MM">MM</option>
-                                                            <option value="1">01</option>
-                                                            <option value="2">02</option>
-                                                            <option value="3">03</option>
-                                                            <option value="4">04</option>
-                                                            <option value="5">05</option>
-                                                            <option value="6">06</option>
-                                                            <option value="7">07</option>
-                                                            <option value="8">08</option>
-                                                            <option value="9">09</option>
-                                                            <option value="10">10</option>
-                                                            <option value="11">11</option>
-                                                            <option value="12">12</option>
-                                                        </select>
-                                                        <select id="year" name="year" class="form-control form-control">
-                                                            <option value="AA">AA</option>
-                                                            <option value="2002">2002</option>
-                                                            <option value="2001">2001</option>
-                                                            <option value="2000">2000</option>
-                                                            <option value="1999">1999</option>
-                                                            <option value="1998">1998</option>
-                                                            <option value="1997">1997</option>
-                                                            <option value="1996">1996</option>
-                                                            <option value="1995">1995</option>
-                                                            <option value="1994">1994</option>
-                                                            <option value="1993">1993</option>
-                                                            <option value="1992">1992</option>
-                                                            <option value="1991">1991</option>
-                                                            <option value="1990">1990</option>
-                                                            <option value="1989">1989</option>
-                                                            <option value="1988">1988</option>
-                                                            <option value="1987">1987</option>
-                                                            <option value="1986">1986</option>
-                                                            <option value="1985">1985</option>
-                                                            <option value="1984">1984</option>
-                                                            <option value="1983">1983</option>
-                                                            <option value="1982">1982</option>
-                                                            <option value="1981">1981</option>
-                                                            <option value="1980">1980</option>
-                                                            <option value="1979">1979</option>
-                                                            <option value="1978">1978</option>
-                                                            <option value="1977">1977</option>
-                                                            <option value="1976">1976</option>
-                                                            <option value="1975">1975</option>
-                                                            <option value="1974">1974</option>
-                                                            <option value="1973">1973</option>
-                                                            <option value="1972">1972</option>
-                                                            <option value="1971">1971</option>
-                                                            <option value="1970">1970</option>
-                                                            <option value="1969">1969</option>
-                                                            <option value="1968">1968</option>
-                                                            <option value="1967">1967</option>
-                                                            <option value="1966">1966</option>
-                                                            <option value="1965">1965</option>
-                                                            <option value="1964">1964</option>
-                                                            <option value="1963">1963</option>
-                                                            <option value="1962">1962</option>
-                                                            <option value="1961">1961</option>
-                                                            <option value="1960">1960</option>
-                                                            <option value="1959">1959</option>
-                                                            <option value="1958">1958</option>
-                                                            <option value="1957">1957</option>
-                                                            <option value="1956">1956</option>
-                                                            <option value="1955">1955</option>
-                                                            <option value="1954">1954</option>
-                                                            <option value="1953">1953</option>
-                                                            <option value="1952">1952</option>
-                                                            <option value="1951">1951</option>
-                                                            <option value="1950">1950</option>
-                                                            <option value="1949">1949</option>
-                                                            <option value="1948">1948</option>
-                                                            <option value="1947">1947</option>
-                                                            <option value="1946">1946</option>
-                                                            <option value="1945">1945</option>
-                                                            <option value="1944">1944</option>
-                                                            <option value="1943">1943</option>
-                                                            <option value="1942">1942</option>
-                                                            <option value="1941">1941</option>
-                                                            <option value="1940">1940</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer d-flex justify-content-center" style="background-color:#1c2228">
-                                                <button class="btn btn-unique" type="submit" style="color:White">Enviar <i class="fas fa-paper-plane ml-1"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                        </form>
-                    <?php endif; ?>
-
-                    <?php /*****Aqui será el cuerpo *****/ ?>
-                    <?php \dawfony\Ti::startBlock("content"); ?>
-
-                    <?php \dawfony\Ti::endBlock(); ?>
-
-
-                    <div class="container-fluid">
-                        <footer class="rounded p-4 mt-2 text-center bg-footer myfont">
-                            <div>
-                                <div class="grid-contador">
-                                    <div class="item1" id="contador"></div>
-                                    <div class="item2">
-                                        <div class="caja-footer"><img class="img-fluid" style="width:600px;height:100px" src="<?= $URL_PATH ?>/assets/fotosInterfaces/logo.png" data-srcpng="" alt="socialLove.localhost"><strong>SocialLove</strong> es una de las plataformas pioneras en unir personas. Su concepto innovador ha seducido a más de 25 millones, siendo de los únicos en garantizar el mismo número de chicas que de chicos.</div>
-                                    </div>
-                                    <div class="item4"><i class="fa fa-facebook"></i>&nbsp;<i class="fa fa-twitter"></i>
-                                        <i class="fa fa-instagram"></i>&nbsp;<i class="fa fa-youtube"></i></div>
-                                    <div class="item5">
-                                        <i class="fa fa-user"></i>&nbsp;Ángel Luis Fernández &nbsp;&nbsp;
-                                        <i class="fa fa-user"></i>&nbsp;Alberto Molina &nbsp;&nbsp;
-                                        <i class="fa fa-user"></i>&nbsp;Carlos Fernández
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            © <?= date("Y") ?> 2ºDAW
-                        </footer>
+                    <!-- Aqui va el logo -->
+                    <div class="img-container">
+                        <img class="img-fluid" style="width:600px;height:100px" src="" data-srcpng="" alt="socialLoveLogo">
                     </div>
+                    <div class="icono-login row">
+                        <div class="col-xs-3">
+                            <a href="<?= $URL_PATH ?>/correo"><i class="fas fa-envelope"></i></a><!-- hacer hover mouse de gris a blanco -->
+                            <i class="fas fa-bell"></i><!-- notificaciones como el carrito de compra. modal-->
+                        </div>
+                        <div class="input-group col-sm-5">
+                            <input type="text" name="busqueda" id="busqueda" onkeypress="return buscarUsuario()" class="form-control form-control-sm" placeholder="Búsqueda por gustos,nombre,ubicacion o aficiones ">
+                            <div class="input-group-append">
+                                <a style="color:white" href="<?= $URL_PATH ?>/busqueda"><span class="input-group-text"><i class="fas fa-search"></i></span></a>
+                            </div>
+                        </div>
+                        <div class="circulo-perfil">
+                            <!-- hay que sacar la foto para ponerla como perfil  y hacer como el carrito de compra modal-->
+                            <img src="<?= $URL_PATH ?>/assets/fotosMAinImaginario/fotos<!-- AquI SI ES CHICO O CHICA -->s/" class="imagen-perfil">
+                        </div>
+                    </div>
+                </header>
+            </div>
+        </div>
+    <?php else : ?>
+        <div class="container-fluid">
+            <div class="jumbotron">
+                <header>
+                    <div class="clearfix">
+                        <div class="img-container">
+                            <img class="img-fluid" style="width:600px;height:100px" src="" data-srcpng="" alt="socialLove.localhost">
+                        </div>
+                        <div class="img-container">
+                            <?php $error_msg = $error_msg ?? ""; ?>
+
+                            <?php if ($error_msg) : ?>
+                                <span Style=" color:red">
+                                    <?= $error_msg ?>
+                                </span>
+                            <?php endif; ?>
+                            <form class="form-inline" action="<?= $URL_PATH ?>/login" method="post">
+                                <div class="form-group">
+                                    <div class="form-group  mb-2">
+                                        <input class="form-control form-control-sm" type="text" onchange="comprobarlogin()" id="mail" name="email" placeholder="correo electrónico" value="" required>
+                                    </div>
+                                    <div class="form-group mx-3 mb-2">
+                                        <input class="form-control form-control-sm" type="password" id="password" name="password" value="" placeholder="contraseña" required>
+                                    </div>
+                                    <div class="btn1">
+                                        <button type="submit" id="btn-entrada-ok" class="btn btn-primary mb-2">OK</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox mb-2">
+                                        <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                                        <label class="custom-control-label" for="customCheck"><span style="color:white">recordar mis datos</span></label>
+                                    </div>
+                                    <div class="form-group mx-5 ">
+                                        <!-- Hacer la referencia por si ha olvidado la contraseña, mandar a una pagina y que saque su contraseña. -->
+                                        <a class="password-lost-link white open-modal" href="#">¿Has olvidado tu contraseña?</a>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </header>
+            </div>
+            <!-- ********************** Navbar para engaño del usuario para poder hacerse que se registre ******************************************* -->
+            <nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
+
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1">MUJERES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1">HOMBRES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1">NUEVA COLECCIÓN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1">NUESTRA SELECCIÓN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1">ESTILOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1">GENTE DE TU REGIÓN</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#modalContactForm" tabindex="-1"><i class="fas fa-search"></i>BÚSQUEDA</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="imagen-fondo">
+                <div class="container-fluid ">
+                    <div class="inscripcion cajaInscripcion">
+                        <br>
+                        <h1>Inscripción gratuita</h1>
+                        <p class="">en menos de un minuto</p>
+                        <div class="">
+                            <div class="text-center">
+                                <a href="" class="btn btn-block mb-4 flickr" data-toggle="modal" data-target="#modalContactForm">
+                                    ME INSCRIBO</a>
+                            </div>
+                            <a href=" <?= $login_url ?>" class="btn btn-block mb-4 btn-social btn-facebook" id="fbook">
+                                <i class="fa fa-facebook"></i> Conexión vía Facebook </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+        <?php /*****Aqui será el cuerpo *****/ ?>
+        <?php \dawfony\Ti::startBlock("content"); ?>
+
+        <?php \dawfony\Ti::endBlock(); ?>
+
+        <!-- ********************** Modal registro ******************************************* -->
+        <form action="<?= $URL_PATH ?>/registro" method="get">
+            <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header text-center" style="background-color:#1c2228">
+                            <h4 class="modal-title w-100 font-weight-bold" style="color:White">Regístrate</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true" style="color:White">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body body-register">
+                            <div class="md-form mb-3">
+                                <i class="fas fa-venus-mars"></i>
+                                <label for="register-sex" class="register-sex">Género</label>
+                                <select name="sex" id="register-sex" class="form-control form-control">
+                                    <option value="">yo soy...</option>
+                                    <option value="1">una mujer</option>
+                                    <option value="0">un hombre</option>
+                                </select>
+
+                            </div>
+                            <div class="md-form mb-3">
+                                <i class="fas fa-user prefix grey-text"></i>
+                                <label for="nombre">Nombre</label>
+                                <input type="text" id="nombre" class="form-control validate" name="nombre">
+
+                            </div>
+                            <div class="md-form mb-3">
+                                <i class="fas fa-envelope prefix grey-text"></i>
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" class="form-control validate" name="email">
+
+                            </div>
+                            <div class="md-form mb-3">
+                                <i class="fas fa-lock"></i>
+                                <label>Contraseña</label>
+                                <div class="input-group">
+                                    <input ID="txtPassword" type="Password" Class="form-control">
+                                    <div class="input-group-append">
+                                        <button id="show_password" class="btn btn-dark" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="md-form mb-3">
+
+                                <i class="fas fa-calendar"></i>
+                                <label>Fecha Nacimiento</label><br>
+                                <div class="grid-container-select-register">
+                                    <select id="day" name="day" class="form-control form-control">
+                                        <option value="JJ">DD</option>
+                                        <option value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                    </select>
+                                    <select id="month" name="month" class="form-control form-control">
+                                        <option value="MM">MM</option>
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5">05</option>
+                                        <option value="6">06</option>
+                                        <option value="7">07</option>
+                                        <option value="8">08</option>
+                                        <option value="9">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                    <select id="year" name="year" class="form-control form-control">
+                                        <option value="AA">AA</option>
+                                        <option value="2002">2002</option>
+                                        <option value="2001">2001</option>
+                                        <option value="2000">2000</option>
+                                        <option value="1999">1999</option>
+                                        <option value="1998">1998</option>
+                                        <option value="1997">1997</option>
+                                        <option value="1996">1996</option>
+                                        <option value="1995">1995</option>
+                                        <option value="1994">1994</option>
+                                        <option value="1993">1993</option>
+                                        <option value="1992">1992</option>
+                                        <option value="1991">1991</option>
+                                        <option value="1990">1990</option>
+                                        <option value="1989">1989</option>
+                                        <option value="1988">1988</option>
+                                        <option value="1987">1987</option>
+                                        <option value="1986">1986</option>
+                                        <option value="1985">1985</option>
+                                        <option value="1984">1984</option>
+                                        <option value="1983">1983</option>
+                                        <option value="1982">1982</option>
+                                        <option value="1981">1981</option>
+                                        <option value="1980">1980</option>
+                                        <option value="1979">1979</option>
+                                        <option value="1978">1978</option>
+                                        <option value="1977">1977</option>
+                                        <option value="1976">1976</option>
+                                        <option value="1975">1975</option>
+                                        <option value="1974">1974</option>
+                                        <option value="1973">1973</option>
+                                        <option value="1972">1972</option>
+                                        <option value="1971">1971</option>
+                                        <option value="1970">1970</option>
+                                        <option value="1969">1969</option>
+                                        <option value="1968">1968</option>
+                                        <option value="1967">1967</option>
+                                        <option value="1966">1966</option>
+                                        <option value="1965">1965</option>
+                                        <option value="1964">1964</option>
+                                        <option value="1963">1963</option>
+                                        <option value="1962">1962</option>
+                                        <option value="1961">1961</option>
+                                        <option value="1960">1960</option>
+                                        <option value="1959">1959</option>
+                                        <option value="1958">1958</option>
+                                        <option value="1957">1957</option>
+                                        <option value="1956">1956</option>
+                                        <option value="1955">1955</option>
+                                        <option value="1954">1954</option>
+                                        <option value="1953">1953</option>
+                                        <option value="1952">1952</option>
+                                        <option value="1951">1951</option>
+                                        <option value="1950">1950</option>
+                                        <option value="1949">1949</option>
+                                        <option value="1948">1948</option>
+                                        <option value="1947">1947</option>
+                                        <option value="1946">1946</option>
+                                        <option value="1945">1945</option>
+                                        <option value="1944">1944</option>
+                                        <option value="1943">1943</option>
+                                        <option value="1942">1942</option>
+                                        <option value="1941">1941</option>
+                                        <option value="1940">1940</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-center" style="background-color:#1c2228">
+                            <button class="btn btn-unique" type="submit" style="color:White">Enviar <i class="fas fa-paper-plane ml-1"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+        <div class="container-fluid">
+            <footer class="rounded p-4 mt-2 text-center bg-footer myfont">
+                <div>
+                    <div class="grid-contador">
+                        <div class="item1" id="contador"></div>
+                        <div class="item2">
+                            <div class="caja-footer"><img class="img-fluid" style="width:600px;height:100px" src="<?= $URL_PATH ?>/assets/fotosInterfaces/logo.png" data-srcpng="" alt="socialLove.localhost"><strong>SocialLove</strong> es una de las plataformas pioneras en unir personas. Su concepto innovador ha seducido a más de 25 millones, siendo de los únicos en garantizar el mismo número de chicas que de chicos.</div>
+                        </div>
+                        <div class="item4"><i class="fa fa-facebook"></i>&nbsp;<i class="fa fa-twitter"></i>
+                            <i class="fa fa-instagram"></i>&nbsp;<i class="fa fa-youtube"></i></div>
+                        <div class="item5">
+                            <i class="fa fa-user"></i>&nbsp;Ángel Luis Fernández &nbsp;&nbsp;
+                            <i class="fa fa-user"></i>&nbsp;Alberto Molina &nbsp;&nbsp;
+                            <i class="fa fa-user"></i>&nbsp;Carlos Fernández
+                        </div>
+                    </div>
+                </div>
+                <br>
+                © <?= date("Y") ?> 2ºDAW
+            </footer>
+        </div>
 </body>
 
 </html>

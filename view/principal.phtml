@@ -9,14 +9,17 @@ global $URL_PATH;
 <?php Ti::startBlock("content"); ?>
   <!-- Si hay sesion iniciada por login -->
   <?php if (isset($_SESSION["login"])) : ?>
-    <div class="container-fluid" style="border:1px solid black">
-    <a href="#"><div class="imagen-fondo-sesion"><!-- Redireccionar para meter emails y consiga 10 hechizos -->  
+
+    <div class="container" style="border:1px solid black">
+    <a href="#">
+    <div class="imagen-fondo-sesion"><!-- Redireccionar para meter emails y consiga 10 hechizos -->  
     </div></a>
-    <div class="grid-container-sesion container">
+    <div class="container">
+    <div class="grid-container-sesion container-fluid">
             <!-- ********************** Fotos de personas (chicas) imaginarias para hacer al usuario que se registre ******************************************* -->
             <?php  foreach ($sacarLista as $sacarListaSesion) :  ?>
-                <div class="container-images-sesion">
-                    <img class="imagenes-genero" src="<?= $URL_PATH ?>/assets/fotosMAinImaginario/fotos<?= $sacarListaSesion["genero"] ?>s/<?= $sacarListaSesion["fotos"] ?>" width="100px" height="100px" alt="Busco_Genero">
+                <div class="container-images-sesion container-fluid">
+                    <img class="grid-item imagenes-genero" src="<?= $URL_PATH ?>/assets/fotosMAinImaginario/fotos<?= $sacarListaSesion["genero"] ?>s/<?= $sacarListaSesion["fotos"] ?>" width="100px" height="100px" alt="Busco_Genero">
                     <a href="#" data-toggle="modal" data-target="#modalContactForm">
                         <div class="middle ">
                             <div class="text">
@@ -27,29 +30,11 @@ global $URL_PATH;
                 </div>
             <?php endforeach; ?>
         </div>
-    </div>
-<!-- Aqui el nuevo cuerpo  que será igual asi pero quitando varias cosas y añadiendo otras -->
-
-<?php else : ?>
-<div class="container-fluid">
-    <div class="imagen-fondo">
-        <div class="container-fluid ">
-            <div class="inscripcion cajaInscripcion">
-                <br>
-                <h1>Inscripción gratuita</h1>
-                <p class="">en menos de un minuto</p>
-                <div class="">
-                    <div class="text-center">
-                        <a href="" class="btn btn-block mb-4 flickr" data-toggle="modal" data-target="#modalContactForm">
-                            ME INSCRIBO</a>
-                    </div>
-                    <a href=" <?= $login_url ?>" class="btn btn-block mb-4 btn-social btn-facebook" id="fbook">
-                        <i class="fa fa-facebook"></i> Conexión vía Facebook </a>
-
-                </div>
-            </div>
         </div>
     </div>
+<!-- Aqui el nuevo cuerpo  que será igual asi pero quitando varias cosas y añadiendo otras -->
+<?php else : ?>
+<div class="container-fluid container" style="border:1px solid black">
     <div class="container fondo-personas">
         <hr>
         <p style="color:black">ELLOS ESTÁN EN LA TIENDA</p>

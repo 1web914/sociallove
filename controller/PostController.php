@@ -15,6 +15,7 @@ class PostController extends Controller
         /*********Números aleatorios para tener una lista en main view aleatoria cada ez que entres, para hacerla mas real********/
         echo Ti::render("view/principal.phtml", compact('sacarListaMenu'));
     }
+    
     //sacamos datos del listado del main.(Una función para mantener datos al hacer login erroneo).
     function listaMain(){
 
