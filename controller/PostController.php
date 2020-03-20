@@ -6,12 +6,19 @@ use \dawfony\Ti;
 
 class PostController extends Controller
 {
+        //listado Principal de inicio.
     function listado() {
 
         global $config;
         global $URL_PATH;
-        $sacarListaMujeres = (new Orm)->listado();
+        $sacarListaMenu = (new PostController)->listaMain();
         /*********Números aleatorios para tener una lista en main view aleatoria cada ez que entres, para hacerla mas real********/
+        echo Ti::render("view/principal.phtml", compact('sacarListaMenu'));
+    }
+    //sacamos datos del listado del main.(Una función para mantener datos al hacer login erroneo).
+    function listaMain(){
+
+        $sacarListaMujeres = (new Orm)->listado();
         $numeros=array();
         $i=0;
 
@@ -34,16 +41,42 @@ class PostController extends Controller
             "edad"=>$sacarListaMujeres[$numeros[$i]]->edad,
             "ubicacion"=>$sacarListaMujeres[$numeros[$i]]->ubicacion];
                 
-        }   
-       
-        echo Ti::render("view/mainView.phtml", compact('sacarListaMenu'));
+        } 
+        return $sacarListaMenu;
+    }
+    //sacamos datos del listado de la sesion.
+    function listaSesion($genero){
+
+        $sacarLista = (new Orm)->listadoSesionIni($genero);
+        $numeros=array();
+        $i=0;
+
+        for($i= 0; $i<24; $i++){
+            
+            $sacarLista[$i] = [
+            "fotos"=>$sacarLista[$i]->foto,
+            "login"=>$sacarLista[$i]->login,
+            "edad"=>$sacarLista[$i]->edad,
+            "genero"=>$sacarLista[$i]->genero,
+            "ubicacion"=>$sacarLista[$i]->ubicacion];
+                
+        } 
+        return $sacarLista;
     }
 
-
+    //contador de mensajes escribiendo...
     function contador() {
         $contador = (new Orm)->contador();
         (new Orm)->aumentarcontador($contador["contador"]);
         echo json_encode($contador["contador"]);
+    }
+    //sacamos la busqueda de genero elegido por el usuario.
+    function listadoSesionIniciada(){
+
+        $login = $_SESSION["login"];
+        $sacarLista = (new PostController)->listaSesion($login);
+        echo Ti::render("view/principal.phtml", compact("sacarLista")); 
+       
     }
 
 

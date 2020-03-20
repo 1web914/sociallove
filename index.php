@@ -2,7 +2,7 @@
 require 'vendor/autoload.php';
 require 'cargarconfig.php';
 require 'fb-login/fb-init.php';
-/* session_start(); */
+
 
 use NoahBuscher\Macaw\Macaw;
 use controller\PruebaController;
@@ -13,23 +13,27 @@ use controller\PruebaController;
 */Macaw::get($URL_PATH . '/', "controller\PostController@listado");
 //contador mensajes intercambiados
 Macaw::get($URL_PATH . '/contador', "controller\PostController@contador");
-/*
-//lo ultimo
-Macaw::get($URL_PATH . '/loUltimo', "controller\PostController@listado");
-Macaw::get($URL_PATH . '/loUltimo/page/(:num)', "controller\PostController@listado");
 
 //registro
 Macaw::get($URL_PATH . '/registro', "controller\UserController@formularioRegistro");
 Macaw::post($URL_PATH . '/registro', "controller\UserController@procesarRegistro");
 
-
-
 //iniciar sesion
-Macaw::get($URL_PATH . '/login', "controller\UserController@login");
 Macaw::post($URL_PATH . '/login', "controller\UserController@procesarLogin");
+
+//validarLogin
+Macaw::get($URL_PATH . '/existe/(:any)', "controller\ApiController@existeLogin");
 
 //cerrar sesion
 Macaw::get($URL_PATH . '/logout', "controller\UserController@hacerLogout");
+
+//sesion iniciado sacar lista
+Macaw::get($URL_PATH . '/listado', "controller\PostController@listadoSesionIniciada");
+
+/*
+//lo ultimo
+Macaw::get($URL_PATH . '/loUltimo', "controller\PostController@listado");
+Macaw::get($URL_PATH . '/loUltimo/page/(:num)', "controller\PostController@listado");
 
 //borrar Post y Perfil desde admin
 Macaw::get($URL_PATH . '/borrarPost/(:any)', "controller\UserController@borrarPost");
@@ -60,26 +64,10 @@ Macaw ::post($URL_PATH . '/leerMas/(:num)/comentario/new', "controller\PostContr
 //api JSON
 
 Macaw::get($URL_PATH . '/api/like/(:num)', "controller\ApiController@likeClick");
-
-//validarLogin
-Macaw::get($URL_PATH . '/existe/(:any)', "controller\ApiController@existeLogin");*/
-
-
-/* // "slugs" con expresiones regulares en la url
-// Un slug es una parte variable de una url amigable para SEO.
-// Equivalenet a un parámetro.
-// Macaw admite tres abreviaturas:  :any, :int :all
-
-Macaw::get($URL_PATH . '/demo/(:any)',function ($slug) {
-  echo "demo $slug";
-});
-
-// Pasando el nombre de una clase de controlador y un método,
-// Macaw lo puede invocar directamente.
-
-Macaw::get($URL_PATH . '/demo/(:any)', "controller\PruebaController@foo"); 
-
   */
+
+
+
 // Captura de URL no definidas.
 Macaw::error(function() {
   http_response_code(404);

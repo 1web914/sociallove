@@ -28,8 +28,22 @@ class Orm
     /*****Vemos si hay login existente, sino no entra *****/
     public function loginExistente($login){
         return Klasto::getInstance()->queryOne(
-            "SELECT login FROM `usuario` WHERE login=?",
+            "SELECT login FROM `usuario` WHERE email=?",
             [$login]
+        );
+    }
+    
+    public function comprobarUsuario($usuario)
+    {
+        $bd = Klasto::getInstance();
+        $sql = "SELECT usuario.login, usuario.password, rol.id as rol, usuario.nombre, usuario.email 
+        from usuario, rol where rol.id=usuario.rol_id and email=?;";
+        return $bd->queryOne($sql, [$usuario->email]);
+    }
+    function listadoSesionIni($login){
+        return  Klasto::getInstance()->query(
+            "SELECT foto_perfil as foto, login, edad,ubicacion,genero FROM usuario where genero like (SELECT busco from usuario where login=?) ",
+            [$login], "model\Usuario"
         );
     }
     

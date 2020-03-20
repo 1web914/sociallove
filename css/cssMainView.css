@@ -45,6 +45,14 @@ p {
     background-size: 100% 100%;
     height: 350px;
 }
+.imagen-fondo-sesion{
+    background-image: url("/sociallove/assets/fotosInterfaces/GifListadoHechizos.gif");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: auto;
+    height: 200px;
+    width: 50%;
+}
 
 .inscripcion {
     float: right;
@@ -119,10 +127,16 @@ form {
     grid-template-columns: auto auto auto;
 }
 
-.grid-container-chicos1 {
+.grid-container-chicosFondo {
     display: grid;
     grid-gap: 1px;
     grid-template-columns: auto auto auto;
+    padding: 2px;
+}
+.grid-container-sesion{
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: auto auto auto auto auto auto;
     padding: 2px;
 }
 
@@ -136,7 +150,13 @@ form {
     height: 160px;
 }
 
-.imagenes-chicas {
+.container-images-sesion {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.imagenes-genero {
     opacity: 1;
     display: block;
     transition: .5s ease;
@@ -156,11 +176,20 @@ form {
     background-color: black;
 }
 
+
 .container-images:hover .imagenes-chicas {
     opacity: 0.3;
 }
 
 .container-images:hover .middle {
+    opacity: 0.7;
+}
+
+.container-images-sesion:hover .imagenes-genero {
+    opacity: 0.3;
+}
+
+.container-images-sesion:hover .middle {
     opacity: 0.7;
 }
 
@@ -171,6 +200,15 @@ form {
     top: 30%;
     text-align: center;
 }
+
+.text-sesion {
+    color: white;
+    font-size: 8px;
+    position: relative;
+    top: 30%;
+    text-align: center;
+}
+
 .item1 {
     grid-area: header;
 }
