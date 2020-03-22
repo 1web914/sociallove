@@ -1,11 +1,10 @@
-<?php
-    header("Content-type: text/css; charset: UTF-8");
-    $url = $URL_PATH;
+<!-- <?php
+header('Content-type: text/css');
 ?>
 <style>
 .imagen-fondo-body .body-register {
-    background-image: url("<?php echo $URL_PATH; ?>/assets/fotosInterfaces/fondoBody.png");
+    background-image: url("<?=$URL_PATH?>/assets/fotosInterfaces/fondoBody.png");
     background-repeat: repeat;
     background-color: #fbf6f9;
 }
-</style>
+</style> -->

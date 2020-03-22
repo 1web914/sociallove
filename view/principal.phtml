@@ -10,8 +10,9 @@ global $URL_PATH;
   <!-- Si hay sesion iniciada por login -->
   <?php if (isset($_SESSION["login"])) : ?>
 
-    <div class="container" style="border:1px solid black">
-    <a href="#">
+    <div class="container">
+    <!-- ruta para conseguir mas hechizos al clikeo manda a otra pagina para ingresar email nuevo. -->
+    <a href="<?=$URL_PATH?>/Hechizos/<?=$_SESSION["login"]?>">
     <div class="imagen-fondo-sesion"><!-- Redireccionar para meter emails y consiga 10 hechizos -->  
     </div></a>
     <div class="container">
@@ -19,9 +20,10 @@ global $URL_PATH;
             <!-- ********************** Fotos de personas (chicas) imaginarias para hacer al usuario que se registre ******************************************* -->
             <?php  foreach ($sacarLista as $sacarListaSesion) :  ?>
                 <div class="container-images-sesion container-fluid">
-                    <img class="grid-item imagenes-genero" src="<?= $URL_PATH ?>/assets/fotosMAinImaginario/fotos<?= $sacarListaSesion["genero"] ?>s/<?= $sacarListaSesion["fotos"] ?>" width="100px" height="100px" alt="Busco_Genero">
-                    <a href="#" data-toggle="modal" data-target="#modalContactForm">
-                        <div class="middle ">
+                    <img class="imagenes-genero-sesion" src="<?= $URL_PATH ?>/assets/fotosMAinImaginario/fotos<?= $sacarListaSesion["genero"] ?>s/<?= $sacarListaSesion["fotos"] ?>"  alt="Busco_Genero">
+                    <!-- crear ruta para que nos lleve al perfil del usuario clickeado con su login-->
+                    <a href="<?=$URL_PATH?>/perfilUsuario/<?=$sacarListaSesion['login']?>" >
+                        <div class="middle">
                             <div class="text">
                                 <b><?= $sacarListaSesion["login"] ?></b><br><?= $sacarListaSesion["edad"] ?> AÑOS<br> <?= $sacarListaSesion["ubicacion"] ?>
                             </div>
@@ -34,7 +36,7 @@ global $URL_PATH;
     </div>
 <!-- Aqui el nuevo cuerpo  que será igual asi pero quitando varias cosas y añadiendo otras -->
 <?php else : ?>
-<div class="container-fluid container" style="border:1px solid black">
+<div class="container-fluid container" >
     <div class="container fondo-personas">
         <hr>
         <p style="color:black">ELLOS ESTÁN EN LA TIENDA</p>

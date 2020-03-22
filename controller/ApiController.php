@@ -20,5 +20,9 @@ class ApiController extends Controller
             echo json_encode("registro");
         }
     }
+    /* Hay que poner las notificaciones de la gente que ha visitado tu perfil */
+    public function notificaciones(){
+
+    }
 
 }

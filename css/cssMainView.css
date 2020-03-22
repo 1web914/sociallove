@@ -7,6 +7,14 @@
     background-color: #1c2228;
     color:#1c2228;
 }
+.nav .sesion{
+    background-color: #1c2228;
+    color:white;
+}
+.navbar-nav .sesion>li:hover{
+    color: pink;
+}
+
 .navbar-center {
     transform: translatex(50%);
     font-size: 100%;
@@ -91,6 +99,16 @@ img {
     background-color: pink;
     border-radius: 10px;
 }
+.btn-outline-light:hover {
+    background-color: pink;
+    color:#1c2228;
+    border-radius: 10px;
+}
+.btn-outline-light {
+    background-color: #FF69B4;
+    border: #FF69B4;
+    border-radius: 10px;
+}
 
 .btn-primary {
     background-color: #FF69B4;
@@ -114,12 +132,12 @@ form {
     clear: both;
     display: table;
 }
-
-/* .imagen-fondo-body .body-register {
+/* Tengo un problema con el css para el fondo que no me coge la url, se pasó por php y tampoco. */
+/*  .imagen-fondo-body .body-register {
     background-image: url("< ?php echo $URL_PATH; ?>/assets/fotosInterfaces/fondoBody.png");
     background-repeat: repeat;
     background-color: #fbf6f9;
-} */
+}  */
 
 #fbook {
     text-align: center;
@@ -161,8 +179,8 @@ form {
 
 .container-images-sesion {
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
 }
 
 .imagenes-genero {
@@ -170,6 +188,14 @@ form {
     display: block;
     transition: .5s ease;
     backface-visibility: hidden;
+}
+.imagenes-genero-sesion {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    width: 200px;
+    height: 150px;
 }
 
 .middle {
@@ -184,6 +210,7 @@ form {
     transition: .5s ease;
     background-color: black;
 }
+
 
 
 .container-images:hover .imagenes-chicas {

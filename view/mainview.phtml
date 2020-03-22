@@ -16,7 +16,7 @@ global $login_url;
         SocialLove
         <?php \dawfony\Ti::endBlock(); ?>
     </title>
-    <link rel='stylesheet' type='text/css' href='css/cssMain.php' />
+
     <?php /* jquery cdn */ ?>
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <?php /* Bootstrap. Las rutas deben ser absolutas, porque estamos haciendo rewrite */ ?>
@@ -32,7 +32,9 @@ global $login_url;
     <?php /*Para añadir lineas al head desde las plantillas derivadas*/ ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <link rel="stylesheet" href="<?= $URL_PATH ?>/css/cssMainView.css">
+    <link rel="stylesheet" type='text/css' href="<?= $URL_PATH ?>/css/cssMainView.css">
+    <!-- DEJO ESTO PORQUE ME DA PROBLEMAS CON EL CSS AL METER UNA VARIABLE PHP ESTÁ INYECTADO DE MOMENTO A PINCHO EN LA MISMA LINEA -->
+    <!-- <link rel='stylesheet' type='text/css' href='<?= $URL_PATH ?>/css/cssMain.php' /> -->
     <link rel="shortcut icon" href="<?= $URL_PATH ?>/assets/fotosInterfaces/logo-fb.png" />
 
 
@@ -54,8 +56,12 @@ global $login_url;
 
     </style>
 </head>
+<!-- Tengo esta linea a pincho el Style de momento porque no me reconoce el ccs.php tengo que hablar con sergio o victor de como hacerlo. -->
+<!-- ESto me afecta al fondo del body y al fondo de formulario registro modal -->
 
-<body class="imagen-fondo-body">
+<body class="imagen-fondo-body" style="background-image: url('<?= $URL_PATH ?>/assets/fotosInterfaces/fondoBody.png');
+    background-repeat: repeat;
+    background-color: #fbf6f9;">
     <!-- Hay que poner un guardado de COOKIES, que se activa si le damos al checked de guardar datos, si no una vez que cierre ventana tiene que volver a conectarse. -->
 
     <!-- Si hay sesion iniciada por login -->
@@ -68,22 +74,77 @@ global $login_url;
                     <div class="img-container">
                         <img class="img-fluid" style="width:600px;height:100px" src="" data-srcpng="" alt="socialLoveLogo">
                     </div>
-                    <div class="icono-login row">
-                        <div class="col-xs-3">
-                            <a href="<?= $URL_PATH ?>/correo"><i class="fas fa-envelope"></i></a><!-- hacer hover mouse de gris a blanco -->
-                            <i class="fas fa-bell"></i><!-- notificaciones como el carrito de compra. modal-->
-                        </div>
-                        <div class="input-group col-sm-5">
-                            <input type="text" name="busqueda" id="busqueda" onkeypress="return buscarUsuario()" class="form-control form-control-sm" placeholder="Búsqueda por gustos,nombre,ubicacion o aficiones ">
-                            <div class="input-group-append">
-                                <a style="color:white" href="<?= $URL_PATH ?>/busqueda"><span class="input-group-text"><i class="fas fa-search"></i></span></a>
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sesion">
+                        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                            <ul class="mr-auto mt-2 mt-lg-0 navbar-nav sesion">
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="<?= $URL_PATH ?>/correo"><i class="fas fa-envelope"></i></a>
+                                </li>
+                                </li>
+                                <li class="nav-item">
+                                    <!-- falta hacer las notificaciones como el carrito compra que salga abajo si hay gente que te ha visitado -->
+                                    <div class="header-mini-cart  pull-left open" id="formCompra">
+                                        <span class="nav-link dropdown-toggle" height="70px" width="70px" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="verNotificaciones()"><i class="fas fa-bell"></i></span>
+                                        <div class="dropdown-menu shopping-cart-content pull-right">
+                                            <div class="shopping-cart-items">
+                                                <div class="lg-left">
+                                                    <span>Han visto tu perfil</span>
+                                                    <table>
+                                                        <tbody id="" class="lg-right">
+                                                        </tbody>
+                                                        <tr>
+                                                            <!-- Personas que han visto nuestro perfil losacamos en forma de tabla(no nos rayamos). -->
+                                                            <td> 0 PERSONA/s</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <form class="form-inline my-2 my-lg-3">
+                                <input type="text" name="busqueda" id="busqueda" onkeypress="return buscarUsuario()" aria-label="Search" class="form-control form-control mr-sm-1" placeholder="Búsqueda por gustos,nombre,ubicacion o aficiones ">
+                                <a href="<?= $URL_PATH ?>/busqueda"><span class="btn btn-outline-light my-2 my-sm-0"><i class="fas fa-search"></i></span></a>
+                            </form>
+                            <div class="header-mini-cart  pull-right open" id="formCompra">
+                                <div class="circulo-perfil">
+                                    <!-- hay que sacar la foto para ponerla como perfil  y hacer como el carrito de compra modal-->
+                                    <img src="<?= $URL_PATH ?>/assets/fotosMAinImaginario/fotos<!-- AquI SI ES CHICO O CHICA -->s/" class="imagen-perfil nav-link dropdown-toggle" height="70px" width="70px" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                    <div class="dropdown-menu shopping-cart-content pull-right">
+                                        <div class="shopping-cart-items">
+                                            <div class="lg-left">
+                                                <span>TU Perfil</span>
+                                                <table>
+                                                    <tbody id="" class="lg-right">
+                                                    
+                                                    <tr>
+                                                        <!-- Personas que han visto nuestro perfil losacamos en forma de tabla(no nos rayamos). -->
+                                                        <!-- Falta adecuar bien el modal y que salga debajo no en el lado -->
+                                                        <td><i class="fa fa-user"></i>&nbsp;Hola <?= $_SESSION["login"] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-magic"></i>&nbsp;Tienes X HECHIZOS</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><a href="<?= $URL_PATH ?>/perfil/<?= $_SESSION["login"] ?>"><i class="fas fa-star"></i>&nbsp;Ver Perfil</a></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><a href="<?= $URL_PATH ?>/logout"><i class="fa fa-sign-out"></i>&nbsp;DESCONEXION</a></td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
                         </div>
-                        <div class="circulo-perfil">
-                            <!-- hay que sacar la foto para ponerla como perfil  y hacer como el carrito de compra modal-->
-                            <img src="<?= $URL_PATH ?>/assets/fotosMAinImaginario/fotos<!-- AquI SI ES CHICO O CHICA -->s/" class="imagen-perfil">
-                        </div>
-                    </div>
+                    </nav>
                 </header>
             </div>
         </div>
@@ -193,7 +254,9 @@ global $login_url;
                                 <span aria-hidden="true" style="color:White">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body body-register">
+                        <div class="modal-body body-register" style="background-image: url('<?= $URL_PATH ?>/assets/fotosInterfaces/fondoBody.png');
+    background-repeat: repeat;
+    background-color: #fbf6f9;">
                             <div class="md-form mb-3">
                                 <i class="fas fa-venus-mars"></i>
                                 <label for="register-sex" class="register-sex">Género</label>

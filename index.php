@@ -34,6 +34,9 @@ Macaw::get($URL_PATH . '/busqueda', "controller\PostController@listadoSesionInic
 //mirar el correo
 Macaw::get($URL_PATH . '/correo', "controller\PostController@listadoSesionIniciada");
 
+//ver perfil
+Macaw::get($URL_PATH . '/perfil/(:any)', "controller\UserController@perfil");
+
 /*
 //lo ultimo
 Macaw::get($URL_PATH . '/loUltimo', "controller\PostController@listado");
@@ -46,8 +49,6 @@ Macaw::get($URL_PATH . '/borrarPerfil/(:any)', "controller\UserController@borrar
 //ver post
 Macaw::get($URL_PATH . '/leerMas/(:any)', "controller\PostController@leerPost");
 
-//ver perfil
-Macaw::get($URL_PATH . '/perfil/(:any)', "controller\UserController@perfil");
 
 // seguir y dejar de seguir
 Macaw::get($URL_PATH . '/perfil/(:any)/seguir', "controller\UserController@seguirPerfil");
