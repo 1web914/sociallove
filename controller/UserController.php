@@ -28,6 +28,8 @@ class UserController extends Controller
             session_start();
             $_SESSION['login'] = $hashpass["login"];
             $_SESSION['rol_id'] = $hashpass["rol"];
+            $_SESSION['fotoPerfil'] = $hashpass["foto"];
+            $_SESSION['genero'] = $hashpass["genero"];
             header("Location: $URL_PATH/listado");
         }
     }

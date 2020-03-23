@@ -56,8 +56,7 @@ global $login_url;
 
     </style>
 </head>
-<!-- Tengo esta linea a pincho el Style de momento porque no me reconoce el ccs.php tengo que hablar con sergio o victor de como hacerlo. -->
-<!-- ESto me afecta al fondo del body y al fondo de formulario registro modal -->
+
 
 <body class="imagen-fondo-body" style="background-image: url('<?= $URL_PATH ?>/assets/fotosInterfaces/fondoBody.png');
     background-repeat: repeat;
@@ -111,9 +110,7 @@ global $login_url;
                             </form>
                             <div class="header-mini-cart  pull-right open" id="formCompra">
                                 <div class="circulo-perfil">
-                                    <!-- hay que sacar la foto para ponerla como perfil  y hacer como el carrito de compra modal-->
-                                    <img src="<?= $URL_PATH ?>/assets/fotosMAinImaginario/fotos<!-- AquI SI ES CHICO O CHICA -->s/" class="imagen-perfil nav-link dropdown-toggle" height="70px" width="70px" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
+                                    <img src="<?= $URL_PATH ?>/assets/fotosMainImaginario/fotos<?= $_SESSION['genero']?>s/<?=$_SESSION["fotoPerfil"]?>" class="imagen-perfil nav-link dropdown-toggle" height="200px" width="200px" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
                                     <div class="dropdown-menu shopping-cart-content pull-right">
                                         <div class="shopping-cart-items">
                                             <div class="lg-left">
