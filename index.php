@@ -2,7 +2,7 @@
 require 'vendor/autoload.php';
 require 'cargarconfig.php';
 require 'fb-login/fb-init.php';
-session_destroy();
+
 
 use NoahBuscher\Macaw\Macaw;
 use controller\PruebaController;
@@ -30,9 +30,9 @@ Macaw::get($URL_PATH . '/logout', "controller\UserController@hacerLogout");
 //sesion iniciado sacar lista
 Macaw::get($URL_PATH . '/listado', "controller\PostController@listadoSesionIniciada");
 //busqueda de personas
-Macaw::get($URL_PATH . '/busqueda', "controller\PostController@listadoSesionIniciada");
+Macaw::post($URL_PATH . '/busqueda', "controller\PostController@busquedaUsuario");
 //mirar el correo
-Macaw::get($URL_PATH . '/correo', "controller\PostController@listadoSesionIniciada");
+Macaw::get($URL_PATH . '/correo', "controller\PostController@listaCorreo");
 
 //ver perfil
 Macaw::get($URL_PATH . '/perfil/(:any)', "controller\UserController@perfil");

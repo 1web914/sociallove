@@ -45,13 +45,6 @@ p {
     color: white;
     text-align: center;
 }
-.circulo-perfil{
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    background-color: pink;
-
-}
 
 .imagen-fondo {
     background-image: url("/sociallove/assets/fotosInterfaces/timido.jpg");
@@ -67,10 +60,17 @@ p {
     height: 200px;
     width: 100%;
 }
-.circulo > .imagen-perfil{
-        width: 100%;
-        height: 100%;
-        border-radius: 100%;
+.imagen-perfil{
+    width: 70px;
+    height: 70px;
+    border-radius: 75px;
+    border:5px solid;
+}
+.imagen-perfil:hover{
+    color: #f40083;
+} 
+.imagen-perfil{
+    transition: color 0.3s linear 0.1s;    
 }
 
 .inscripcion {

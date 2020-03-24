@@ -1,6 +1,8 @@
-function buscarUsuario() {
-
-    var validarBusqueda = function(string) {
+function validarBusqueda(){
+    var usuario = document.getElementById("busqueda").value;
+    var sanitizar = validarBusquedaLupa(usuario);
+    
+    function validarBusquedaLupa(string) {
 
         var validar = true;
   
@@ -15,13 +17,5 @@ function buscarUsuario() {
         return validar;
       }
 
-    if (event.keyCode == 13) {
-        var usuario = document.getElementById("busqueda").value;
-        var usuarioSanitizado = validarBusqueda(usuario);
-
-        return usuarioSanitizado;
-    }
- 
-    
-    
+    return usuario != ""  && sanitizar;
 }

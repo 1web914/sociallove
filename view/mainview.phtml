@@ -44,6 +44,7 @@ global $login_url;
     <script src="<?= $URL_PATH ?>/js/contador.js"></script>
     <script src="<?= $URL_PATH ?>/js/comprobarlogin.js"></script>
     <script src="<?= $URL_PATH ?>/js/busquedaUsuario.js"></script>
+    <script src="<?= $URL_PATH ?>/js/validarBusqueda.js"></script>
 
     <script>
         var URL_PATH = "<?= $URL_PATH ?>"; // Pasamos el URL_PATH de php a Javascript.
@@ -73,12 +74,11 @@ global $login_url;
                     <div class="img-container">
                         <img class="img-fluid" style="width:600px;height:100px" src="" data-srcpng="" alt="socialLoveLogo">
                     </div>
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sesion">
+                    <nav class="navbar navbar-expand-lg navbar-dark  sesion">
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                             <ul class="mr-auto mt-2 mt-lg-0 navbar-nav sesion">
                                 <li class="nav-item ">
                                     <a class="nav-link" href="<?= $URL_PATH ?>/correo"><i class="fas fa-envelope"></i></a>
-                                </li>
                                 </li>
                                 <li class="nav-item">
                                     <!-- falta hacer las notificaciones como el carrito compra que salga abajo si hay gente que te ha visitado -->
@@ -104,27 +104,25 @@ global $login_url;
                                     </div>
                                 </li>
                             </ul>
-                            <form class="form-inline my-2 my-lg-3">
-                                <input type="text" name="busqueda" id="busqueda" onkeypress="return buscarUsuario()" aria-label="Search" class="form-control form-control mr-sm-1" placeholder="Búsqueda por gustos,nombre,ubicacion o aficiones ">
-                                <a href="<?= $URL_PATH ?>/busqueda"><span class="btn btn-outline-light my-2 my-sm-0"><i class="fas fa-search"></i></span></a>
+                            <form class="form-inline my-2 my-lg-1"  action="<?= $URL_PATH ?>/busqueda" onsubmit="return validarBusqueda()" method="POST">
+                                <input type="text" name="busquedaUsuario" id="busqueda" onkeypress="return buscarUsuario()" aria-label="Search" class="form-control form-control mr-sm-1" placeholder="Búsqueda por gustos,nombre,ubicacion o aficiones ">
+                                <button type="submit" class="btn btn-outline-light my-2 my-sm-0"><i class="fas fa-search "></i></button>
                             </form>
-                            <div class="header-mini-cart  pull-right open" id="formCompra">
-                                <div class="circulo-perfil">
-                                    <img src="<?= $URL_PATH ?>/assets/fotosMainImaginario/fotos<?= $_SESSION['genero']?>s/<?=$_SESSION["fotoPerfil"]?>" class="imagen-perfil nav-link dropdown-toggle" height="200px" width="200px" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
-                                    <div class="dropdown-menu shopping-cart-content pull-right">
+                            <div class="header-mini-cart  open" id="formCompra">
+                                    <img src="<?= $URL_PATH ?>/assets/fotosMainImaginario/fotos<?= $_SESSION['genero']?>s/<?=$_SESSION["fotoPerfil"]?>" class="imagen-perfil " href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+                                    <div class="dropdown-menu shopping-cart-content ">
                                         <div class="shopping-cart-items">
-                                            <div class="lg-left">
+                                            <div class="">
                                                 <span>TU Perfil</span>
                                                 <table>
                                                     <tbody id="" class="lg-right">
                                                     
                                                     <tr>
-                                                        <!-- Personas que han visto nuestro perfil losacamos en forma de tabla(no nos rayamos). -->
                                                         <!-- Falta adecuar bien el modal y que salga debajo no en el lado -->
                                                         <td><i class="fa fa-user"></i>&nbsp;Hola <?= $_SESSION["login"] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><i class="fas fa-magic"></i>&nbsp;Tienes X HECHIZOS</td>
+                                                        <td><i class="fas fa-magic"></i>&nbsp;Tienes <?=$hechizos["Hechizos"]?> HECHIZOS</td>
                                                     </tr>
                                                     <tr>
                                                         <td><a href="<?= $URL_PATH ?>/perfil/<?= $_SESSION["login"] ?>"><i class="fas fa-star"></i>&nbsp;Ver Perfil</a></td>
@@ -137,7 +135,6 @@ global $login_url;
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                             </div>
 
                         </div>

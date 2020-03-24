@@ -47,5 +47,12 @@ class Orm
             [$login], "model\Usuario"
         );
     }
+    /* sacamos el contador de hechizos del usuario */
+    function contadorHechizos($login){
+        return Klasto::getInstance()->queryOne(
+            "SELECT rango.Hechizos  as Hechizos from usuario, rango Where usuario.rango_id=rango.id and usuario.login=?",
+            [$login]
+        );
+    }
     
 }

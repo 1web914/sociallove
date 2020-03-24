@@ -76,8 +76,16 @@ class PostController extends Controller
 
         $login = $_SESSION["login"];
         $sacarLista = (new PostController)->listaSesion($login);
-        echo Ti::render("view/principal.phtml", compact("sacarLista")); 
-       
+        $hechizos = (new Orm)->contadorHechizos($login);
+        echo Ti::render("view/principal.phtml", compact("sacarLista","hechizos")); 
+
+    }
+
+    //busqueda de usuario FALTA PONER TODO EL ORM Y EL LISTADO.ESTO ES UNA PRUEBA DE RECOGIDA PARÁMETROS.
+    function busquedaUsuario(){
+        
+        $usuario = $_REQUEST["busquedaUsuario"];
+        echo Ti::render("view/busquedaUsuario.phtml", compact("usuario"));
     }
 
 
