@@ -24,8 +24,8 @@ global $URL_PATH;
                     <!-- crear ruta para que nos lleve al perfil del usuario clickeado con su login-->
                     <a href="<?=$URL_PATH?>/perfilUsuario/<?=$sacarListaSesion['login']?>" >
                         <div class="middle">
-                            <div class="text">
-                                <b><?= $sacarListaSesion["login"] ?></b><br><?= $sacarListaSesion["edad"] ?> AÑOS<br> <?= $sacarListaSesion["ubicacion"] ?>
+                            <div class="text style-font">
+                                <b><?= $sacarListaSesion["login"] ?></b><br><?= $sacarListaSesion["edad"] ?> años<br> <?= $sacarListaSesion["ubicacion"] ?>
                             </div>
                         </div>
                     </a>
@@ -38,8 +38,10 @@ global $URL_PATH;
 <?php else : ?>
 <div class="container-fluid container" >
     <div class="container fondo-personas">
+        <br>
         <hr>
-        <p style="color:black">ELLOS ESTÁN EN LA TIENDA</p>
+        <p class="p-listado">ELLOS ESTÁN EN LA TIENDA</p>
+        
         <!-- ********************** Fotos de personas (chicos) imaginarias para hacer al usuario que se registre ******************************************* -->
         <div class="grid-container-chicosFondo container">
             <a data-toggle="modal" data-target="#modalContactForm"><img src="<?= $URL_PATH ?>/assets/fotosInterfaces/tatuados.jpg" width="350px" height="350px" alt="tatuado"></a>
@@ -47,7 +49,7 @@ global $URL_PATH;
             <a data-toggle="modal" data-target="#modalContactForm"><img src="<?= $URL_PATH ?>/assets/fotosInterfaces/gafas.jpg" width="350px" height="350px" alt="gafas"></a>
         </div>
         <hr>
-        <p style="color:black">ELLAS ESTÁN EN LA TIENDA</p>
+        <p class="p-listado">ELLAS TAMBIÉN ESTÁN EN LA TIENDA</p>
         <div class="grid-container-chicos container ">
             <!-- ********************** Fotos de personas (chicas) imaginarias para hacer al usuario que se registre ******************************************* -->
             <?php foreach ($sacarListaMenu as $sacarMujeresListaMenu) :  ?>
@@ -55,8 +57,8 @@ global $URL_PATH;
                     <img class="grid-item imagenes-genero" src="<?= $URL_PATH ?>/assets/fotosMAinImaginario/fotosChicas/<?= $sacarMujeresListaMenu["fotos"] ?>" width="160px" height="160px" alt="chica1">
                     <a href="#" data-toggle="modal" data-target="#modalContactForm">
                         <div class="middle">
-                            <div class="text">
-                                <b><?= $sacarMujeresListaMenu["login"] ?></b><br><?= $sacarMujeresListaMenu["edad"] ?> AÑOS<br> <?= $sacarMujeresListaMenu["ubicacion"] ?>
+                            <div class="text style-font">
+                                <b><?= $sacarMujeresListaMenu["login"] ?></b><br><?= $sacarMujeresListaMenu["edad"] ?> años<br> <?= $sacarMujeresListaMenu["ubicacion"] ?>
                             </div>
                         </div>
                     </a>

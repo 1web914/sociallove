@@ -36,7 +36,10 @@ global $login_url;
     <!-- DEJO ESTO PORQUE ME DA PROBLEMAS CON EL CSS AL METER UNA VARIABLE PHP ESTÁ INYECTADO DE MOMENTO A PINCHO EN LA MISMA LINEA -->
     <!-- <link rel='stylesheet' type='text/css' href='<?= $URL_PATH ?>/css/cssMain.php' /> -->
     <link rel="shortcut icon" href="<?= $URL_PATH ?>/assets/fotosInterfaces/logo-fb.png" />
-
+    <!-- FONT FAMILY -->
+    <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Prata&display=swap" rel="stylesheet">
 
     <?php /* Script de carpeta JS*/ ?>
     <script src="<?= $URL_PATH ?>/js/mostrarContraseña.js"></script>
@@ -72,27 +75,33 @@ global $login_url;
                 <header>
                     <!-- Aqui va el logo -->
                     <div class="img-container">
-                        <img class="img-fluid" style="width:600px;height:100px" src="" data-srcpng="" alt="socialLoveLogo">
+                        <img class="img-fluid img-logo" src="<?= $URL_PATH ?>/assets/fotosInterfaces/prueba1.png" data-srcpng="" alt="socialLoveLogo">
+                        <h1 class="img-logo logo-h1">SOCIAL LOVE</h1>
                     </div>
+                    <!-- Este es el navbar Hay que tocar a ver como podemos poner mejor los iconos y si podemos alargar el input -->
                     <nav class="navbar navbar-expand-lg navbar-dark  sesion">
                         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                             <ul class="mr-auto mt-2 mt-lg-0 navbar-nav sesion">
                                 <li class="nav-item ">
                                     <a class="nav-link" href="<?= $URL_PATH ?>/correo"><i class="fas fa-envelope"></i></a>
+                                    <span>
+                                        <!-- AQUI VA EL NUMERO DE NOTIFIACIONES RECIBIDAS, FONDO ROJO,NUMERO EN BLANCO,CON ANIMACION DE PARPADEO UNA VEZ ABIERTO DESAPARECE. --></span>
                                 </li>
+                                &nbsp;
                                 <li class="nav-item">
                                     <!-- falta hacer las notificaciones como el carrito compra que salga abajo si hay gente que te ha visitado -->
                                     <div class="header-mini-cart  pull-left open" id="formCompra">
                                         <span class="nav-link dropdown-toggle" height="70px" width="70px" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="verNotificaciones()"><i class="fas fa-bell"></i></span>
-                                        <div class="dropdown-menu shopping-cart-content pull-right">
+                                        <span>
+                                            <!-- AQUI VA EL NUMERO DE NOTIFIACIONES RECIBIDAS, FONDO ROJO,NUMERO EN BLANCO,CON ANIMACION DE PARPADEO UNA VEZ ABIERTO DESAPARECE. --></span>
+                                        <div class="dropdown-menu shopping-cart-content pull-right notificaciones">
                                             <div class="shopping-cart-items">
                                                 <div class="lg-left">
-                                                    <span>Han visto tu perfil</span>
-                                                    <table>
-                                                        <tbody id="" class="lg-right">
-                                                        </tbody>
+                                                    <span class="span-notify style-font"><b>Han visto tu perfil</b></span>
+                                                    <table class="style-font">
                                                         <tr>
-                                                            <!-- Personas que han visto nuestro perfil losacamos en forma de tabla(no nos rayamos). -->
+                                                            <!-- Personas que han visto nuestro perfil lo sacamos luego cuando tengamos perfil...(no nos rayamos). -->
+                                                            <!-- Cuidado que esta un tr y luego -->
                                                             <td> 0 PERSONA/s</td>
                                                             <td></td>
                                                             <td></td>
@@ -104,37 +113,34 @@ global $login_url;
                                     </div>
                                 </li>
                             </ul>
-                            <form class="form-inline my-2 my-lg-1"  action="<?= $URL_PATH ?>/busqueda" onsubmit="return validarBusqueda()" method="POST">
+                            <form class="form-inline my-2 my-lg-1" action="<?= $URL_PATH ?>/busqueda" onsubmit="return validarBusqueda()" method="POST">
                                 <input type="text" name="busquedaUsuario" id="busqueda" onkeypress="return buscarUsuario()" aria-label="Search" class="form-control form-control mr-sm-1" placeholder="Búsqueda por gustos,nombre,ubicacion o aficiones ">
                                 <button type="submit" class="btn btn-outline-light my-2 my-sm-0"><i class="fas fa-search "></i></button>
                             </form>
                             <div class="header-mini-cart  open" id="formCompra">
-                                    <img src="<?= $URL_PATH ?>/assets/fotosMainImaginario/fotos<?= $_SESSION['genero']?>s/<?=$_SESSION["fotoPerfil"]?>" class="imagen-perfil " href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
-                                    <div class="dropdown-menu shopping-cart-content ">
-                                        <div class="shopping-cart-items">
-                                            <div class="">
-                                                <span>TU Perfil</span>
-                                                <table>
-                                                    <tbody id="" class="lg-right">
-                                                    
-                                                    <tr>
-                                                        <!-- Falta adecuar bien el modal y que salga debajo no en el lado -->
-                                                        <td><i class="fa fa-user"></i>&nbsp;Hola <?= $_SESSION["login"] ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><i class="fas fa-magic"></i>&nbsp;Tienes <?=$hechizos["Hechizos"]?> HECHIZOS</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><a href="<?= $URL_PATH ?>/perfil/<?= $_SESSION["login"] ?>"><i class="fas fa-star"></i>&nbsp;Ver Perfil</a></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><a href="<?= $URL_PATH ?>/logout"><i class="fa fa-sign-out"></i>&nbsp;DESCONEXION</a></td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                <img src="<?= $URL_PATH ?>/assets/fotosMainImaginario/fotos<?= $_SESSION['genero'] ?>s/<?= $_SESSION["fotoPerfil"] ?>" class="imagen-perfil " href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="dropdown-menu shopping-cart-content notificacion-perfil ">
+                                    <div class="shopping-cart-items">
+                                        <div class="lg-left">
+                                            <span class="span-notify-perfil style-font"><b>Tu Perfil</b></span>
+                                            <table class="style-font">
+                                                <tr>
+                                                    <!-- Falta adecuar bien el modal y que salga debajo no en el lado -->
+                                                    <td><i class="fa fa-user"></i>&nbsp;&nbsp;Hola <?= $_SESSION["login"] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><i class="fas fa-magic"></i>&nbsp;&nbsp;Tienes <b style="color:pink"><?= $hechizos["Hechizos"] ?></b> HECHIZOS</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><i class="fas fa-star"></i><a class="perfil-enlace" href="<?= $URL_PATH ?>/perfil/<?= $_SESSION["login"] ?>">&nbsp;&nbsp;Ver Perfil</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><i class="fa fa-sign-out"></i><a class="perfil-enlace" href="<?= $URL_PATH ?>/logout">&nbsp;&nbsp;DESCONEXION</a></td>
+                                                </tr>
+                                            </table>
                                         </div>
                                     </div>
+                                </div>
                             </div>
 
                         </div>
@@ -148,7 +154,8 @@ global $login_url;
                 <header>
                     <div class="clearfix">
                         <div class="img-container">
-                            <img class="img-fluid" style="width:600px;height:100px" src="" data-srcpng="" alt="socialLove.localhost">
+                            <img class="img-fluid img-logo" src="<?= $URL_PATH ?>/assets/fotosInterfaces/prueba1.png" data-srcpng="" alt="socialLoveLogo">
+                            <h1 class="img-logo logo-h1">SOCIAL LOVE</h1>
                         </div>
                         <div class="img-container">
                             <?php $error_msg = $error_msg ?? ""; ?>
@@ -217,14 +224,14 @@ global $login_url;
                 <div class="container-fluid ">
                     <div class="inscripcion cajaInscripcion">
                         <br>
-                        <h1>Inscripción gratuita</h1>
-                        <p class="">en menos de un minuto</p>
+                        <h1 class="style-font">Inscripción gratuita</h1>
+                        <p  class="style-font">en menos de un minuto</p>
                         <div class="">
                             <div class="text-center">
                                 <a href="" class="btn btn-block mb-4 flickr" data-toggle="modal" data-target="#modalContactForm">
                                     ME INSCRIBO</a>
                             </div>
-                            <a href=" <?= $login_url ?>" class="btn btn-block mb-4 btn-social btn-facebook" id="fbook">
+                            <a href="<?= $login_url ?>"  class="btn btn-block mb-4 btn-social btn-facebook style-font" id="fbook">
                                 <i class="fa fa-facebook"></i> Conexión vía Facebook </a>
 
                         </div>
@@ -243,7 +250,7 @@ global $login_url;
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header text-center" style="background-color:#1c2228">
-                            <h4 class="modal-title w-100 font-weight-bold" style="color:White">Regístrate</h4>
+                            <h4 class="modal-title w-100 font-weight-bold style-font" style="color:white">Regístrate</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true" style="color:White">&times;</span>
                             </button>
@@ -253,7 +260,7 @@ global $login_url;
     background-color: #fbf6f9;">
                             <div class="md-form mb-3">
                                 <i class="fas fa-venus-mars"></i>
-                                <label for="register-sex" class="register-sex">Género</label>
+                                <label for="register-sex" class="style-font">Género</label>
                                 <select name="sex" id="register-sex" class="form-control form-control">
                                     <option value="">yo soy...</option>
                                     <option value="1">una mujer</option>
@@ -263,19 +270,19 @@ global $login_url;
                             </div>
                             <div class="md-form mb-3">
                                 <i class="fas fa-user prefix grey-text"></i>
-                                <label for="nombre">Nombre</label>
+                                <label for="nombre" class="style-font">Nombre</label>
                                 <input type="text" id="nombre" class="form-control validate" name="nombre">
 
                             </div>
                             <div class="md-form mb-3">
                                 <i class="fas fa-envelope prefix grey-text"></i>
-                                <label for="email">E-mail</label>
+                                <label for="email" class="style-font">E-mail</label>
                                 <input type="email" id="email" class="form-control validate" name="email">
 
                             </div>
                             <div class="md-form mb-3">
                                 <i class="fas fa-lock"></i>
-                                <label>Contraseña</label>
+                                <label class="style-font">Contraseña</label>
                                 <div class="input-group">
                                     <input ID="txtPassword" type="Password" Class="form-control">
                                     <div class="input-group-append">
@@ -287,7 +294,7 @@ global $login_url;
                             <div class="md-form mb-3">
 
                                 <i class="fas fa-calendar"></i>
-                                <label>Fecha Nacimiento</label><br>
+                                <label class="style-font">Fecha Nacimiento</label><br>
                                 <div class="grid-container-select-register">
                                     <select id="day" name="day" class="form-control form-control">
                                         <option value="JJ">DD</option>
@@ -408,7 +415,7 @@ global $login_url;
                             </div>
                         </div>
                         <div class="modal-footer d-flex justify-content-center" style="background-color:#1c2228">
-                            <button class="btn btn-unique" type="submit" style="color:White">Enviar <i class="fas fa-paper-plane ml-1"></i></button>
+                            <button class="btn btn-unique style-font" type="submit" style="color:White">Enviar <i class="fas fa-paper-plane ml-1"></i></button>
                         </div>
                     </div>
                 </div>
@@ -421,11 +428,17 @@ global $login_url;
                     <div class="grid-contador">
                         <div class="item1" id="contador"></div>
                         <div class="item2">
-                            <div class="caja-footer"><img class="img-fluid" style="width:600px;height:100px" src="<?= $URL_PATH ?>/assets/fotosInterfaces/logo.png" data-srcpng="" alt="socialLove.localhost"><strong>SocialLove</strong> es una de las plataformas pioneras en unir personas. Su concepto innovador ha seducido a más de 25 millones, siendo de los únicos en garantizar el mismo número de chicas que de chicos.</div>
+                            <div class="caja-footer footer-font-family">
+                                <div class="img-container">
+                                    <img class="img-fluid img-logo" src="<?= $URL_PATH ?>/assets/fotosInterfaces/prueba1.png" data-srcpng="" alt="socialLoveLogo">
+                                    <h1 class="img-logo logo-h1">SOCIAL LOVE</h1>
+                                </div>
+                                <strong style="color:pink">SocialLove</strong> es una de las plataformas pioneras en unir personas. Su concepto innovador ha seducido a más de 25 millones, siendo de los únicos en garantizar el mismo número de chicas que de chicos.
+                            </div>
                         </div>
                         <div class="item4"><i class="fa fa-facebook"></i>&nbsp;<i class="fa fa-twitter"></i>
                             <i class="fa fa-instagram"></i>&nbsp;<i class="fa fa-youtube"></i></div>
-                        <div class="item5">
+                        <div class="item5 footer-font-family">
                             <i class="fa fa-user"></i>&nbsp;Ángel Luis Fernández &nbsp;&nbsp;
                             <i class="fa fa-user"></i>&nbsp;Alberto Molina &nbsp;&nbsp;
                             <i class="fa fa-user"></i>&nbsp;Carlos Fernández

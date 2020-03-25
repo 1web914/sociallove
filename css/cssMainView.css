@@ -80,6 +80,7 @@ p {
 .flickr {
     background: #f40083;
     color: white;
+    font-family: 'Prata', serif;
 }
 
 .cajaInscripcion {
@@ -123,8 +124,8 @@ form {
 
 .img-container {
     float: left;
-    width: 33.33%;
-    padding: 5px;
+    width: 25-.55%;
+    padding: 3px;
 }
 
 .clearfix::after {
@@ -311,7 +312,64 @@ form {
     background-color:lightpink;
 }
 
+.notificaciones{
+    background-color: #1c2228 ;
+    border:2px solid #f40083;
+    color:white;
+}
 
+table{
+    position: relative;
+    padding:10px;
+}
 
+.notificacion-perfil{
+    background-color: #1c2228 ;
+    border:2px solid #f40083;
+    color:white;
+}
+tr{
+    border-top:1px solid white;
+}
+.perfil-enlace{
+    color:white;
+}
+.perfil-enlace:hover{
+    color: #f40083;
+}
+.perfil-enlace{
+    transition: color 0.4s linear 0.1s; 
+}
+.span-notify-perfil{
+    color:pink; 
+    margin-left: 45px;
+}
+.span-notify{
+    color:pink; 
+    margin-left: 10px;
+}
+.p-listado{
+    color:black;
+    font-family: 'Special Elite', cursive;
+}
+.img-logo{
+    margin:0;
+    width:70px;
+    height:70px;
+    color:white;
+    display: inline-block;
+}
+.logo-h1{
+    font-family: 'Righteous', cursive; 
+    width:300px;
+    text-decoration: underline white;
+}
+.footer-font-family{
+    font-family: 'Prata', serif;
+    font-style: italic;
+}
+.style-font{
+    font-family: 'Prata', serif;
+}
 
 
