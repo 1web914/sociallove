@@ -372,4 +372,8 @@ tr{
     font-family: 'Prata', serif;
 }
 
+.modal-perfil{
+    position: relative;
+    margin-right: 250px;
+}
 
