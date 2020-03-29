@@ -37,6 +37,8 @@ Macaw::get($URL_PATH . '/correo', "controller\PostController@listaCorreo");
 //ver perfil
 Macaw::get($URL_PATH . '/perfil/(:any)', "controller\UserController@perfil");
 
+//Zona vip mas hechizos
+Macaw::get($URL_PATH . '/zonavip', "controller\PostController@vip");
 /*
 //lo ultimo
 Macaw::get($URL_PATH . '/loUltimo', "controller\PostController@listado");

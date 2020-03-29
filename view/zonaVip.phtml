@@ -1,0 +1,79 @@
+<?php
+
+use dawfony\Ti;
+global $URL_PATH;
+?>
+
+<?php Ti::extend("view/MainView.phtml"); ?>
+
+<?php Ti::startBlock("content"); ?>
+<div class="container" id="">
+    <div class="card-deck mb-3 text-center">
+        <div class="row">
+            <!-- solo son 4 cards -->
+            <div class="card mbd-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-bold">HECHIZOS</h4>
+                </div>
+                <div class="card-body">
+                    <!-- Hay que poner una forma de selección para cuando se clickee se quede seleccionado y cambie en la forma de pagar. -->
+                    <a href="javascript:void(0)" onclick="seleccion($producto-id)"><img><h1 class="card-title pricing-card-title"><span>Precio</span>&euro;</h1></a>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li>detalles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container" id="">
+        <div>
+            Aquí va a ir el RESUMEN que cambiará según tengamos seleccionado la parte de arriba.
+            <div>
+                <!-- la tarjeta tiene que ser de forma reducida. el titulo arriba y los datos abajo. -->
+                AQUI la tarjeta:
+                <div class="form-group row">
+                    <label class="col-12 col-md-12 col-md2 col-form-label h2">Tarjeta de credito:</label>
+                    <div class="col-12 col-md-10">
+                        <input type="number" class="form-control" id="tarjeta" name="tarjeta" onchange="validarTarjeta()" placeholder="visa" maxlenght="16" autocomplete="off">
+                        <span style="color:red"><b id="errorTarjeta"></b></span>
+                        <span style="color:blue"><b id="visaCorrecto"></b></span>
+                        <br>
+                        <div class="input-group mb-3">
+                            <label for="inputState">Validez</label>
+                            <select id="inputState" class="form-control">
+                                <option value="1" selected>01</option>
+                                <option value="2">02</option>
+                                <option value="3">03</option>
+                                <option value="4">04</option>
+                                <option value="5">05</option>
+                                <option value="6">06</option>
+                                <option value="7">07</option>
+                                <option value="8">08</option>
+                                <option value="9">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <select id="inputStat" class="form-control">
+                                <option value="2021" selected>21</option>
+                                <option value="2022">22</option>
+                                <option value="2023">23</option>
+                                <option value="2024">24</option>
+                                <option value="2025">25</option>
+                                <option value="2026">26</option>
+                                <option value="2027">27</option>
+                            </select>
+                            <input type="text" class="form-control" id="cvv" name="cvv" placeholder="CVV" autocomplete="off" min="3" max="3">
+                        </div>
+                    </div>
+                </div>
+                <!-- el boton tiene que ser alargado hasta todo el div y que salga  el icono del candado. -->
+                <button type="submit" class="btn btn-primary btn-blick" id="procesarCompra"><i class="fas fa-lock-open"></i>Confirmar el pago</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php Ti::endBlock(); ?>
+<?php Ti::endExtend(); ?>

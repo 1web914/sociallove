@@ -88,5 +88,10 @@ class PostController extends Controller
         echo Ti::render("view/busquedaUsuario.phtml", compact("usuario"));
     }
 
+    //Entramos en la zonaVip
+    function vip(){
+        echo Ti::render("view/zonaVip.phtml");
+    }
+
 
 }
