@@ -377,3 +377,22 @@ tr{
     margin-right: 250px;
 }
 
+.grid-container-zonaVip{
+    display: grid;
+    grid-gap: 13px;
+    grid-template-columns: auto auto auto auto ;
+    margin-left:10%;
+    padding: 10px;
+} 
+.grid-container-zonaVip-resumen{
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: auto auto ;
+    padding: 1px;
+}
+.grid-container-zonaVip-validez{
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: auto auto;
+    padding: 1px;
+} 

@@ -7,40 +7,100 @@ global $URL_PATH;
 <?php Ti::extend("view/MainView.phtml"); ?>
 
 <?php Ti::startBlock("content"); ?>
-<div class="container" id="">
+<div style="border:1px solid black; background-color:white;" class="container" id="">
+<div style="border:1px solid black;" class=" grid-container-zonaVip">
     <div class="card-deck mb-3 text-center">
-        <div class="row">
             <!-- solo son 4 cards -->
             <div class="card mbd-4 shadow-sm">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-bold">HECHIZOS</h4>
-                </div>
+            <a href="javascript:void(0)" onclick="seleccion($producto-id)"><div class="card-header">
+                    <h4 class="my-0 font-weight-bold">VIP 6 MESES</h4>
+                </div></a>
                 <div class="card-body">
                     <!-- Hay que poner una forma de selección para cuando se clickee se quede seleccionado y cambie en la forma de pagar. -->
-                    <a href="javascript:void(0)" onclick="seleccion($producto-id)"><img><h1 class="card-title pricing-card-title"><span>Precio</span>&euro;</h1></a>
+                    <img><h1 class="card-title pricing-card-title" style="color:black"><span>8,80</span>&euro;<span style="font-size:14px;">/MES</span></h1>
+                    <div style="border:4px solid pink">
+                    25 HECHIZOS /MES
+                </div>
                     <ul class="list-unstyled mt-3 mb-4">
-                        <li>detalles</li>
+                        <li style="font-size:12px;">20,78&euro; DE AHORRO</li>
                     </ul>
                 </div>
+                <h6 style="font-size:10px;">En un pago de 52,80 &euro;</h6>
             </div>
-        </div>
+            <div class="card mbd-4 shadow-sm">
+            <a href="javascript:void(0)" onclick="seleccion($producto-id)"><div class="card-header">
+                    <h4 class="my-0 font-weight-bold">VIP 3 MESES</h4>
+                </div></a>
+                <div class="card-body">
+                    <!-- Hay que poner una forma de selección para cuando se clickee se quede seleccionado y cambie en la forma de pagar. -->
+                    <img><h1 class="card-title pricing-card-title" style="color:black"><span>10,80</span>&euro;<span style="font-size:14px;">/Mes</span></h1>
+                    <div style="border:4px solid pink">
+                    15 HECHIZOS /MES
+                </div>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li style="font-size:12px;">18,78&euro; DE AHORRO</li>
+                    </ul>
+                </div>
+                <h6 style="font-size:10px;">En un pago de 32,40 &euro;</h6>
+            </div>
+            <div class="card mbd-4 shadow-sm">
+            <a href="javascript:void(0)" onclick="seleccion($producto-id)"><div class="card-header">
+                    <h4 class="my-0 font-weight-bold">VIP 1 MES</h4>
+                </div></a>
+                <div class="card-body">
+                    <!-- Hay que poner una forma de selección para cuando se clickee se quede seleccionado y cambie en la forma de pagar. -->
+                    <img><h1 class="card-title pricing-card-title" style="color:black"><span>16,80</span>&euro;<span style="font-size:14px;">/Mes</span></h1>
+                    <div style="border:4px solid pink">
+                    5 HECHIZOS /MES
+                </div>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li style="font-size:12px;">12,78&euro; DE AHORRO</li>
+                    </ul>
+                </div>
+                <h6 style="font-size:10px;">En un pago de 16,80 &euro;</h6>
+            </div>
+            <div class="card mbd-4 shadow-sm">
+            <a href="javascript:void(0)" onclick="seleccion($producto-id)"><div class="card-header" style="background-color:pink; color:white;">
+                    <h4 class="my-0 font-weight-bold">DISCOVERY</h4>
+                </div></a>
+                <div class="card-body">
+                    <!-- Hay que poner una forma de selección para cuando se clickee se quede seleccionado y cambie en la forma de pagar. -->
+                    <img><h1 class="card-title pricing-card-title" style="color:black"><span>6,90</span>&euro;<span style="font-size:14px;">/SEM</span></h1>
+                    <div style="border:4px solid pink">
+                    2 HECHIZOS /SEM
+                </div>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <li style="font-size:12px;">0,98&euro;/AL DIA</li>
+                    </ul>
+                </div>
+                <h6 style="font-size:10px;">En un pago de 6,90 &euro;</h6>
+            </div>
+    </div>
     </div>
     <hr>
-    <div class="container" id="">
+    <div style="border:1px solid black; background-color:lightgray;" class="container" id="">
+        <div style="border:1px solid black; " class="grid-container-zonaVip-resumen">
+        <div class="container-fluid">
+        RESUMEN
+        <hr>
         <div>
-            Aquí va a ir el RESUMEN que cambiará según tengamos seleccionado la parte de arriba.
-            <div>
+            Aqui a el javaScript que hace que salga todos los datos
+            <br>
+            Al validar el pedido, estoy aceptando las CGU.
+        </div>
+        </div>
+           
+            <div style="border:1px solid black;">
                 <!-- la tarjeta tiene que ser de forma reducida. el titulo arriba y los datos abajo. -->
-                AQUI la tarjeta:
-                <div class="form-group row">
-                    <label class="col-12 col-md-12 col-md2 col-form-label h2">Tarjeta de credito:</label>
-                    <div class="col-12 col-md-10">
+                TARJETA DE CREDITO
+                <hr>
+                <div style="border:1px solid black" class="form-group grid-container-zonaVip-resumen ">
+                    <label class="">Número de la tarjeta:</label>
                         <input type="number" class="form-control" id="tarjeta" name="tarjeta" onchange="validarTarjeta()" placeholder="visa" maxlenght="16" autocomplete="off">
                         <span style="color:red"><b id="errorTarjeta"></b></span>
                         <span style="color:blue"><b id="visaCorrecto"></b></span>
-                        <br>
-                        <div class="input-group mb-3">
-                            <label for="inputState">Validez</label>
+                        <label for="inputState">Validez</label>
+                            <div class="grid-container-zonaVip-validez">
                             <select id="inputState" class="form-control">
                                 <option value="1" selected>01</option>
                                 <option value="2">02</option>
@@ -55,7 +115,7 @@ global $URL_PATH;
                                 <option value="11">11</option>
                                 <option value="12">12</option>
                             </select>
-                            <select id="inputStat" class="form-control">
+                            <select id="inputStat" class="">
                                 <option value="2021" selected>21</option>
                                 <option value="2022">22</option>
                                 <option value="2023">23</option>
@@ -64,14 +124,20 @@ global $URL_PATH;
                                 <option value="2026">26</option>
                                 <option value="2027">27</option>
                             </select>
-                            <input type="text" class="form-control" id="cvv" name="cvv" placeholder="CVV" autocomplete="off" min="3" max="3">
+                            </div>
+                            <label for="cvv">CVV</label>
+                            <input type="text" class="" id="cvv" name="cvv" placeholder="CVV" autocomplete="off" min="3" max="3">                
+                            
                         </div>
-                    </div>
-                </div>
                 <!-- el boton tiene que ser alargado hasta todo el div y que salga  el icono del candado. -->
-                <button type="submit" class="btn btn-primary btn-blick" id="procesarCompra"><i class="fas fa-lock-open"></i>Confirmar el pago</button>
+                
             </div>
         </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary btn-block" id="procesarCompra"><i class="fas fa-lock"></i>&nbsp;Confirmar el pago</button>
+    <div class="container-fluid">
+    VIP 6 meses con 450 Hechizos mensuales, facturados en 1 pago inmediatio de 52,80 € TTC, con una duración de 6 meses. Al terminar tu abono este será automáticamente reconducido a un periodo idéntico al precedente y con las mismas condiciones.; VIP 3 meses con 450 Hechizos mensuales, facturados en 1 pago inmediatio de 32,40 € TTC, con una duración de 3 meses. Al terminar tu abono este será automáticamente reconducido a un periodo idéntico al precedente y con las mismas condiciones.; VIP 1 mes con 300 Hechizos mensuales, facturados en 1 pago inmediatio de 16,80 € TTC, con una duración de 1 mes. Al terminar tu abono este será automáticamente reconducido a un periodo idéntico al precedente y con las mismas condiciones.; Pass Discovery con 70 Hechizos, facturados en 1 pago inmediatio de 6,90 € TTC, con una duración de 7 días. Al terminar tu abono este será automáticamente reconducido a un periodo idéntico al precedente y con las mismas condiciones. Para los abonos mensuales, el precio diario indicado ha sido calculado en base a un mes de 30 días. Puedes anular la renovación automática de tu abono como muy tarde 24 horas antes de la fecha de vencimiento con tan solo un click desde el apartado "mi cuenta". Puedes ejercitar tu derecho de retractación durante los 14 días posteriores a tu compra. Para más información sobre las condiciones de reembolso y de los abonos por favor, consulta las Condiciones Generales de Uso. 
     </div>
 </div>
 
