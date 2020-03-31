@@ -396,3 +396,71 @@ tr{
     grid-template-columns: auto auto;
     padding: 1px;
 } 
+
+.card-header{
+    background-color: lightgray;
+    color:white;
+}
+/* arreglar para que al pasar pro el div se ponga la cabecera en color fucsia. */
+.card-header:hover{
+    background-color: #f40083;
+    color:white;
+}
+.borde-vip:hover{
+    border-color: #f40083;
+}
+.fontfamilyvip{
+    font-family: 'Prata', serif;
+    font-size: 20px;
+}
+.vipFont{
+    font-family: 'Prata', serif;
+    color: #f40083;
+}
+.vipfontsquad{
+    border:4px solid #f40083;
+    font-size: 12px;
+    padding: 10px;
+}
+.viplittleletter{
+    color:rgb(148, 148, 148);
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h6{
+    font-size:10px;
+    color:rgb(148, 148, 148);
+}
+.li-vip{
+    font-size:10px;
+    font-weight: bold;
+}
+.card-body{
+    margin-top:10px;
+}
+.div-resumen{
+   background-color:rgb(231, 230, 230);
+   border-radius: 10px;
+}
+.resumenletra{
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 2px;
+    color:rgb(75, 75, 75);
+}
+.resumen-elegido{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color:rgb(143, 137, 137);
+}
+.resumenvip{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f40083;
+    font-size: 14px;
+}
+.acepted-cgu{
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(143, 137, 137);
+    font-size: 10px;
+}
