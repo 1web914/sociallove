@@ -54,5 +54,12 @@ class Orm
             [$login]
         );
     }
+    /* sacamos datos del paquete de zona vip el nombre y precio */
+    function obtenerPaquete($id){
+        return Klasto::getInstance()->queryOne(
+            "SELECT nombre, precio from rango where id=?",
+            [$id]
+        );
+    }
     
 }

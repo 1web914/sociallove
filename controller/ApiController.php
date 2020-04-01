@@ -20,6 +20,15 @@ class ApiController extends Controller
             echo json_encode("registro");
         }
     }
+    //ver la descripcion del paquete elegido a la hora de efectuar pago.
+    public function descripcionPagoElegido($id){
+
+        $descripcionPaquete = (new Orm)->obtenerPaquete($id);
+        $data["titulo"] = $descripcionPaquete["nombre"];
+        $data["precio"] = $descripcionPaquete["precio"];
+
+        echo json_encode($data);
+    }
     /* Hay que poner las notificaciones de la gente que ha visitado tu perfil */
     public function notificaciones(){
 
