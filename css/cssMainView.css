@@ -397,18 +397,21 @@ tr{
     padding: 1px;
 } 
 
-.card-header{
+.sinclick-header{
     background-color: lightgray;
     color:white;
-}
-/* arreglar para que al pasar pro el div se ponga la cabecera en color fucsia. */
-.card-header:hover{
+} 
+.click-header{
     background-color: #f40083;
     color:white;
 }
-.borde-vip:hover{
+/* arreglar para que al pasar pro el div se ponga la cabecera en color fucsia. */
+.click-body{
     border-color: #f40083;
 }
+ .sinclick-body:hover{
+    border-color: #f40083;
+} 
 .fontfamilyvip{
     font-family: 'Prata', serif;
     font-size: 20px;
