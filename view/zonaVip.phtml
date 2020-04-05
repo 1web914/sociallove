@@ -47,9 +47,9 @@ global $login_url;
     <script src="<?= $URL_PATH ?>/js/contador.js"></script>
     <script src="<?= $URL_PATH ?>/js/validarTarjerta.js"></script>
     <script src="<?= $URL_PATH ?>/js/clickVip.js"></script>
-    <script src="<?=$URL_PATH ?>/js/validarformulariozonavip.js"></script>
-    <script src="<?=$URL_PATH ?>/Pawel/jquery.creditCardValidator.js"></script>
-    
+    <script src="<?= $URL_PATH ?>/js/validarformulariozonavip.js"></script>
+    <script src="<?= $URL_PATH ?>/Pawel/jquery.creditCardValidator.js"></script>
+
 
     <script>
         var URL_PATH = "<?= $URL_PATH ?>"; // Pasamos el URL_PATH de php a Javascript.
@@ -124,7 +124,7 @@ global $login_url;
                     </div>
                     <h6>En un pago de 16,80 &euro;</h6>
                 </div>
- 
+
                 <div class="card mbd-4 shadow-sm sinclick-body clickbody" id="4" onclick="clickVip(4)">
                     <div class="card-header sinclick-header clickheader" id="41">
                         <h4 class="my-0 font-weight-bold fontfamilyvip">DISCOVERY</h4>
@@ -145,47 +145,49 @@ global $login_url;
         <hr>
         <!-- AQui está el resumen y tarjeta -->
         <div class="container-fluid div-resumen" id="">
-        <form action="<?=$URL_PATH?>/pasarela" method="post" id="paymentForm" class="container-fluid resumenletra div-resumen" onsubmit="return validarformulariozonavip()">
-            <div class="grid-container-zonaVip-resumen">
-                <div class="container-fluid resumenletra">
-                    RESUMEN
-                    <hr>
-                    <span class="resumen-elegido">
-                        <i id="idpaquete" name="idpaquete" style="display:none"></i>
-                        <b>Aqui: <span id="titulo"></span></b> <span class="resumenvip" id="preciodia">/día</span>
-                        <br>
-                        En un pago de <b><span id="precio"> &euro;</span>
+            <form action="<?= $URL_PATH ?>/compra" method="post" id="paymentForm" class="container-fluid resumenletra div-resumen" onsubmit="return validarformulariozonavip()">
+                <div class="grid-container-zonaVip-resumen">
+                    <div class="container-fluid resumenletra">
+                        RESUMEN
+                        <hr>
+                        <span class="resumen-elegido">
+                            <b>Aqui: <span id="titulo"></span></b> <span class="resumenvip" id="preciodia">/día</span>
                             <br>
-                            <span class="acepted-cgu">Al validar el pedido, estoy aceptando las <a class="cgu" href="#" data-toggle="modal" data-target="#aceptedCGU">CGU</a></span>
-                    </span>
-                </div>
+                            En un pago de <b><span id="precio"> &euro;</span>
+                                <br>
+                                <span class="acepted-cgu">Al validar el pedido, estoy aceptando las <a class="cgu" href="#" data-toggle="modal" data-target="#aceptedCGU">CGU</a></span>
+                        </span>
+                    </div>
 
-                <div class="container-fluid resumenletra">
-                    <!-- la tarjeta tiene que ser de forma reducida. el titulo arriba y los datos abajo. -->
-                    <script>
-                        $(document).ready(function() {
-                            //card validation on input fields
-                            $('#paymentForm input[type=text]').on('keyup', function() {
-                                validarTarjeta();
+                    <div class="container-fluid resumenletra">
+                        <!-- la tarjeta tiene que ser de forma reducida. el titulo arriba y los datos abajo. -->
+                        <script>
+                            $(document).ready(function() {
+                                //card validation on input fields
+                                $('#paymentForm input[type=text]').on('keyup', function() {
+                                    validarTarjeta();
+                                });
                             });
-                        });
-                    </script>
-                    TARJETA DE CREDITO
-                    <hr><!-- TENGO PROBLEMA CON VALIDAR TARJETA HAY QUE MIRARLO -->
-                    <i id="tarjetacomprobada" style="display:none"></i>
-                    <div class="form-group grid-container-zonaVip-resumen  resumen-elegido">
-                        <label class="">Número de la tarjeta:</label>
-                        <input type="text" class="form-control select-vip" id="card_number" name="tarjeta"  placeholder="1234 5678 9012 3456" maxlenght="16" autocomplete="off">
-                        <span class="errorTarjeta"><b id="errorTarjeta"></b></span>
-                        <span class="visaCorrecto"><b id="visaCorrecto"></b></span>
-                        <label for="inputState">Validez</label>
-                        <input class="select-vip" type="text" name="expiry_date" id="expiry_date" maxlength="5" placeholder="MM/YY" >
-                        <label for="cvv">CVV</label>
-                        <input type="text" class="select-vip" id="cvv" name="cvv" placeholder="CVV" autocomplete="off" min="3" max="3" maxlength="3">
+                        </script>
+                        TARJETA DE CREDITO
+                        <hr><!-- TENGO PROBLEMA CON VALIDAR TARJETA HAY QUE MIRARLO -->
+                        <i id="tarjetacomprobada" style="display:none"></i>
+                        <div class="form-group grid-container-zonaVip-resumen  resumen-elegido">
+                            <label class="">Número de la tarjeta:</label>
+                            <input type="text" class="form-control select-vip" id="card_number" name="tarjeta" placeholder="1234 5678 9012 3456" maxlenght="16" autocomplete="off">
+                            <span class="errorTarjeta"><b id="errorTarjeta"></b></span>
+                            <span class="visaCorrecto"><b id="visaCorrecto"></b></span>
+                            <label for="inputState">Validez</label>
+                            <input class="select-vip" type="text" name="expiry_date" id="expiry_date" maxlength="5" placeholder="MM/YY">
+                            <label for="cvv">CVV</label>
+                            <input type="text" class="select-vip" id="cvv" name="cvv" placeholder="CVV" autocomplete="off" min="3" max="3" maxlength="3">
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
+
+        <!-- sacamos la id del paquete input hidden -->
+        <input id="idpaquete" name="prodId" type="hidden">
 
         <button type="submit" class="btn btn-primary btn-block boton-confirm-tarjet" id="procesarCompra"><i class="fas fa-lock"></i>&nbsp;Confirmar el pago</button>
         </form>

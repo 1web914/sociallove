@@ -41,6 +41,18 @@ Macaw::get($URL_PATH . '/perfil/(:any)', "controller\UserController@perfil");
 Macaw::get($URL_PATH . '/zonavip', "controller\PostController@vip");
 //Zona vip descripcion del click del pago
 Macaw::get($URL_PATH . '/api/descripcion/(:any)', "controller\ApiController@descripcionPagoElegido");
+//Zona vip envio de la compra
+Macaw::post($URL_PATH . '/compra', "controller\UserController@procesarCompra");
+//pasarela informa
+Macaw::get($URL_PATH . '/informa', "controller\ApiController@informa");
+
+//pasarela retorno
+Macaw::get($URL_PATH . '/retorno', "controller\UserController@retorno");
+
+
+
+
+
 /*
 //lo ultimo
 Macaw::get($URL_PATH . '/loUltimo', "controller\PostController@listado");

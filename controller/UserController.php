@@ -40,4 +40,42 @@ class UserController extends Controller
         session_destroy();
         header("Location: $URL_PATH/");
     }
+
+    public function procesarCompra(){
+
+        $idCompra = $_REQUEST['prodId'];
+
+        //guardamos el producto elegido
+       (new Orm)->guardarPedido($_SESSION['login']);
+        $id_pedido = (new Orm)->idPedido($_SESSION['login']);
+        (new Orm)->guardarProducto($idCompra,$id_pedido["id"]);
+
+        //sacamos datos del paquete comprado
+        $datosPaquete = (new Orm)->obtenerPaquete($idCompra);
+        $importe = $datosPaquete["precio"]; 
+
+        //tardamos 3seg para que nos rediriga a la pasarela.
+        sleep(3);
+        $cod_comercio = 2222;
+        $cod_pedido = $idCompra;
+        $concepto = "Hechizos";
+        header("Location: http://localhost/pasarela/index.php?cod_comercio=$cod_comercio&cod_pedido=$cod_pedido&importe=$importe&concepto=$concepto"); 
+        
+    }
+    /* //devolvemos el retorno de la pasarela
+    public function retorno(){
+
+        $cod_pedido = $_REQUEST["cod_pedido"];
+        $sacarDatosPedido =  (new Orm)->sacarDatosPedidoPasarela($cod_pedido);
+        $data=0;
+        echo Ti::render("view/pedido.phtml", compact( "sacarDatosPedido", "data","cod_pedido"));
+
+     }
+
+     //eliminar datos
+     public function eliminarDatos($cod_pedido){
+        global $URL_PATH;
+        (new Orm)->eliminarDatosUsuarioCompra($cod_pedido,$_SESSION["login"],$_COOKIE["PHPSESSID"]);
+        header("Location: $URL_PATH/");
+     } */
 }

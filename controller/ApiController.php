@@ -33,5 +33,27 @@ class ApiController extends Controller
     public function notificaciones(){
 
     }
+    /* informar de la realizacion de la compra mediante pasarela */
+    public function informa()
+   {
+       header('Content-type: application/json');  
+
+      $cod_pedido = $_REQUEST["cod_pedido"];
+      $importe = $_REQUEST["importe"];
+      $estado = $_REQUEST["estado"];
+      $cod_operacion = $_REQUEST["cod_operacion"];
+
+    (new Orm)->informacionPasarela($cod_pedido, $importe,$estado,$cod_operacion);
+
+    /* PRUEBA HECHIZOS UPDATE,FUNCIONA,FALTA PONER EL LOGIN QUE SE TIENE QUE MANDAR DESDE OTRO SITIO ESTO VA EN RETORNO NO RAYARSE*/
+    $idrango = (new Orm)->hechizosrango($cod_pedido);
+    $hechizosUsuario = (new Orm)->hechizosusuario($idrango["Hechizos"],"Angie");
+
+
+      $msg = "Servidor de la tienda informado"; 
+
+       echo json_encode($msg);  
+   }
+
 
 }

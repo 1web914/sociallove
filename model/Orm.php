@@ -54,11 +54,68 @@ class Orm
             [$login]
         );
     }
+
+    /* PRUEBA SACAR HECHIZOS A LA COCHINA */
+    function hechizosrango($id){
+        return Klasto::getInstance()->queryOne(
+            "SELECT Hechizos from rango Where id=? ",
+            [$id]
+        );
+    }
+    function hechizosusuario($id,$usuario){
+        return Klasto::getInstance()->execute(
+            "UPDATE usuario SET hechizos=hechizos+ ? where login=?",
+            [$id,$usuario]
+        );
+    }
+
+
+
+    
+    /* /* Sumar hechizos 
+    function sumarHechizos(){
+        return Klasto::getInstance()->queryOne(
+            "UPDATE"
+
+        );
+    } */
+
     /* sacamos datos del paquete de zona vip el nombre y precio */
     function obtenerPaquete($id){
         return Klasto::getInstance()->queryOne(
             "SELECT nombre, precio from rango where id=?",
             [$id]
+        );
+    }
+    /* guardamos Productos de la cesta para realizar la compra en pedido */
+    public function guardarPedido($usuario){
+        return Klasto::getInstance()->execute(
+            "INSERT INTO `pedido`( `usuario_login`) VALUES (?)",
+            [$usuario]
+        );
+    }
+
+    /* sacamos la id del pedido  */
+    public function idPedido($id_usuario){
+        return Klasto::getInstance()->queryOne(
+            "SELECT id FROM `pedido` WHERE Usuario_login=?",
+            [$id_usuario]
+        );
+    }
+    /* guardamos los productos de un cliente en el pedido que ha comprado */
+    public function guardarProducto($id_producto,$id_pedido){
+        return Klasto::getInstance()->execute(
+            "INSERT INTO `producto_has_pedido`(`Producto_id`, `Pedido_id`) VALUES (?,?)",
+            [$id_producto,$id_pedido]
+        );
+    }
+
+        
+    /*informacion de la pasarela de si a pagado a cancelado o ha surgido error  */
+    public function informacionPasarela($cod_pedido, $importe,$estado,$cod_operacion){
+        return Klasto::getInstance()->execute(
+            "UPDATE `pedido` SET `pago`=?,`cod_operacion`=?,`importe`=?",
+            [$estado,$cod_operacion,$importe]
         );
     }
     

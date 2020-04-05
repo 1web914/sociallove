@@ -18,8 +18,8 @@ function clickVip(id) {
             var precio = document.getElementById("precio");
             var preciodia = document.getElementById("preciodia");
             var idpaquete = document.getElementById("idpaquete");
-            idpaquete.innerHTML = id;
-            titulo.innerHTML = res.titulo
+            idpaquete.setAttribute("value", id);
+            titulo.innerHTML = res.titulo;
             precio.innerHTML = res.precio;
 
             if (res.precio == 6.90) {
