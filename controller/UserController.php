@@ -68,20 +68,21 @@ class UserController extends Controller
 
         $cod_pedido = $_REQUEST["cod_pedido"];
         $id_pedido = (new Orm)->idDelPedido($cod_pedido);
-        $sacarDatosPedido =  (new Orm)->sacarDatosPedidoPasarela($id_pedido["pedido_id"]);
+        $id = $id_pedido["pedido_id"];
+        $sacarDatosPedido =  (new Orm)->sacarDatosPedidoPasarela($id);
         if ($sacarDatosPedido->pago == "ok") {
             /* PRUEBA HECHIZOS UPDATE*/
             $idrango = (new Orm)->hechizosrango($cod_pedido);
             $hechizosUsuario = (new Orm)->hechizosusuario($idrango["Hechizos"], $_SESSION["login"]);
         } 
-        //enviamos el cod_pedido para una vez realizada toda la transaccion se borre los datos de la BD
-        /* echo Ti::render("view/pedido.phtml", compact("sacarDatosPedido", "cod_pedido")); */
+        //enviamos la id para una vez realizada toda la transaccion se borre los datos de la BD
+         echo Ti::render("view/pedido.phtml", compact("sacarDatosPedido", "id")); 
     }
 
-    /*eliminar datos
+    /* eliminar datos */
      public function eliminarDatos($cod_pedido){
         global $URL_PATH;
-        (new Orm)->eliminarDatosUsuarioCompra($cod_pedido,$_SESSION["login"],$_COOKIE["PHPSESSID"]);
-        header("Location: $URL_PATH/");
-     } */
+        (new Orm)->eliminarDatosUsuarioCompra($cod_pedido);
+        header("Location: $URL_PATH/listado");
+     } 
 }

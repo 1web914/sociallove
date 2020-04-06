@@ -504,3 +504,11 @@ h6{
     border-radius: 4px;
     background-color: #ffffff;
 }
+.pedido{
+    background-color:white;
+    height: 50%;
+}
+.pedido-btn{
+    position: relative;
+    margin-top: 25%;
+}

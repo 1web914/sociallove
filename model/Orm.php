@@ -123,4 +123,27 @@ class Orm
             [$id,$usuario]
         );
     }
+    /* eliminar datos del usuario de su compra */
+    public function eliminarDatosUsuarioCompra($idPedido){
+
+        Klasto::getInstance()->startTransaction();
+
+        (new Orm)->borrarProductoHasComprado($idPedido);
+        (new Orm)->borrarPedido($idPedido);
+        
+        Klasto::getInstance()->commit();
+    }
+    
+    public function borrarProductoHasComprado($idPedido){
+        return Klasto::getInstance()->execute(
+            "DELETE FROM `producto_has_pedido` WHERE Pedido_id=?",
+            [$idPedido]
+        );
+    }
+    public function borrarPedido($idPedido){
+        return Klasto::getInstance()->execute(
+            "DELETE FROM `pedido` WHERE id=?",
+            [$idPedido]
+        );
+    }
 }

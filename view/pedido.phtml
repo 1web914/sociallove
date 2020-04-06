@@ -1,9 +1,12 @@
 <?php
 global $URL_PATH;
-\dawfony\Ti::extend("view/mainview.phtml");
-\dawfony\Ti::startBlock("content");
+\dawfony\Ti::extend("view/headerView.phtml");
+\dawfony\Ti::endExtend(); 
 ?>
 
+<body class="imagen-fondo-body" style="background-image: url('<?= $URL_PATH ?>/assets/fotosInterfaces/fondoBody.png');
+    background-repeat: repeat;
+    background-color: #fbf6f9;">
 <script>
     if ('<?= $sacarDatosPedido->pago ?>' == "ok") {
         Swal.fire({
@@ -32,27 +35,21 @@ global $URL_PATH;
         });
     }
 </script>
+    <div class="jumbotron">
+        <header>
+            <div class="img-container img-logo-vip">
+                <img class="img-fluid img-logo " src="<?= $URL_PATH ?>/assets/fotosInterfaces/logo.png" data-srcpng="" alt="socialLoveLogo">
+                <h1 class="img-logo logo-h1 ">SOCIAL LOVE</h1>
+            </div>
+        </header>
+    </div>
+    <div class="container pedido" id="">
+    <center><a href="<?= $URL_PATH ?>/eliminarDatos/<?=$id?>" class="btn btn-primary  boton-confirm-tarjet pedido-btn" >VOLVER</a></center>
+    </div>
 
-<?php if($sacarDatosPedido->pago == "ok"):?>
-    <center><h1>Muchas gracias por su compra</h1></center>
-    <center><h6>El pedido está en curso...</h6></center>
-    <br>
-    <center><p>Este es tu "CODIGO" de compra:<b> <?= $sacarDatosPedido->cod_operacion ?></b></center>
-    <br>
-    <pre>En caso de incidencia póngase en contacto con nosotros
-    Via e-mail:&nbsp;<a href="mailto:atencionalcliente@sketchiSnowboard.com">atencionalcliente@sketchiSnowboard.com</a>
-    Via telefono : &nbsp;<b>918950025</b>.</pre>
-    <br>
-    <p> Gracias por su confianza. </p>
-    <br>
-<?php endif;?>
-
-<!-- Hay que poner una URL para eliminar ya a ese usuario y su pedido... VAMOS TODO BORRADO -->
-<!-- <center><a href="<?= $URL_PATH ?>/eliminarDatos/<?=$cod_pedido?>" class="btn btn-dark  ">Volver</a></center> -->
-<br>
+</body>
+<?php \dawfony\Ti::extend("view/footerView.phtml"); ?>
+<?php \dawfony\Ti::endExtend(); ?>
+<html>
 
 
-<?php
-\dawfony\Ti::endBlock();
-\dawfony\Ti::endExtend();
-?>

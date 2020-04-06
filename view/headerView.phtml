@@ -1,0 +1,68 @@
+<?php
+
+use dawfony\Ti;
+global $URL_PATH;
+global $login_url;
+/* extract($data); */
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex,nofollow">
+
+    <title>
+        <?php \dawfony\Ti::startBlock("title"); ?>
+        SocialLove
+        <?php \dawfony\Ti::endBlock(); ?>
+    </title>
+
+    <?php /* jquery cdn */ ?>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <?php /* Bootstrap. Las rutas deben ser absolutas, porque estamos haciendo rewrite */ ?>
+    <link rel="stylesheet" href="<?= $URL_PATH ?>/vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
+    <script src="<?= $URL_PATH ?>/vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="<?= $URL_PATH ?>/node_modules/bootstrap-social/bootstrap-social.css">
+    <?php /* Font awesome CDN */ ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/solid.min.css">
+    <link rel="stylesheet" href="<?= $URL_PATH ?>/node_modules/font-awesome/css/font-awesome.min.css">
+    <?php /* Animate.css CDN */ ?>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <?php /*Para añadir lineas al head desde las plantillas derivadas*/ ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link rel="stylesheet" type='text/css' href="<?= $URL_PATH ?>/css/cssMainView.css">
+    <!-- DEJO ESTO PORQUE ME DA PROBLEMAS CON EL CSS AL METER UNA VARIABLE PHP ESTÁ INYECTADO DE MOMENTO A PINCHO EN LA MISMA LINEA -->
+    <!-- <link rel='stylesheet' type='text/css' href='<?= $URL_PATH ?>/css/cssMain.php' /> -->
+    <link rel="shortcut icon" href="<?= $URL_PATH ?>/assets/fotosInterfaces/logo-fb.png" />
+    <!-- FONT FAMILY -->
+    <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Prata&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+    <?php /* Script de carpeta JS*/ ?>
+    <script src="<?= $URL_PATH ?>/js/mostrarContraseña.js"></script>
+    <script src="<?= $URL_PATH ?>/js/mensajesContadores.js"></script>
+    <script src="<?= $URL_PATH ?>/js/contador.js"></script>
+    <script src="<?= $URL_PATH ?>/js/comprobarlogin.js"></script>
+    <script src="<?= $URL_PATH ?>/js/busquedaUsuario.js"></script>
+    <script src="<?= $URL_PATH ?>/js/validarBusqueda.js"></script>
+    <script src="<?= $URL_PATH ?>/js/validarTarjerta.js"></script>
+    <script src="<?= $URL_PATH ?>/js/clickVip.js"></script>
+    <script src="<?= $URL_PATH ?>/js/validarformulariozonavip.js"></script>
+    <script src="<?= $URL_PATH ?>/Pawel/jquery.creditCardValidator.js"></script>
+
+    <script>
+        var URL_PATH = "<?= $URL_PATH ?>"; // Pasamos el URL_PATH de php a Javascript.
+        var error = false; //esto es para el formulario login y  comprobamos si el email que ha introducido está bien sino que lo escriba de nuevo.
+    </script>
+
+    <?php \dawfony\Ti::startBlock("head"); ?>
+    <?php \dawfony\Ti::endBlock(); ?>
+
+</head>
