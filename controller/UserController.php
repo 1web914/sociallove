@@ -40,39 +40,45 @@ class UserController extends Controller
         session_destroy();
         header("Location: $URL_PATH/");
     }
-
-    public function procesarCompra(){
+    /* Hacemos pasarela de pago */
+    public function procesarCompra()
+    {
 
         $idCompra = $_REQUEST['prodId'];
 
         //guardamos el producto elegido
-       (new Orm)->guardarPedido($_SESSION['login']);
+        (new Orm)->guardarPedido($_SESSION['login']);
         $id_pedido = (new Orm)->idPedido($_SESSION['login']);
-        (new Orm)->guardarProducto($idCompra,$id_pedido["id"]);
+        (new Orm)->guardarProducto($idCompra, $id_pedido["id"]);
 
         //sacamos datos del paquete comprado
         $datosPaquete = (new Orm)->obtenerPaquete($idCompra);
-        $importe = $datosPaquete["precio"]; 
+        $importe = $datosPaquete["precio"];
 
         //tardamos 3seg para que nos rediriga a la pasarela.
         sleep(3);
         $cod_comercio = 2222;
         $cod_pedido = $idCompra;
         $concepto = "Hechizos";
-        header("Location: http://localhost/pasarela/index.php?cod_comercio=$cod_comercio&cod_pedido=$cod_pedido&importe=$importe&concepto=$concepto"); 
-        
+        header("Location: http://localhost/pasarela/index.php?cod_comercio=$cod_comercio&cod_pedido=$cod_pedido&importe=$importe&concepto=$concepto");
     }
-    /* //devolvemos el retorno de la pasarela
-    public function retorno(){
+    /* devolvemos el retorno de la pasarela */
+    public function retorno()
+    {
 
         $cod_pedido = $_REQUEST["cod_pedido"];
-        $sacarDatosPedido =  (new Orm)->sacarDatosPedidoPasarela($cod_pedido);
-        $data=0;
-        echo Ti::render("view/pedido.phtml", compact( "sacarDatosPedido", "data","cod_pedido"));
+        $id_pedido = (new Orm)->idDelPedido($cod_pedido);
+        $sacarDatosPedido =  (new Orm)->sacarDatosPedidoPasarela($id_pedido["pedido_id"]);
+        if ($sacarDatosPedido->pago == "ok") {
+            /* PRUEBA HECHIZOS UPDATE*/
+            $idrango = (new Orm)->hechizosrango($cod_pedido);
+            $hechizosUsuario = (new Orm)->hechizosusuario($idrango["Hechizos"], $_SESSION["login"]);
+        } 
+        //enviamos el cod_pedido para una vez realizada toda la transaccion se borre los datos de la BD
+        /* echo Ti::render("view/pedido.phtml", compact("sacarDatosPedido", "cod_pedido")); */
+    }
 
-     }
-
-     //eliminar datos
+    /*eliminar datos
      public function eliminarDatos($cod_pedido){
         global $URL_PATH;
         (new Orm)->eliminarDatosUsuarioCompra($cod_pedido,$_SESSION["login"],$_COOKIE["PHPSESSID"]);

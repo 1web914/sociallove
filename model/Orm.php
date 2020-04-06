@@ -50,35 +50,11 @@ class Orm
     /* sacamos el contador de hechizos del usuario */
     function contadorHechizos($login){
         return Klasto::getInstance()->queryOne(
-            "SELECT rango.Hechizos  as Hechizos from usuario, rango Where usuario.rango_id=rango.id and usuario.login=?",
+            "SELECT hechizos from usuario  Where login=?",
             [$login]
         );
     }
-
-    /* PRUEBA SACAR HECHIZOS A LA COCHINA */
-    function hechizosrango($id){
-        return Klasto::getInstance()->queryOne(
-            "SELECT Hechizos from rango Where id=? ",
-            [$id]
-        );
-    }
-    function hechizosusuario($id,$usuario){
-        return Klasto::getInstance()->execute(
-            "UPDATE usuario SET hechizos=hechizos+ ? where login=?",
-            [$id,$usuario]
-        );
-    }
-
-
-
     
-    /* /* Sumar hechizos 
-    function sumarHechizos(){
-        return Klasto::getInstance()->queryOne(
-            "UPDATE"
-
-        );
-    } */
 
     /* sacamos datos del paquete de zona vip el nombre y precio */
     function obtenerPaquete($id){
@@ -119,4 +95,32 @@ class Orm
         );
     }
     
+    /* sacar datos del cod_pedido */ 
+    public function sacarDatosPedidoPasarela($cod_pedido){
+        return Klasto::getInstance()->queryOne(
+            "SELECT pago, cod_operacion, importe,usuario_login FROM pedido where id=?",
+            [$cod_pedido], "model\Pedido"
+        );
+    }
+    /* sacamos la id del pedido, ya que no coincide el cod_pedido con la id */
+    public function idDelPedido($id){
+        return Klasto::getInstance()->queryOne(
+            "SELECT pedido_id FROM producto_has_pedido WHERE producto_id=?",
+            [$id]
+        );
+    }
+
+    /* Realizacion y actualizacion de los hechizos comprados mediante zonavip */
+    function hechizosrango($id){
+        return Klasto::getInstance()->queryOne(
+            "SELECT Hechizos from rango Where id=? ",
+            [$id]
+        );
+    }
+    function hechizosusuario($id,$usuario){
+        return Klasto::getInstance()->execute(
+            "UPDATE usuario SET hechizos=hechizos+ ? where login=?",
+            [$id,$usuario]
+        );
+    }
 }
