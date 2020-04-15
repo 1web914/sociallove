@@ -22,7 +22,7 @@ function comprobaremail() {
     let campoEmail = $('#email');
     var emaillenght = email.length;
     if (!validarEmailCorrecto(email)) {
-        document.getElementById("checkemail").innerHTML = "<i class='fa fa-exclamation' style='color:red'> &nbsp;Email incorrecto!</i>  <input id='emailchecker' type='hidden' value='0' name='emailchecker'> ";
+        document.getElementById("checkemail").innerHTML = "<i class='fa fa-exclamation' style='color:red'> &nbsp;Email incorrecto</i>  <input id='emailchecker' type='hidden' value='0' name='emailchecker'> ";
         campoEmail.addClass("is-invalid");
         document.getElementById("preboton").disabled = true;
     } else {

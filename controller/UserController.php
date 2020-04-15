@@ -218,14 +218,25 @@ class UserController extends Controller
     /* ANGEL PASSWORD FORGET */
     /* Contraseña olvidada */
     public function passOlvidada()
-    {
+    {        
         echo Ti::render("view/passForget/passOlvidada.phtml");
     }
+    
     public function restablecePass(){
+        
+        MAÑANA EMPEZAR X AQUI
+        MAÑANA EMPEZAR X AQUI
+        MAÑANA EMPEZAR X AQUI
+        
         /* AQUI IRIA TODO EL TEMA DEL ENVIO DEL EMAIL,SI FUNCIONA EL CAPTCHA Y EL EMAIL LO HA PUESTO.
         SOLO NOS PERMITE AVANZAR AL CAMBIO DE CONTRASEÑA SI HA VERIFICADO,SINO NO.
         SI NO VERIFICA SE VUELVE AL INICIO*/
         /* AQUÍ SOLO ES PRUEBA PARA HACER LOS FORMS CORRESPONDIENTES A LA HORA DE TODO TRUE */
+        
+        var_dump($email = $_REQUEST["email"] ?? "");
+        
+        
+        
         echo Ti::render("view/passForget/restablecerPass.phtml");
     }
     /* aquí restablecemos la contraseña */
@@ -233,7 +244,7 @@ class UserController extends Controller
         /* Tenemos que tener el email en todo momento para poder hacer el cambio
         Yo lo dejo casi hecho pero no sé como lo recogerías, asi que te dejo una variable, pero yo para hacer
         la comprobación la meto a pincho, para saber si funciona todo correcto.
-        De ser así solo tienes que poner el email. */
+        De ser así solo tienes que poner el email. */        
         $email = "alba@gmail.com";/* Lo pongo a pincho pero aquí si ya está verificado, el email tendría que recogerse aquí */
         $newPass = $_REQUEST["password"];
         $newPassHash = password_hash($newPass, PASSWORD_DEFAULT);

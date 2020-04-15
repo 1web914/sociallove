@@ -80,10 +80,12 @@ class ApiController extends Controller
         PERO TENEMOS EL ERROR ESE QUE NO NOS DEJA HACER NADA.
         DE MOMENTO SE QUEDA ASI,HASTA NUEVO AVISO */
         $secret = '6LdAh-kUAAAAAAMDdm1Lw-qYSF7OT2NXRXmi8sxQ';
+        //var_dump($responseCaptcha);
         $captcha = $responseCaptcha;
         $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha");
         $arr = json_decode($response, TRUE);
-        var_dump($arr['success']);
+        //var_dump($arr['success']);
+        
         echo json_encode($arr['success']);
 
     }

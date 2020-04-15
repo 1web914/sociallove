@@ -29,23 +29,23 @@ global $login_url;
 
                 <div style="padding-top:30px" class="panel-body">
 
-                    <form class="form-pass" action="<?= $URL_PATH ?>/restablecerPass" onsubmit="return passOlvidada()" method="POST" autocomplete="off">
+                    <form class="form-pass" action="<?= $URL_PATH ?>/restablecerPass" onsubmit="return passOlvidada(this)" method="POST" autocomplete="off">
 
                         <div style="margin-bottom: 20px" >
-                                <b>INTRODUCE TU EMAIL:</b>
-                                <input id="email" type="email" class="form-control mail-pass" name="email" placeholder="ejemplo@gmail.com" required>
+                                <b>INTRODUCE TU EMAIL:&nbsp;&nbsp;<span id="checkemail"></span></b>
+                                <input id="email" type="email" class="form-control mail-pass" name="email" placeholder="ejemplo@gmail.com" onchange="recPassEmail()" required>
                         </div>
                         <div style="margin-left:15%;" id="captcha" class="g-recaptcha" data-sitekey="6LdAh-kUAAAAADqYGx69EMC6lMotjcKGVuatjmj6"></div>
 
                         <div style="margin-bottom:20px; margin-left:30%;" class="col-sm-5 controls">
-                            <button type="submit" class="btn btn-primary  boton-confirm-tarjet pedido-btn btn-large">Enviar</button>
+                            <button type="submit" id="preboton" class="btn btn-primary  boton-confirm-tarjet pedido-btn btn-large">Enviar</button>
                         </div>
 
                         <div class="form-group">
                             <div class="col-md-12 control">
-                                <div class="end-pass">
-                                    No tienes una cuenta! <a href="<?= $URL_PATH ?>/registro">Registrate aqu&iacute;</a>
-                                </div>
+                                <div class="end-pass"> 
+                                    No tienes una cuenta! <a href="#" onclick="location.href='<?= $URL_PATH ?>'">Registrate aqu&iacute;</a>
+                                </div>             
                             </div>
                         </div>
                     </form>
