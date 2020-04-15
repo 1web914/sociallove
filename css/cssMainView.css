@@ -1,0 +1,576 @@
+.jumbotron{
+    background-color: #1c2228;
+    margin:0;
+    height: 150px;
+}
+.navbar{
+    background-color: #1c2228;
+    color:#1c2228;
+}
+.nav .sesion{
+    background-color: #1c2228;
+    color:white;
+}
+.navbar-nav .sesion>li:hover{
+    color: pink;
+}
+
+.navbar-center {
+    transform: translatex(50%);
+    font-size: 100%;
+  }
+  .navbar-nav>li:hover{
+    background-color: pink;
+    border-radius: 10px;
+    }
+
+footer {
+    color: white;
+    height: auto !important;
+}
+.bg-footer {
+    background-color: #1c2228;
+}
+
+h1 {
+    color: white;
+}
+
+.acepted {
+    color: white;
+    background-color: purple;
+}
+
+p {
+    color: white;
+    text-align: center;
+}
+
+.imagen-fondo {
+    background-image: url("/sociallove/assets/fotosInterfaces/timido.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 350px;
+}
+.imagen-fondo-sesion{
+    background-image: url("/sociallove/assets/fotosInterfaces/GifListadoHechizos.gif");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: auto;
+    height: 200px;
+    width: 100%;
+}
+.imagen-perfil{
+    width: 70px;
+    height: 70px;
+    border-radius: 75px;
+    border:5px solid;
+}
+.imagen-perfil:hover{
+    color: #f40083;
+}
+.imagen-perfil{
+    transition: color 0.3s linear 0.1s;
+}
+
+.inscripcion {
+    float: right;
+}
+
+.flickr {
+    background: #f40083;
+    color: white;
+    font-family: 'Prata', serif;
+}
+
+.cajaInscripcion {
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 45px;
+    padding: 25px;
+}
+.prueba{
+    background-color: #1c2228 ;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.btn1>button:hover {
+    background-color: pink;
+    border-radius: 10px;
+}
+.btn-outline-light:hover {
+    background-color: pink;
+    color:#1c2228;
+    border-radius: 10px;
+}
+.btn-outline-light {
+    background-color: #FF69B4;
+    border: #FF69B4;
+    border-radius: 10px;
+}
+
+.btn-primary {
+    background-color: #FF69B4;
+    border: #FF69B4;
+    border-radius: 10px;
+}
+
+form {
+    float: right;
+    width: 50%;
+}
+
+.img-container {
+    float: left;
+    width: 25-.55%;
+    padding: 3px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+/* Tengo un problema con el css para el fondo que no me coge la url, se pasó por php y tampoco. */
+/*  .imagen-fondo-body .body-register {
+    background-image: url("< ?php echo $URL_PATH; ?>/assets/fotosInterfaces/fondoBody.png");
+    background-repeat: repeat;
+    background-color: #fbf6f9;
+}  */
+
+#fbook {
+    text-align: center;
+}
+
+.grid-container-chicos {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: auto auto auto auto auto auto;
+    padding: 2px;
+}
+.grid-container-select-register{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.grid-container-chicosFondo {
+    display: grid;
+    grid-gap: 1px;
+    grid-template-columns: auto auto auto;
+    padding: 2px;
+}
+.grid-container-sesion{
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: auto auto auto auto auto auto;
+    padding: 1px;
+}
+
+.fondo-personas {
+    background-color: white;
+}
+
+.container-images {
+    position: relative;
+    width: 160px;
+    height: 160px;
+}
+
+.container-images-sesion {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.imagenes-genero {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+.imagenes-genero-sesion {
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    width: 200px;
+    height: 150px;
+}
+
+.middle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: black;
+}
+
+
+
+.container-images:hover .imagenes-chicas {
+    opacity: 0.3;
+}
+
+.container-images:hover .middle {
+    opacity: 0.7;
+}
+
+.container-images-sesion:hover .imagenes-genero {
+    opacity: 0.3;
+}
+
+.container-images-sesion:hover .middle {
+    opacity: 0.7;
+}
+
+.text {
+    color: white;
+    font-size: 14px;
+    position: relative;
+    top: 30%;
+    text-align: center;
+}
+
+.text-sesion {
+    color: white;
+    font-size: 8px;
+    position: relative;
+    top: 30%;
+    text-align: center;
+}
+
+.icono-login{
+    color:white;
+
+}
+
+.item1 {
+    grid-area: header;
+}
+
+.item2 {
+    grid-area: menu;
+}
+
+.item4 {
+    grid-area: right;
+    font-size: 250%;
+}
+
+.item5 {
+    grid-area: footer;
+}
+
+.grid-contador {
+    display: grid;
+    grid-template-areas:
+        'menu menu header header header header'
+        'menu menu right right right right'
+        'menu menu footer footer footer footer';
+    border-color: white;
+    padding: 1px;
+    margin-right: 15%;
+    margin-left: 15%;
+    margin-top: 30px;
+}
+
+.grid-contador>div {
+    border: 1px solid gray;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.caja-footer {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+}
+#contador {
+    color:#f40083;
+    font-size: 25px;
+}
+#contadorMensaje{
+    color: white;
+    font-size:16px;
+}
+.custom-control-label:before{
+    background-color:gray;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before{
+    background-color:pink;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::after{
+    background-image:url("/sociallove/assets/fotosInterfaces/descarga.svg");}
+.custom-control-input:active~.custom-control-label::before{
+    background-color:lightpink;
+}
+
+.notificaciones{
+    background-color: #1c2228 ;
+    border:2px solid #f40083;
+    color:white;
+}
+
+table{
+    position: relative;
+    padding:10px;
+}
+
+.notificacion-perfil{
+    background-color: #1c2228 ;
+    border:2px solid #f40083;
+    color:white;
+}
+tr{
+    border-top:1px solid white;
+}
+.perfil-enlace{
+    color:white;
+}
+.perfil-enlace:hover{
+    color: #f40083;
+}
+.perfil-enlace{
+    transition: color 0.4s linear 0.1s;
+}
+.span-notify-perfil{
+    color:pink;
+    margin-left: 45px;
+}
+.span-notify{
+    color:pink;
+    margin-left: 10px;
+}
+.p-listado{
+    color:black;
+    font-family: 'Special Elite', cursive;
+}
+.img-logo{
+    margin:0;
+    width:70px;
+    height:70px;
+    color:white;
+    display: inline-block;
+}
+.logo-h1{
+    font-family: 'Righteous', cursive;
+    width:300px;
+    text-decoration: underline white;
+}
+.footer-font-family{
+    font-family: 'Prata', serif;
+    font-style: italic;
+}
+.style-font{
+    font-family: 'Prata', serif;
+}
+
+.modal-perfil{
+    position: relative;
+    margin-right: 250px;
+}
+
+.grid-container-zonaVip{
+    display: grid;
+    grid-gap: 13px;
+    grid-template-columns: auto auto auto auto ;
+    margin-left:10%;
+    padding: 10px;
+}
+.grid-container-zonaVip-resumen{
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: auto auto ;
+    padding: 1px;
+}
+.grid-container-zonaVip-validez{
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: auto auto;
+    padding: 1px;
+}
+
+.sinclick-header{
+    background-color: lightgray;
+    color:white;
+}
+.click-header{
+    background-color: #f40083;
+    color:white;
+}
+/* arreglar para que al pasar pro el div se ponga la cabecera en color fucsia. */
+.click-body{
+    border-color: #f40083;
+}
+ .sinclick-body:hover{
+    border-color: #f40083;
+}
+.fontfamilyvip{
+    font-family: 'Prata', serif;
+    font-size: 20px;
+}
+.vipFont{
+    font-family: 'Prata', serif;
+    color: #f40083;
+}
+.vipfontsquad{
+    border:4px solid #f40083;
+    font-size: 12px;
+    padding: 10px;
+}
+.viplittleletter{
+    color:rgb(148, 148, 148);
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h6{
+    font-size:10px;
+    color:rgb(148, 148, 148);
+}
+.li-vip{
+    font-size:10px;
+    font-weight: bold;
+}
+.card-body{
+    margin-top:10px;
+}
+.div-resumen{
+   background-color:rgb(231, 230, 230);
+   border-radius: 10px;
+}
+.resumenletra{
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 2px;
+    color:rgb(75, 75, 75);
+}
+.resumen-elegido{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color:rgb(143, 137, 137);
+}
+.resumenvip{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f40083;
+    font-size: 14px;
+}
+.acepted-cgu{
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(143, 137, 137);
+    font-size: 10px;
+}
+.boton-confirm-tarjet:hover{
+    background-color:rgb(252, 42, 77);
+}
+.cgu{
+    color:#f40083;
+}
+.cgu:hover{
+    color:#f40083;
+}
+.font-modal-cgu{
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(143, 137, 137);
+    font-size: 15px;
+}
+.img-logo-vip{
+    position: relative;
+    margin-left: 40%;
+}
+.errorTarjeta{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:red;
+    font-size: 12px;
+    text-align: center;
+}
+.visaCorrecto{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:green;
+    font-size: 12px;
+    text-align: center;
+}
+.select-vip{
+    border-radius: 5px;
+    padding:10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+.pedido{
+    background-color:white;
+    height: 50%;
+}
+.pedido-btn{
+    position: relative;
+    margin-top: 25%;
+}
+.page-link{
+    background-color:#FF69B4;
+    color:white;
+}
+.page-link:hover{
+    background-color:pink;
+    color:black;
+}
+
+.passforget-principal{
+    background-color:white;
+    margin-top:0;
+    width: auto;
+    height: 500px;
+}
+.passforget{
+    padding:5%;
+    margin-left: 10%;
+    position: relative;
+
+}
+.panel-head{
+    background-color: pink;
+    border-radius: 5px;
+    width: 100%;
+}
+.panel-title{
+    font-family: 'Special Elite', cursive;
+    font-size: 25px;
+    color:black;
+    text-align: center;
+}
+.inicio-pass{
+    font-family: 'Special Elite', cursive;
+    color:black;
+    float:right;
+    font-size: 80%;
+    position: relative;
+    top:0px;
+}
+.panel-info-pass{
+    width: 200%;
+}
+.btn-large{
+    width: 100px;
+}
+.form-pass{
+    position: relative;
+    margin-right: 25%;
+    -webkit-box-shadow: 32px 29px 17px -1px rgba(0,0,0,0.58);
+    -moz-box-shadow: 32px 29px 17px -1px rgba(0,0,0,0.58);
+    box-shadow: 32px 29px 17px -1px rgba(0,0,0,0.58);
+}
+.mail-pass{
+    border-radius: 10px;
+}
+.end-pass{
+    font-family: 'Special Elite', cursive;
+    border-top: 1px solid#888;
+    padding-top:15px;
+    font-size:85%
+}

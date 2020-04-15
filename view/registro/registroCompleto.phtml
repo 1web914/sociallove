@@ -1,0 +1,39 @@
+<?php
+// necesitamos la trayectoria de la URL para formar las rutas:
+use \dawfony\Ti;
+global $URL_PATH;
+global $login_url;
+\dawfony\Ti::extend("view/cabeceras/headerView.phtml");
+\dawfony\Ti::endExtend();
+?>
+
+<body class="imagen-fondo-body" style="background-image: url('<?= $URL_PATH ?>/assets/fotosInterfaces/fondoBody.png');background-repeat: repeat;background-color: #fbf6f9;">
+    <!-- Hay que poner un guardado de COOKIES, que se activa si le damos al checked de guardar datos, si no una vez que cierre ventana tiene que volver a conectarse. -->
+    <div class="container-fluid">
+        <div class="container-fluid ">
+            <!-- ********************** contenido ******************************************* -->
+            <div class="container " style="background-color:white;width:80%;">
+                <div class="row">
+                    <div class="col-md-12 text-center"><br>
+                        <div class="alert alert-light mb-2" role="alert">
+                            <h2 class="text-center display-4">Casi completado</h2><br>
+                            <span><img style="display:flex;margin:0 auto;" width="25%" src="<?= $URL_PATH ?>/assets/fotosInterfaces/completado.png" alt="socialLoveLogo"></span>
+                            <br>
+
+                            <span class="lead">
+                                Estimado usuario,<br><br>
+                                Hemos enviado un correo electrónico a su direccion de correo electronico
+                                <u><?php  echo $email ?></u><br>
+                                Para completar el registro revise su bandeja de entrada y active su cuenta.
+                                <br><br>
+                            </span>
+                        </div>
+                        <a class="btn btn-primary btn-large w-100 mt-0" href="<?= $URL_PATH ?>/">Iniciar sesion</a>
+                    </div>
+                </div><br>
+            </div>
+            <br>
+            <?php Ti::extend("view/cabeceras/footerView.phtml"); ?>
+            <?php Ti::endExtend(); ?>
+        </div>
+</body>

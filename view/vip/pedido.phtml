@@ -1,0 +1,55 @@
+<?php
+global $URL_PATH;
+\dawfony\Ti::extend("view/cabeceras/headerView.phtml");
+\dawfony\Ti::endExtend();
+?>
+
+<body class="imagen-fondo-body" style="background-image: url('<?= $URL_PATH ?>/assets/fotosInterfaces/fondoBody.png');
+    background-repeat: repeat;
+    background-color: #fbf6f9;">
+<script>
+    if ('<?= $sacarDatosPedido->pago ?>' == "ok") {
+        Swal.fire({
+            icon: 'success',
+            type: 'info',
+            title: 'Compra realizada con exito',
+            timer: 4000,
+            showConfirmButton: false
+        });
+    } else if ('<?= $sacarDatosPedido->pago ?>' == "nook") {
+        Swal.fire({
+            icon: 'warning',
+            type: 'info',
+            title: 'Ha habido algún error..',
+            text: 'Por favor, intentelo más tarde...',
+            timer: 5000,
+            showConfirmButton: false
+        });
+    } else if ('<?= $sacarDatosPedido->pago ?>' == "cancelado") {
+        Swal.fire({
+            icon: 'error',
+            type: 'info',
+            title: 'La compra ha sido cancelada',
+            timer: 4000,
+            showConfirmButton: false
+        });
+    }
+</script>
+    <div class="jumbotron">
+        <header>
+            <div class="img-container img-logo-vip">
+                <img class="img-fluid img-logo " src="<?= $URL_PATH ?>/assets/fotosInterfaces/logo.png" data-srcpng="" alt="socialLoveLogo">
+                <h1 class="img-logo logo-h1 ">SOCIAL LOVE</h1>
+            </div>
+        </header>
+    </div>
+    <div class="container pedido" id="">
+    <center><a href="<?= $URL_PATH ?>/eliminarDatos/<?=$id?>" class="btn btn-primary  boton-confirm-tarjet pedido-btn" >VOLVER</a></center>
+    </div>
+
+</body>
+<?php \dawfony\Ti::extend("view/cabeceras/footerView.phtml"); ?>
+<?php \dawfony\Ti::endExtend(); ?>
+<html>
+
+

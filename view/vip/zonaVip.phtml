@@ -1,0 +1,171 @@
+<?php
+// necesitamos la trayectoria de la URL para formar las rutas:
+global $URL_PATH;
+global $login_url;
+\dawfony\Ti::extend("view/cabeceras/headerView.phtml");
+\dawfony\Ti::endExtend();
+?>
+<body class="imagen-fondo-body" style="background-image: url('<?= $URL_PATH ?>/assets/fotosInterfaces/fondoBody.png');
+    background-repeat: repeat;
+    background-color: #fbf6f9;">
+
+    <div class="jumbotron">
+        <header>
+            <div class="img-container img-logo-vip">
+                <img class="img-fluid img-logo " src="<?= $URL_PATH ?>/assets/fotosInterfaces/logo.png" data-srcpng="" alt="socialLoveLogo">
+                <h1 class="img-logo logo-h1 ">SOCIAL LOVE</h1>
+            </div>
+        </header>
+    </div>
+    <div style="background-color:white;" class="container" id="">
+        <div class=" grid-container-zonaVip">
+            <div class="card-deck mb-3 text-center">
+                <!-- solo son 4 cards -->
+                <div class="card mbd-4 shadow-sm sinclick-body clickbody" id="1" onclick="clickVip(1)">
+                    <div class="card-header sinclick-header clickheader" id="11">
+                        <h4 class="my-0 font-weight-bold fontfamilyvip ">VIP 6 MESES</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title"><span class="vipFont">8,80</span><span class="vipFont" style="font-size:24px;">&euro;</span><span style="font-size:12px; color:black;">/MES</span></h1>
+                        <div class="vipfontsquad">
+                            <span class="vipFont"> 25 HECHIZOS </span>/MES
+                        </div>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li class="li-vip">20,78&euro; DE AHORRO</li>
+                        </ul>
+                    </div>
+                    <h6 style="font-size:10px;">En un pago de 52,80 &euro;</h6>
+                </div>
+
+                <div class="card mbd-4 shadow-sm sinclick-body clickbody" id="2" onclick="clickVip(2)">
+                    <div class="card-header  sinclick-header clickheader" id="21">
+                        <h4 class="my-0 font-weight-bold fontfamilyvip">VIP 3 MESES</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title"><span class="vipFont">10,80</span><span class="vipFont" style="font-size:24px;">&euro;</span><span style="font-size:12px; color:black;">/MES</span></h1>
+                        <div class="vipfontsquad">
+                            <span class="vipFont"> 15 HECHIZOS</span>/MES
+                        </div>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li class="li-vip">18,78&euro; DE AHORRO</li>
+                        </ul>
+                    </div>
+                    <h6>En un pago de 32,40 &euro;</h6>
+                </div>
+
+                <div class="card mbd-4 shadow-sm sinclick-body clickbody" id="3" onclick="clickVip(3)">
+                    <div class="card-header sinclick-header clickheader" id="31">
+                        <h4 class="my-0 font-weight-bold fontfamilyvip">VIP 1 MES</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title"><span class="vipFont">16,80</span><span class="vipFont" style="font-size:24px;">&euro;</span><span style="font-size:12px; color:black;">/Mes</span></h1>
+                        <div class="vipfontsquad">
+                            <span class="vipFont">5 HECHIZOS /MES</span>
+                        </div>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li class="li-vip">12,78&euro; DE AHORRO</li>
+                        </ul>
+                    </div>
+                    <h6>En un pago de 16,80 &euro;</h6>
+                </div>
+
+                <div class="card mbd-4 shadow-sm sinclick-body clickbody" id="4" onclick="clickVip(4)">
+                    <div class="card-header sinclick-header clickheader" id="41">
+                        <h4 class="my-0 font-weight-bold fontfamilyvip">DISCOVERY</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title"><span class="vipFont">6,90</span><span class="vipFont" style="font-size:24px;">&euro;</span><span style="font-size:12px; color:black;">/SEM</span></h1>
+                        <div class="vipfontsquad">
+                            <span class="vipFont">2 HECHIZOS /SEM</span>
+                        </div>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li class="li-vip">0,98&euro;/AL DIA</li>
+                        </ul>
+                    </div>
+                    <h6>En un pago de 6,90 &euro;</h6>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <!-- AQui está el resumen y tarjeta -->
+        <div class="container-fluid div-resumen" id="">
+            <form action="<?= $URL_PATH ?>/compra" method="post" id="paymentForm" class="container-fluid resumenletra div-resumen" onsubmit="return validarformulariozonavip()">
+                <div class="grid-container-zonaVip-resumen">
+                    <div class="container-fluid resumenletra">
+                        RESUMEN
+                        <hr>
+                        <span class="resumen-elegido">
+                            <b>Aqui: <span id="titulo"></span></b> <span class="resumenvip" id="preciodia">/día</span>
+                            <br>
+                            En un pago de <b><span id="precio"> &euro;</span>
+                                <br>
+                                <span class="acepted-cgu">Al validar el pedido, estoy aceptando las <a class="cgu" href="#" data-toggle="modal" data-target="#aceptedCGU">CGU</a></span>
+                        </span>
+                    </div>
+
+                    <div class="container-fluid resumenletra">
+                        <!-- la tarjeta tiene que ser de forma reducida. el titulo arriba y los datos abajo. -->
+                        <script>
+                            $(document).ready(function() {
+                                //card validation on input fields
+                                $('#paymentForm input[type=text]').on('keyup', function() {
+                                    validarTarjeta();
+                                });
+                            });
+                        </script>
+                        TARJETA DE CREDITO
+                        <hr><!-- TENGO PROBLEMA CON VALIDAR TARJETA HAY QUE MIRARLO -->
+                        <i id="tarjetacomprobada" style="display:none"></i>
+                        <div class="form-group grid-container-zonaVip-resumen  resumen-elegido">
+                            <label class="">Número de la tarjeta:</label>
+                            <input type="text" class="form-control select-vip" id="card_number" name="tarjeta" placeholder="1234 5678 9012 3456" maxlenght="16" autocomplete="off">
+                            <span class="errorTarjeta"><b id="errorTarjeta"></b></span>
+                            <span class="visaCorrecto"><b id="visaCorrecto"></b></span>
+                            <label for="inputState">Validez</label>
+                            <input class="select-vip" type="text" name="expiry_date" id="expiry_date" maxlength="5" placeholder="MM/YY">
+                            <label for="cvv">CVV</label>
+                            <input type="text" class="select-vip" id="cvv" name="cvv" placeholder="CVV" autocomplete="off" min="3" max="3" maxlength="3">
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+        <!-- sacamos la id del paquete input hidden -->
+        <input id="idpaquete" name="prodId" type="hidden">
+
+        <button type="submit" class="btn btn-primary btn-block boton-confirm-tarjet" id="procesarCompra"><i class="fas fa-lock"></i>&nbsp;Confirmar el pago</button>
+        </form>
+        <div class="container-fluid viplittleletter">
+            VIP 6 meses con 25 Hechizos mensuales, facturados en 1 pago inmediatio de 52,80 € TTC, con una duración de 6 meses. Al terminar tu abono este será automáticamente reconducido a un periodo idéntico al precedente y con las mismas condiciones.; VIP 3 meses con 15 Hechizos mensuales, facturados en 1 pago inmediatio de 32,40 € TTC, con una duración de 3 meses.; VIP 1 mes con 5 Hechizos mensuales, facturados en 1 pago inmediatio de 16,80 € TTC, con una duración de 1 mes. ; Pass Discovery con 2 Hechizos, facturados en 1 pago inmediatio de 6,90 € TTC, con una duración de 7 días. Para los abonos mensuales, el precio diario indicado ha sido calculado en base a un mes de 30 días. Puedes ejercitar tu derecho de retractación durante los 14 días posteriores a tu compra. Para más información sobre las condiciones de reembolso y de los abonos por favor, consulta las Condiciones Generales de Uso.
+        </div>
+    </div>
+
+    <!-- ********************** Modal ******************************************* -->
+
+    <div class="modal fade" id="aceptedCGU" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">CONDICIONES</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body font-modal-cgu">
+                    <?php
+                    $condiciones = file_get_contents('conditions/condiciones.txt');
+                    $condiciones = nl2br($condiciones);
+                    echo $condiciones;
+                    ?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php \dawfony\Ti::extend("view/cabeceras/footerView.phtml"); ?>
+    <?php \dawfony\Ti::endExtend(); ?>
+</body>
+
+</html>

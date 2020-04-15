@@ -1,0 +1,232 @@
+<?php
+// necesitamos la trayectoria de la URL para formar las rutas:
+use \dawfony\Ti;
+global $URL_PATH;
+global $login_url;
+\dawfony\Ti::extend("view/cabeceras/headerView.phtml");
+\dawfony\Ti::endExtend();
+?>
+<!-- ESTOS JS SOLO SE CARGAN AQUI, NO CAMBIARLOS DE SITIO, PARA EVITAR CONFLICTOS -->
+<script src="<?= $URL_PATH ?>/js/validacionesFormulario.js"></script>
+<script src="js/passtrength.js"></script>
+<script>
+    var edadPhp = '<?php echo $edad; ?>';
+    var nombrePhp = '<?php echo $nombre; ?>';
+
+</script>
+
+
+<body class="imagenFondoPostRegistro" onload="webcargada()">
+    <!-- Hay que poner un guardado de COOKIES, que se activa si le damos al checked de guardar datos, si no una vez que cierre ventana tiene que volver a conectarse. -->
+    <div class="container-fluid" id="contenidoFormulario">
+        <div class="container">
+
+            <!-- ********************** formulario ******************************************* -->
+            <div class="imagen-fondo2 mb-3">
+                <div class="container-fluid ">
+                    <form method="POST" action="<?= $URL_PATH?>/registro" enctype="multipart/form-data" autocomplete="off">
+                        <!--contenedor principal-->
+                        <div class="container text-white " style="background-color:#1C2228;width:1400px;margin-left:-545px;opacity:0.9;">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-4 text-right"><br><br>
+                                            <img src="<?php echo $URL_PATH . "/assets/fotosInterfaces/logo.png"; ?>" alt="logo" width="100" height="100" class="mr-5">
+                                            &nbsp;&nbsp;&nbsp;
+                                            <h1 class="img-logo logo-h1 ml-2">SOCIAL LOVE</h1>
+                                        </div>
+                                        <div class="col-md-2"><br><br>
+
+                                        </div>
+                                        <div class="col-md-6 mt-3">
+                                            <label for="login" class="col-form-label col-form-label-sm ml-3 style-font">Login <i class="fa fa-user" style="font-size:20px"></i> &nbsp;&nbsp;<span id="checkusername"></span></label>
+                                            <div class="col-sm-11">
+                                                <input type="text" name="login" class="form-control form-control-sm" id="login" onchange="existeLogin()" autocomplete="new-login" required>
+
+                                            </div>
+                                            <label for="password" class="col-form-label col-form-label-sm ml-3 style-font">Contraseña <i class="fa fa-lock" style="font-size:20px"></i>&nbsp;&nbsp;<span id="checkpass"></span></label>
+                                            <div class="col-sm-11">
+                                                <input type="password" name="password" class="form-control form-control-sm" id="password" placeholder="Mayusculas , Minusculas y Numeros..." onkeydown="plugPasswStreng()" autocomplete="new-password" required>
+                                            </div>
+                                            <?//php var_dump($prepassword);?>
+                                            <label for="repassword" class="col-form-label col-form-label-sm ml-3 style-font">Repite Contraseña <i class="fa fa-lock" style="font-size:20px"></i>&nbsp;&nbsp;<span id="checkrepass"></span></label>
+                                            <div class="col-sm-11">
+                                                <input type="password" name="repassword" class="form-control form-control-sm" id="repassword" autocomplete="new-password" required>
+                                                <div id="divcomprobarsisoniguales"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                    <div class="row mx-auto">
+                                        <div class="col-md-4 my-4 ">
+                                            <label class="style-font">Sobre ti...<span id="count"></span></label>
+                                            <textarea name="sobreti" id="textarea" rows="6" cols="35" maxlength="150" style="resize: none;" oninput="sendCounter()"> </textarea>
+                                        </div>
+
+                                        <div class="col-md-1 mx-auto">
+                                            <br><label class="style-font">Gustos:</label>
+                                            <div class="checkbox"><span id="errg1"></span><br>
+
+                                                <div class="chiller_cb">
+                                                    <input type="checkbox" value="cine" id="cine" name="gustos[]" class="gustos1" onchange="" />
+                                                    <label for="cine">Cine</label><span></span>
+                                                </div>
+
+                                                <div class="chiller_cb">
+                                                    <input type="checkbox" value="tv" id="tv" name="gustos[]" class="gustos1" onchange="" />
+                                                    <label for="tv">Tele</label><span></span>
+                                                </div>
+
+                                                <div class="chiller_cb">
+                                                    <input type="checkbox" value="libros" id="libros" name="gustos[]" class="gustos1" onchange="" />
+                                                    <label for="libros">Libros</label><span></span>
+                                                </div>
+                                                <div class="chiller_cb">
+                                                    <input type="checkbox" value="fiesta" id="fiesta" name="gustos[]" class="gustos1" onchange="" />
+                                                    <label for="fiesta">Fiesta</label><span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 mt-2 ">
+                                            <br><br>
+                                            <div class="checkbox"><span id="errg2"></span><br>
+
+                                                <div class="chiller_cb">
+                                                    <input type="checkbox" value="musica" id="musica" name="gustos[]" class="gustos2" onchange="" />
+                                                    <label for="musica">Musica</label><span></span>
+                                                </div>
+                                                <div class="chiller_cb">
+                                                    <input type="checkbox" value="animales" id="animales" name="gustos[]" class="gustos2" onchange="" />
+                                                    <label for="animales">Animales</label><span></span>
+                                                </div>
+                                                <div class="chiller_cb">
+                                                    <input type="checkbox" value="tabaco" id="tabaco" name="gustos[]" class="gustos2" onchange="" />
+                                                    <label for="tabaco">Tabaco</label><span></span>
+                                                </div>
+                                                <div class="chiller_cb">
+                                                    <input type="checkbox" value="viajes" id="viajes" name="gustos[]" class="gustos2" onchange="" />
+                                                    <label for="viajes">Viajes</label><span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="nombre" class="ml-3 col-form-label col-form-label-sm style-font">Nombre</label>
+                                            <div class="col-sm-11">
+                                                <input type="text" name="nombre" class="form-control form-control-sm" id="nombre" value="<?php  echo $nombre ?>" required>
+                                            </div>
+                                            <label for="apellidos" class="ml-3 col-form-label col-form-label-sm style-font">Apellidos</label>
+                                            <div class="col-sm-11">
+                                                <input type="text" name="apellidos" class="form-control form-control-sm" id="apellidos" required>
+                                            </div>
+                                            <label for="edad" class="ml-3 col-form-label col-form-label-sm style-font">Edad <span id="checkEdad"></span></label>
+                                            <div class="col-sm-11">
+                                                <input type="number" name="edad" class="form-control form-control-sm" id="edad" value="<?php echo $edad?>" onchange="comprobarEdad()" required>
+                                            </div>
+                                            <label for="ubicacion" class="ml-3 col-form-label col-form-label-sm style-font">Provincia</label>
+                                            <div class="col-sm-11">
+                                                <input type="text" name="ubicacion" class="form-control form-control-sm" id="ubicacion">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
+
+
+                                    <div class="row mx-auto">
+                                        <div class="col-md-4 my-4">
+                                            <label class="style-font">Lo que buscas.<span id="count2"></span></label>
+                                            <textarea name="loquebuscas" id="loquebuscas" rows="8" cols="35" maxlength="150" style="resize: none;" oninput="sendCounter2()"> </textarea>
+                                        </div>
+                                        <div class="col-md-3 ml-5">
+                                            <br><label class="style-font">Aficciones:</label><br>
+                                            <span id="errCheckboxes"></span>
+                                            <div class="checkbox">
+                                                <div class="chiller_cb">
+                                                    <input type="checkbox" value="deportes" id="deportes" name="aficciones[]" class="aficciones1" onchange="" />
+                                                    <label for="deportes">Deportes</label><span></span>
+                                                </div><br>
+                                                <div class="chiller_cb">
+                                                    <input type="checkbox" value="cultura" id="cultura" name="aficciones[]" class="aficciones1" onchange="" />
+                                                    <label for="cultura">Cultura</label><span></span>
+                                                </div> <br>
+                                                <div class="chiller_cb">
+                                                    <input type="checkbox" value="instrumentos" id="instrumentos" name="aficciones[]" class="aficciones1" onchange="" />
+                                                    <label for="instrumentos">Instrumentos</label><span></span>
+                                                </div><br>
+                                                <div class="chiller_cb">
+                                                    <input type="checkbox" value="otras" id="otras" name="aficciones[]" class="aficciones1" onchange="" />
+                                                    <label for="otras">Otras</label><span></span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4 ml-3">
+                                            <br><label class="style-font">Preferencia de busquedas:</label><br>
+                                            <span id="errbuscoid"></span>
+                                            <select name="busco" id="buscoid" onchange="selectBusco()" style="width: 290px;" class="form-control mt-2" required>
+                                                <option selected>Selecciona una opcion</option>
+                                                <option value="chico">Chico</option>
+                                                <option value="chica">Chica</option>
+                                            </select>
+                                            <br>
+                                            <!--Subir foto -->
+                                            <div class="container-fluid">
+                                                <div class="row">
+
+
+                                                    <!--       <input type="file" class="input-file" id="filefoto" name="foto" pattern=".*\.(jpg|jpeg|gif|png|webp|svg)">
+                                                    <label for="filefoto" class="btn btn-tertiary js-labelFile">
+                                                        <i class="icon fa fa-check"></i>
+                                                        <span class="js-fileName">Choose a file</span>
+                                                    </label>-->
+                                                    <i class="file-image">
+                                                        <input id="_" type="file" onchange="readImage(this)" title="" name="foto" pattern=".*\.(jpg|jpeg|gif|png|webp|svg)" />
+                                                        <i class="reset" onclick="resetImage(this.previousElementSibling)"></i>
+                                                        <label for="_" class="image"></label>
+                                                    </i>
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- estos que vienen del pre-regitro van ocultos hacia el post-registro-->
+                            <input type="hidden" name="sex" value="<?=$sex?>" />
+                            <input type="hidden" name="email" value="<?=$email?>" />
+
+
+                            <div class="modal-footer d-flex justify-content-center" style="background-color:#1c2228">
+                                <button class="btn btn-unique style-font" style="color:White" onclick="window.location=href='<?= $URL_PATH ?>/'">Cancelar
+                                    <i class="fa fa fa-times ml-1" style="color:white;font-size:20px"></i></button>
+                                <span style="width: 300px;"></span>
+                                <button class="btn btn-unique style-font" style="color:White" type="submit" id="thesubmitBoton"><i class="fas fa-paper-plane ml-1"></i>&nbsp;&nbsp;&nbsp;Enviar &nbsp;&nbsp;<span class="loader6" id="loaderpost"></span></button>
+                            </div>
+
+
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+    <div class="divFooterAlFinal">
+        <?php Ti::extend("view/cabeceras/footerView.phtml"); ?>
+        <?php Ti::endExtend(); ?>
+
+    </div>
+
+</body>
