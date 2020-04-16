@@ -5,9 +5,9 @@ global $login_url;
 \dawfony\Ti::extend("view/cabeceras/headerView.phtml");
 \dawfony\Ti::endExtend();
 ?>
+
 <body class="imagen-fondo-body" style="background-image: url('<?= $URL_PATH ?>/assets/fotosInterfaces/fondoBody.png');
-    background-repeat: repeat;
-    background-color: #fbf6f9;">
+    background-repeat: repeat;background-color: #fbf6f9;" onload="webpassOlvidadaLoad()">
 
     <div class="jumbotron">
         <header>
@@ -38,13 +38,13 @@ global $login_url;
                         <div style="margin-left:15%;" id="captcha" class="g-recaptcha" data-sitekey="6LdAh-kUAAAAADqYGx69EMC6lMotjcKGVuatjmj6"></div>
 
                         <div style="margin-bottom:20px; margin-left:30%;" class="col-sm-5 controls">
-                            <button type="submit" id="preboton" class="btn btn-primary  boton-confirm-tarjet pedido-btn btn-large">Enviar</button>
+                        
+                            <button type="submit" id="preboton" class="btn btn-primary boton-confirm-tarjet pedido-btn btn-large" onclick="webpassOlvidadaLoader()">Enviar</button>
                         </div>
-
                         <div class="form-group">
                             <div class="col-md-12 control">
                                 <div class="end-pass"> 
-                                    No tienes una cuenta! <a href="#" onclick="location.href='<?= $URL_PATH ?>'">Registrate aqu&iacute;</a>
+                                    No tienes una cuenta! <a href="#" onclick="location.href='<?= $URL_PATH ?>'">Registrate aqu&iacute;</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="loader6 mt-2" id="loaderpost"></span>
                                 </div>             
                             </div>
                         </div>
@@ -60,4 +60,4 @@ global $login_url;
     <?php \dawfony\Ti::endExtend(); ?>
 </body>
 
-</html>
+

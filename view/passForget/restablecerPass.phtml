@@ -1,5 +1,6 @@
 <?php
 // necesitamos la trayectoria de la URL para formar las rutas:
+use \dawfony\Ti;
 global $URL_PATH;
 global $login_url;
 \dawfony\Ti::extend("view/cabeceras/headerView.phtml");
@@ -7,13 +8,13 @@ global $login_url;
 ?>
 <!-- ESTOS JS SOLO SE CARGAN AQUI, NO CAMBIARLOS DE SITIO, PARA EVITAR CONFLICTOS -->
 <script src="<?= $URL_PATH ?>/js/validacionesFormulario.js"></script>
-<script src="js/passtrength.js"></script>
+<script src="../js/passtrength.js"></script>
+
 
 
 <body class="imagen-fondo-body" style="background-image: url('<?= $URL_PATH ?>/assets/fotosInterfaces/fondoBody.png');
-    background-repeat: repeat;
-    background-color: #fbf6f9;">
-
+    background-repeat: repeat;background-color: #fbf6f9;" onload="webRecPasscargada()">
+    
     <div class="jumbotron">
         <header>
             <div class="img-container img-logo-vip">
@@ -22,7 +23,10 @@ global $login_url;
             </div>
         </header>
     </div>
-
+    
+    
+    
+    
     <div class="container passforget-principal" id="">
 
         <div class="passforget col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
@@ -32,7 +36,7 @@ global $login_url;
                 </div>
                 <div style="padding-top:30px" class="panel-body">
 
-                    <form class="form-pass" action="<?= $URL_PATH ?>/restablecer" onsubmit="return changePass()" method="POST" autocomplete="off">
+                    <form class="form-pass" action="<?= $URL_PATH ?>/restablecerPassFin" onsubmit="return changePass()" method="POST" autocomplete="off">
 
                         <div style="margin-bottom: 20px">
                         <!-- AQUÍ ESTÁ TODO EL TEMA DE LAS CONTRASEÑAS, NO ME SALE EL CHECKED
@@ -52,19 +56,19 @@ global $login_url;
 
 
                         <div style="margin-bottom:20px; margin-left:30%;" class="col-sm-5 controls">
-                            <button type="submit" class="btn btn-primary  boton-confirm-tarjet pedido-btn btn-large">Enviar</button>
+                            <button type="submit" id="thesubmitBoton" class="btn btn-primary  boton-confirm-tarjet pedido-btn btn-large">Enviar</button>
                         </div>
 
                     </form>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="divFooterAlFinal">
+        <?php Ti::extend("view/cabeceras/footerView.phtml"); ?>
+        <?php Ti::endExtend(); ?>
 
     </div>
 
-
-    <?php \dawfony\Ti::extend("view/cabeceras/footerView.phtml"); ?>
-    <?php \dawfony\Ti::endExtend(); ?>
 </body>
-
-</html>

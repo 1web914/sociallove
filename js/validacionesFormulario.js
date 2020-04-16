@@ -1,7 +1,6 @@
 /******************** Alberto ********************/
-
 /* Al cargar el post-formulario */
-function webcargada() {
+function webFormulariocargada() {
     // desactivo repassword ONLOAD WEB/ y activo escuchador de eventos en Contraseña
     //alert(a);
     plugPasswStreng();
@@ -97,7 +96,6 @@ function plugPasswStreng(a) {
         textVeryStrong: "Muy fuerte"
     });
 }
-
 
 /* Sobreti counter oninput 1 metodo  */
 function sendCounter() {
@@ -210,3 +208,21 @@ function sanitizar(str) {
     strMax30 = strClean.slice(0, 30); //maximo 30 caracteres
     return strMax30;
 }
+
+
+/* // RECUPERACION DE CONTRASEÑA restablecerPass.phtml// 1 metodo */
+function webRecPasscargada() {    
+    $('#password').passtrength({
+        passwordToggle: true,
+        eyeImg : '../assets/fotosInterfaces/visibilidad.svg',        
+        tooltip: true,
+        textWeak: "Debil",
+        textMedium: "Medio",
+        textStrong: "Fuerte",
+        textVeryStrong: "Muy fuerte"
+    });    
+    $("#password").keyup(comprobarPasswordSeguro);
+    $("#repassword").keyup(comprobarPasswordIguales);
+}
+
+

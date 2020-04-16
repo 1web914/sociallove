@@ -237,18 +237,16 @@ class UserController extends Controller
             echo Ti::render("view/passForget/passOlvidada.phtml");
         }       
     }
-    /* restablecemos la contraseña */
-    public function cambioPass(){
-        /* El email lo he utilizado en el metodo de restablecePass para obtener 
-            el token  correspondiente de la base de datos. 
-            Aqui nada mas se modifica la contraseña */        
-        
+    /* restablecemos la contraseña get*/   
+    public function cambioPass(){       
+        echo Ti::render("view/passForget/restablecerPass.phtml"); //formulario         
+    }
+    /* mostramos mensaje y actualizamos cambios en bd  post*/
+    public function restablecePassFin(){    
         $newPass = $_REQUEST["password"] ?? "";
         $newPassHash = password_hash($newPass, PASSWORD_DEFAULT);
         (new Orm)->cambioPassword($newPassHash);
-        
-        echo Ti::render("view/passForget/restablecerPass.phtml"); //formulario 
-        echo Ti::render("view/passForget/passCambiada.phtml");  // mensaje de aviso
+        echo Ti::render("view/passForget/passCambiada.phtml");
     }
 
 /* ***** */

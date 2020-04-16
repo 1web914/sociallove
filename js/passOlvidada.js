@@ -1,5 +1,5 @@
 function passOlvidada(a) {
-
+    $("#loaderpost").css('visibility', 'visible'); //activo el loader
     var mail = document.getElementById('email').value;
     var captcha = grecaptcha.getResponse();
 
@@ -35,7 +35,8 @@ function passOlvidada(a) {
                 //res = false; //pruebas
                 //alert(res);                
                 /*fetch envia la comprobacion a google y devuelve RES DEVUELVE TRUE; */           
-                if (res) {
+                alert("fetch ok")
+            if (res) {
                     return true;
                 }
                 alert("error interno en captcha, intentalo mas tarde");
@@ -74,3 +75,12 @@ function recPassEmail(){
 }
 
 
+/* passOlvidada.phtml onload */
+function webpassOlvidadaLoad() {    
+    $("#loaderpost").css('visibility', 'hidden'); //oculto el loader
+}
+
+function webpassOlvidadaLoader() {
+    $("#loaderpost").css('visibility', 'visible'); 
+
+}
