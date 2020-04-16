@@ -221,35 +221,34 @@ class UserController extends Controller
     {        
         echo Ti::render("view/passForget/passOlvidada.phtml");
     }
-    
-    public function restablecePass(){
-        
-        MAÑANA EMPEZAR X AQUI
-        MAÑANA EMPEZAR X AQUI
-        MAÑANA EMPEZAR X AQUI
-        
-        /* AQUI IRIA TODO EL TEMA DEL ENVIO DEL EMAIL,SI FUNCIONA EL CAPTCHA Y EL EMAIL LO HA PUESTO.
-        SOLO NOS PERMITE AVANZAR AL CAMBIO DE CONTRASEÑA SI HA VERIFICADO,SINO NO.
-        SI NO VERIFICA SE VUELVE AL INICIO*/
-        /* AQUÍ SOLO ES PRUEBA PARA HACER LOS FORMS CORRESPONDIENTES A LA HORA DE TODO TRUE */
-        
-        var_dump($email = $_REQUEST["email"] ?? "");
-        
-        
-        
-        echo Ti::render("view/passForget/restablecerPass.phtml");
+    /* obtenemos token con el email */
+    public function restablecePass(){        
+        /* AQUI ENVIO DEL EMAIL*/
+        $email = $_REQUEST["email"] ?? "";        
+        if($email != ""){ //si el mail es correcto pedimos token y mandamos email
+            //aqui con el email del usuario obtengo el token que luego lo enviaré al email
+            $tokenArr = (new Orm)->obtenerNumValidacion($email);
+            $emaildestino = $email;
+            $token = $tokenArr["validacion"];
+            include('emailcfg/enviar-recuPass.php');           
+            $data = ["email" => $email];
+            echo Ti::render("view/passForget/avisoEnvioAlCorreo.phtml", $data);                 
+        } else { //si el mail esta vacio retorna al captcha
+            echo Ti::render("view/passForget/passOlvidada.phtml");
+        }       
     }
-    /* aquí restablecemos la contraseña */
+    /* restablecemos la contraseña */
     public function cambioPass(){
-        /* Tenemos que tener el email en todo momento para poder hacer el cambio
-        Yo lo dejo casi hecho pero no sé como lo recogerías, asi que te dejo una variable, pero yo para hacer
-        la comprobación la meto a pincho, para saber si funciona todo correcto.
-        De ser así solo tienes que poner el email. */        
-        $email = "alba@gmail.com";/* Lo pongo a pincho pero aquí si ya está verificado, el email tendría que recogerse aquí */
-        $newPass = $_REQUEST["password"];
+        /* El email lo he utilizado en el metodo de restablecePass para obtener 
+            el token  correspondiente de la base de datos. 
+            Aqui nada mas se modifica la contraseña */        
+        
+        $newPass = $_REQUEST["password"] ?? "";
         $newPassHash = password_hash($newPass, PASSWORD_DEFAULT);
-        (new Orm)->cambioPassword($newPassHash,$email);
-        echo Ti::render("view/passForget/passCambiada.phtml");
+        (new Orm)->cambioPassword($newPassHash);
+        
+        echo Ti::render("view/passForget/restablecerPass.phtml"); //formulario 
+        echo Ti::render("view/passForget/passCambiada.phtml");  // mensaje de aviso
     }
 
 /* ***** */

@@ -58,7 +58,7 @@ Macaw::get($URL_PATH . '/activada', "controller\UserController@cuentaActivada");
 
 Macaw::get($URL_PATH . '/passOlvidada', "controller\UserController@passOlvidada");
 Macaw::post($URL_PATH . '/restablecerPass', "controller\UserController@restablecePass");
-Macaw::post($URL_PATH . '/restablecer', "controller\UserController@cambioPass");
+Macaw::get($URL_PATH . '/restablecer/(:any)', "controller\UserController@cambioPass");
 Macaw::get($URL_PATH . '/api/recaptcha/(:any)', "controller\ApiController@recaptcha");
 
 

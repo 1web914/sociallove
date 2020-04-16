@@ -1,1 +1,5 @@
-- REGISTRATE AQUI NO ENTRA AL FORMULARIO XQ ES POR POST.
+X REGISTRATE AQUI NO ENTRA AL FORMULARIO XQ ES POR POST.
+- tildes del email de verificacion. 
+- validar en la base de datos la validacion del email del usuario al registrarse..
+- comprobaciones en el cambio de contraseña
+- registrate con gmail para ver como se visualiza el email

@@ -9,7 +9,7 @@ require 'PHPMailer/SMTP.php';
 // Instantiation and passing `true` enables exceptions
 require 'vendor/autoload.php';
 
-include_once('message.php');
+include_once('messageRecuPass.php');
 
 //$message = 'message.php';
 //$body = @readfile('message.html');   falla
@@ -27,7 +27,7 @@ try {
     $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
     //Recipients
-    $mail->setFrom('redsociallove@gmail.com', 'SocialLove dice: ');   //desde donde
+    $mail->setFrom('redsociallove@gmail.com','SocialLove :: Recuperar clave');   //desde donde
     $mail->addAddress($emaildestino);     // DESTINO a quien enviamos
     //$mail->addAddress('ellen@example.com');               // Name is optional
     //$mail->addReplyTo('info@example.com', 'Information');
@@ -40,10 +40,10 @@ try {
 
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Confirmar la inscripcion de SocialLove';
+    $mail->Subject = 'Recuperacion de tu clave';
     //$mail->Body    = 'Para activar tu cuenta pulsa aqui <b>ENLACE!</b>';
 
-    $mail->Body = $message;
+    $mail->Body = $messageRecuPass;
     //include 'enviar-confirmacion.php';
 
     $mail->send();

@@ -3,7 +3,7 @@
 $variable="yokohono";
 
 
-$message="
+$messageRecuPass="
 
 <!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional //EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
 
@@ -18,7 +18,10 @@ $message="
 <title></title>
 <!--[if !mso]><!-->
 <!--<![endif]-->
-<style type='text/css'> body { margin: 0; padding: 0;
+<style type='text/css'>
+		body {
+			margin: 0;
+			padding: 0;
 		}
 
 		table,
@@ -124,6 +127,57 @@ $message="
 <tr style='vertical-align: top;' valign='top'>
 <td style='word-break: break-word; vertical-align: top;' valign='top'>
 <!--[if (mso)|(IE)]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td align='center' style='background-color:#faf5f5'><![endif]-->
+<div style='background-color:#ffffff;'>
+<div class='block-grid three-up' style='Margin: 0 auto; min-width: 320px; max-width: 650px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #1c2228;'>
+<div style='border-collapse: collapse;display: table;width: 100%;background-color:#1c2228;'>
+<!--[if (mso)|(IE)]><table width='100%' cellpadding='0' cellspacing='0' border='0' style='background-color:#ffffff;'><tr><td align='center'><table cellpadding='0' cellspacing='0' border='0' style='width:650px'><tr class='layout-full-width' style='background-color:#1c2228'><![endif]-->
+<!--[if (mso)|(IE)]><td align='center' width='216' style='background-color:#1c2228;width:216px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;' valign='top'><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;'><![endif]-->
+<div class='col num4' style='max-width: 320px; min-width: 216px; display: table-cell; vertical-align: top; width: 216px;'>
+<div style='width:100% !important;'>
+<!--[if (!mso)&(!IE)]><!-->
+<div style='border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;'>
+<!--<![endif]-->
+<div></div>
+<!--[if (!mso)&(!IE)]><!-->
+</div>
+<!--<![endif]-->
+</div>
+</div>
+<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+<!--[if (mso)|(IE)]></td><td align='center' width='216' style='background-color:#1c2228;width:216px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;' valign='top'><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;'><![endif]-->
+<div class='col num4' style='max-width: 320px; min-width: 216px; display: table-cell; vertical-align: top; width: 216px;'>
+<div style='width:100% !important;'>
+<!--[if (!mso)&(!IE)]><!-->
+<div style='border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;'>
+<!--<![endif]-->
+<div align='center' class='img-container center autowidth' style='padding-right: 0px;padding-left: 0px;'>
+<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr style='line-height:0px'><td style='padding-right: 0px;padding-left: 0px;' align='center'><![endif]-->
+<div style='font-size:1px;line-height:15px'> </div><img align='center' alt='Image' border='0' class='center autowidth' src='https://i.ibb.co/HxB671M/logo-1.png' style='text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 216px; display: block;' title='Image' width='216'/>
+<!--[if mso]></td></tr></table><![endif]-->
+</div>
+<!--[if (!mso)&(!IE)]><!-->
+</div>
+<!--<![endif]-->
+</div>
+</div>
+<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+<!--[if (mso)|(IE)]></td><td align='center' width='216' style='background-color:#1c2228;width:216px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;' valign='top'><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;'><![endif]-->
+<div class='col num4' style='max-width: 320px; min-width: 216px; display: table-cell; vertical-align: top; width: 216px;'>
+<div style='width:100% !important;'>
+<!--[if (!mso)&(!IE)]><!-->
+<div style='border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;'>
+<!--<![endif]-->
+<div></div>
+<!--[if (!mso)&(!IE)]><!-->
+</div>
+<!--<![endif]-->
+</div>
+</div>
+<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+</div>
+</div>
+</div>
 <div style='background-color:transparent;'>
 <div class='block-grid' style='Margin: 0 auto; min-width: 320px; max-width: 650px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: #1c2228;'>
 <div style='border-collapse: collapse;display: table;width: 100%;background-color:#1c2228;'>
@@ -134,18 +188,12 @@ $message="
 <!--[if (!mso)&(!IE)]><!-->
 <div style='border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:0px; padding-bottom:15px; padding-right: 0px; padding-left: 0px;'>
 <!--<![endif]-->
-<div align='center' class='img-container center fixedwidth' style='padding-right: 0px;padding-left: 0px;'>
-<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr style='line-height:0px'><td style='padding-right: 0px;padding-left: 0px;' align='center'><![endif]-->
-<div style='font-size:1px;line-height:20px'> </div><img align='center' alt='logo' border='0' class='center fixedwidth' src='https://i.ibb.co/HxB671M/logo-1.png' style='text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 130px; display: block;' title='logo' width='130'/>
-<div style='font-size:1px;line-height:10px'> </div>
-<!--[if mso]></td></tr></table><![endif]-->
-</div>
 <!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 10px; padding-left: 10px; padding-top: 0px; padding-bottom: 20px; font-family: Georgia, serif'><![endif]-->
 <div style='color:#fa3f5f;font-family:Playfair Display, Georgia, serif;line-height:1.2;padding-top:0px;padding-right:10px;padding-bottom:20px;padding-left:10px;'>
 <div style='font-size: 14px; line-height: 1.2; color: #fa3f5f; font-family: Playfair Display, Georgia, serif; mso-line-height-alt: 17px;'>
-<p style='font-size: 42px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 50px; margin: 0;'><span style='color: #ffffff; font-size: 42px;'><u><strong>SOCIAL LOVE</strong></u></span></p>
-<br><br>
-<p style='font-size: 17px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 20px; mso-ansi-font-size: 18px; margin: 0;'><span style='color: #ffffff; font-size: 17px; mso-ansi-font-size: 18px;'><u></u><span style='font-size: 24px;'>Activacion de la cuenta.</span></span></p>
+<p style='font-size: 42px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 50px; margin: 0;'><span style='color: #ffffff; font-size: 42px;'><u><strong>SOCIAL LOVE</strong></u></p></span>
+<br/>
+<p style='font-size: 17px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 20px; mso-ansi-font-size: 18px; margin: 0;'><span style='color: #ffffff; font-size: 17px; mso-ansi-font-size: 18px;'><u></u><span style='font-size: 24px;'>Recuperaci&oacute;n de contrase&ntilde;a.</span></span></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
@@ -165,126 +213,51 @@ $message="
 </tbody>
 </table>
 <div align='center' class='button-container' style='padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;'>
-<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0' style='border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;'><tr><td style='padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px' align='center'><v:roundrect xmlns:v='urn:schemas-microsoft-com:vml' xmlns:w='urn:schemas-microsoft-com:office:word' href='http://localhost/sociallove/' style='height:34.5pt; width:159.75pt; v-text-anchor:middle;' arcsize='55%' strokeweight='1.5pt' strokecolor='#FAF5F5' fillcolor='#f24c6f'><w:anchorlock/><v:textbox inset='0,0,0,0'><center style='color:#ffffff; font-family:Georgia, serif; font-size:16px'><![endif]--><a href='http://localhost/sociallove/' style='-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #f24c6f; border-radius: 25px; -webkit-border-radius: 25px; -moz-border-radius: 25px; width: auto; width: auto; border-top: 2px solid #FAF5F5; border-right: 2px solid #FAF5F5; border-bottom: 2px solid #FAF5F5; border-left: 2px solid #FAF5F5; padding-top: 5px; padding-bottom: 5px; font-family: Playfair Display, Georgia, serif; text-align: center; mso-border-alt: none; word-break: keep-all;' target='_blank'><span style='padding-left:35px;padding-right:35px;font-size:16px;display:inline-block;'><span style='line-height: 32px; word-break: break-word;'>ACTIVAR</span></span></a>
+<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0' style='border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;'><tr><td style='padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px' align='center'><v:roundrect xmlns:v='urn:schemas-microsoft-com:vml' xmlns:w='urn:schemas-microsoft-com:office:word' href='http://localhost/sociallove/restablecer/$token' style='height:34.5pt; width:180.75pt; v-text-anchor:middle;' arcsize='55%' strokeweight='1.5pt' strokecolor='#FAF5F5' fillcolor='#f24c6f'><w:anchorlock/><v:textbox inset='0,0,0,0'><center style='color:#ffffff; font-family:Georgia, serif; font-size:16px'><![endif]--><a href='http://localhost/sociallove/restablecer/$token' style='-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #f24c6f; border-radius: 25px; -webkit-border-radius: 25px; -moz-border-radius: 25px; width: auto; width: auto; border-top: 2px solid #FAF5F5; border-right: 2px solid #FAF5F5; border-bottom: 2px solid #FAF5F5; border-left: 2px solid #FAF5F5; padding-top: 5px; padding-bottom: 5px; font-family: Playfair Display, Georgia, serif; text-align: center; mso-border-alt: none; word-break: keep-all;' target='_blank'><span style='padding-left:35px;padding-right:35px;font-size:16px;display:inline-block;'><span style='line-height: 32px; word-break: break-word;'>RECUPERAR</span></span></a>
 <!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
 </div>
 <!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 40px; padding-left: 40px; padding-top: 20px; padding-bottom: 10px; font-family: Georgia, serif'><![endif]-->
 <div style='color:#454545;font-family:Playfair Display, Georgia, serif;line-height:1.5;padding-top:20px;padding-right:40px;padding-bottom:10px;padding-left:40px;'>
 <div style='font-size: 14px; line-height: 1.5; color: #454545; font-family: Playfair Display, Georgia, serif; mso-line-height-alt: 21px;'>
-<p style='text-align: center; line-height: 1.5; word-break: break-word; font-size: 18px; mso-line-height-alt: 27px; margin: 0;'><span style='font-size: 18px; color: #ffffff;'>Bienvenid@ a Sociallove, el supermercado mas dulce!</span></p>
-<p style='text-align: center; line-height: 1.5; word-break: break-word; font-size: 18px; mso-line-height-alt: 27px; margin: 0;'><span style='font-size: 18px; color: #ffffff;'>Para confirmar tu inscripcion, haz clic en Activar.</span></p>
+<p style='line-height: 1.5; word-break: break-word; text-align: center; font-size: 16px; mso-line-height-alt: 24px; margin: 0;'><span style='font-size: 16px; color: #ffffff;'>Estimado usuario:</span></p>
+<br/>
+<p style='line-height: 1.5; word-break: break-word; text-align: center; font-size: 16px; mso-line-height-alt: 24px; margin: 0;'><span style='font-size: 16px; color: #ffffff;'>Has recibido este correo porque has solicitado recuperar tu clave.</span></p>
+<br/>
+<p style='line-height: 1.5; word-break: break-word; text-align: center; font-size: 16px; mso-line-height-alt: 24px; margin: 0;'><span style='font-size: 16px; color: #ffffff;>Para proceder pulsa el siguiente enlace o pega</span></p>
+<br/>
+<p style='line-height: 1.5; word-break: break-word; text-align: center; font-size: 16px; mso-line-height-alt: 24px; margin: 0;'><span style='font-size: 16px; color: #ffffff;'>la siguiente direcci&oacute;n en tu navegador:</span></p>
+<br/>
+<p style='line-height: 1.5; word-break: break-word; text-align: center; mso-line-height-alt: NaNpx; margin: 0;'><em><span style='color: #f24c6f; font-size: 16px;'><u><span style=''>http://localhost/sociallove/restablecer/$token</span></u></span></em></p>
+<br/>
+<br/>
+<p style='line-height: 1.5; word-break: break-word; text-align: center; font-size: 16px; mso-line-height-alt: 24px; margin: 0;'><span style='font-size: 16px;color: #ffffff;'>Si no has solicitado un cambio de contrase&ntilde;a</span></p>
+<br/>
+<p style='line-height: 1.5; word-break: break-word; text-align: center; font-size: 16px; mso-line-height-alt: 24px; margin: 0;'><span style='font-size: 16px;'><span style='color: #ffffff;'>omite y elimina este email.</span></span></p>
+<br/>
+<br/>
+<p style='line-height: 1.5; word-break: break-word; text-align: center; font-size: 16px; mso-line-height-alt: 24px; margin: 0;'><span style='font-size: 16px;'><span style='color: #ffffff;'>Un saludo del equipo de Sociallove.</span></span></p>
+<br/>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
+<table border='0' cellpadding='0' cellspacing='0' class='divider' role='presentation' style='table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;' valign='top' width='100%'>
+<tbody>
+<tr style='vertical-align: top;' valign='top'>
+<td class='divider_inner' style='word-break: break-word; vertical-align: top; min-width: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px;' valign='top'>
+<table align='center' border='0' cellpadding='0' cellspacing='0' class='divider_content' role='presentation' style='table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-top: 1px solid #BBBBBB; width: 100%;' valign='top' width='100%'>
+<tbody>
+<tr style='vertical-align: top;' valign='top'>
+<td style='word-break: break-word; vertical-align: top; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;' valign='top'><span></span></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
 <div align='center' class='button-container' style='padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;'>
-<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0' style='border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;'><tr><td style='padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px' align='center'><v:roundrect xmlns:v='urn:schemas-microsoft-com:vml' xmlns:w='urn:schemas-microsoft-com:office:word' href='http://localhost/sociallove/' style='height:34.5pt; width:159.75pt; v-text-anchor:middle;' arcsize='55%' strokeweight='1.5pt' strokecolor='#FAF5F5' fillcolor='#f24c6f'><w:anchorlock/><v:textbox inset='0,0,0,0'><center style='color:#ffffff; font-family:Georgia, serif; font-size:16px'><![endif]--><a href='http://localhost/sociallove/' style='-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #f24c6f; border-radius: 25px; -webkit-border-radius: 25px; -moz-border-radius: 25px; width: auto; width: auto; border-top: 2px solid #FAF5F5; border-right: 2px solid #FAF5F5; border-bottom: 2px solid #FAF5F5; border-left: 2px solid #FAF5F5; padding-top: 5px; padding-bottom: 5px; font-family: Playfair Display, Georgia, serif; text-align: center; mso-border-alt: none; word-break: keep-all;' target='_blank'><span style='padding-left:35px;padding-right:35px;font-size:16px;display:inline-block;'><span style='line-height: 32px; word-break: break-word;'>ACTIVAR</span></span></a>
+<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0' style='border-spacing: 0; border-collapse: collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;'><tr><td style='padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px' align='center'><v:roundrect xmlns:v='urn:schemas-microsoft-com:vml' xmlns:w='urn:schemas-microsoft-com:office:word' href='http://localhost/sociallove/restablecer/$token' style='height:34.5pt; width:180.75pt; v-text-anchor:middle;' arcsize='55%' strokeweight='1.5pt' strokecolor='#FAF5F5' fillcolor='#f24c6f'><w:anchorlock/><v:textbox inset='0,0,0,0'><center style='color:#ffffff; font-family:Georgia, serif; font-size:16px'><![endif]--><a href='http://localhost/sociallove/restablecer/$token' style='-webkit-text-size-adjust: none; text-decoration: none; display: inline-block; color: #ffffff; background-color: #f24c6f; border-radius: 25px; -webkit-border-radius: 25px; -moz-border-radius: 25px; width: auto; width: auto; border-top: 2px solid #FAF5F5; border-right: 2px solid #FAF5F5; border-bottom: 2px solid #FAF5F5; border-left: 2px solid #FAF5F5; padding-top: 5px; padding-bottom: 5px; font-family: Playfair Display, Georgia, serif; text-align: center; mso-border-alt: none; word-break: keep-all;' target='_blank'><span style='padding-left:35px;padding-right:35px;font-size:16px;display:inline-block;'><span style='line-height: 32px; word-break: break-word;'>RECUPERAR</span></span></a>
 <!--[if mso]></center></v:textbox></v:roundrect></td></tr></table><![endif]-->
-</div>
-<!--[if (!mso)&(!IE)]><!-->
-</div>
-<!--<![endif]-->
-</div>
-</div>
-<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
-</div>
-</div>
-</div>
-<div style='background-color:transparent;'>
-<div class='block-grid three-up' style='Margin: 0 auto; min-width: 320px; max-width: 650px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;'>
-<div style='border-collapse: collapse;display: table;width: 100%;background-color:transparent;'>
-<!--[if (mso)|(IE)]><table width='100%' cellpadding='0' cellspacing='0' border='0' style='background-color:transparent;'><tr><td align='center'><table cellpadding='0' cellspacing='0' border='0' style='width:650px'><tr class='layout-full-width' style='background-color:transparent'><![endif]-->
-<!--[if (mso)|(IE)]><td align='center' width='216' style='background-color:transparent;width:216px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;' valign='top'><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;'><![endif]-->
-<div class='col num4' style='max-width: 320px; min-width: 216px; display: table-cell; vertical-align: top; width: 216px;'>
-<div style='width:100% !important;'>
-<!--[if (!mso)&(!IE)]><!-->
-<div style='border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;'>
-<!--<![endif]-->
-<div align='center' class='img-container center autowidth' style='padding-right: 5px;padding-left: 5px;'>
-<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr style='line-height:0px'><td style='padding-right: 5px;padding-left: 5px;' align='center'><![endif]-->
-<div style='font-size:1px;line-height:5px'> </div><img align='center' alt='Image' border='0' class='center autowidth' src='https://i.ibb.co/phdYVqp/chica10.jpg' style='text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 216px; display: block;' title='Image' width='216'/>
-<div style='font-size:1px;line-height:5px'> </div>
-<!--[if mso]></td></tr></table><![endif]-->
-</div>
-<!--[if (!mso)&(!IE)]><!-->
-</div>
-<!--<![endif]-->
-</div>
-</div>
-<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-<!--[if (mso)|(IE)]></td><td align='center' width='216' style='background-color:transparent;width:216px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;' valign='top'><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;'><![endif]-->
-<div class='col num4' style='max-width: 320px; min-width: 216px; display: table-cell; vertical-align: top; width: 216px;'>
-<div style='width:100% !important;'>
-<!--[if (!mso)&(!IE)]><!-->
-<div style='border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;'>
-<!--<![endif]-->
-<div align='center' class='img-container center autowidth' style='padding-right: 5px;padding-left: 5px;'>
-<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr style='line-height:0px'><td style='padding-right: 5px;padding-left: 5px;' align='center'><![endif]-->
-<div style='font-size:1px;line-height:5px'> </div><img align='center' alt='Image' border='0' class='center autowidth' src='https://i.ibb.co/mHt0kTR/chica11.jpg' style='text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 216px; display: block;' title='Image' width='216'/>
-<div style='font-size:1px;line-height:5px'> </div>
-<!--[if mso]></td></tr></table><![endif]-->
-</div>
-<!--[if (!mso)&(!IE)]><!-->
-</div>
-<!--<![endif]-->
-</div>
-</div>
-<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-<!--[if (mso)|(IE)]></td><td align='center' width='216' style='background-color:transparent;width:216px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;' valign='top'><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;'><![endif]-->
-<div class='col num4' style='max-width: 320px; min-width: 216px; display: table-cell; vertical-align: top; width: 216px;'>
-<div style='width:100% !important;'>
-<!--[if (!mso)&(!IE)]><!-->
-<div style='border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;'>
-<!--<![endif]-->
-<div align='center' class='img-container center autowidth' style='padding-right: 5px;padding-left: 5px;'>
-<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr style='line-height:0px'><td style='padding-right: 5px;padding-left: 5px;' align='center'><![endif]-->
-<div style='font-size:1px;line-height:5px'> </div><img align='center' alt='Image' border='0' class='center autowidth' src='https://i.ibb.co/dtHfvXw/chica13.jpg' style='text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 216px; display: block;' title='Image' width='216'/>
-<div style='font-size:1px;line-height:5px'> </div>
-<!--[if mso]></td></tr></table><![endif]-->
-</div>
-<!--[if (!mso)&(!IE)]><!-->
-</div>
-<!--<![endif]-->
-</div>
-</div>
-<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
-</div>
-</div>
-</div>
-<div style='background-color:transparent;'>
-<div class='block-grid two-up' style='Margin: 0 auto; min-width: 320px; max-width: 650px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;'>
-<div style='border-collapse: collapse;display: table;width: 100%;background-color:transparent;'>
-<!--[if (mso)|(IE)]><table width='100%' cellpadding='0' cellspacing='0' border='0' style='background-color:transparent;'><tr><td align='center'><table cellpadding='0' cellspacing='0' border='0' style='width:650px'><tr class='layout-full-width' style='background-color:transparent'><![endif]-->
-<!--[if (mso)|(IE)]><td align='center' width='325' style='background-color:transparent;width:325px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;' valign='top'><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;'><![endif]-->
-<div class='col num6' style='min-width: 320px; max-width: 325px; display: table-cell; vertical-align: top; width: 325px;'>
-<div style='width:100% !important;'>
-<!--[if (!mso)&(!IE)]><!-->
-<div style='border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;'>
-<!--<![endif]-->
-<div align='center' class='img-container center autowidth' style='padding-right: 5px;padding-left: 5px;'>
-<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr style='line-height:0px'><td style='padding-right: 5px;padding-left: 5px;' align='center'><![endif]-->
-<div style='font-size:1px;line-height:5px'> </div><img align='center' alt='Image' border='0' class='center autowidth' src='https://i.ibb.co/TbNdHfZ/chico22.jpg' style='text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 325px; display: block;' title='Image' width='325'/>
-<div style='font-size:1px;line-height:5px'> </div>
-<!--[if mso]></td></tr></table><![endif]-->
-</div>
-<!--[if (!mso)&(!IE)]><!-->
-</div>
-<!--<![endif]-->
-</div>
-</div>
-<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
-<!--[if (mso)|(IE)]></td><td align='center' width='325' style='background-color:transparent;width:325px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;' valign='top'><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;'><![endif]-->
-<div class='col num6' style='min-width: 320px; max-width: 325px; display: table-cell; vertical-align: top; width: 325px;'>
-<div style='width:100% !important;'>
-<!--[if (!mso)&(!IE)]><!-->
-<div style='border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;'>
-<!--<![endif]-->
-<div align='center' class='img-container center autowidth' style='padding-right: 5px;padding-left: 5px;'>
-<!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr style='line-height:0px'><td style='padding-right: 5px;padding-left: 5px;' align='center'><![endif]-->
-<div style='font-size:1px;line-height:5px'> </div><img align='center' alt='Image' border='0' class='center autowidth' src='https://i.ibb.co/ZL05fdb/4a119011-ede7-433b-9793-4d7a18f04983.jpg' style='text-decoration: none; -ms-interpolation-mode: bicubic; border: 0; height: auto; width: 100%; max-width: 325px; display: block;' title='Image' width='325'/>
-<div style='font-size:1px;line-height:5px'> </div>
-<!--[if mso]></td></tr></table><![endif]-->
 </div>
 <!--[if (!mso)&(!IE)]><!-->
 </div>
@@ -321,6 +294,39 @@ $message="
 </tr>
 </tbody>
 </table>
+<!--[if (!mso)&(!IE)]><!-->
+</div>
+<!--<![endif]-->
+</div>
+</div>
+<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+<!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+</div>
+</div>
+</div>
+<div style='background-color:transparent;'>
+<div class='block-grid three-up' style='Margin: 0 auto; min-width: 320px; max-width: 650px; overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; background-color: transparent;'>
+<div style='border-collapse: collapse;display: table;width: 100%;background-color:transparent;'>
+<!--[if (mso)|(IE)]><table width='100%' cellpadding='0' cellspacing='0' border='0' style='background-color:transparent;'><tr><td align='center'><table cellpadding='0' cellspacing='0' border='0' style='width:650px'><tr class='layout-full-width' style='background-color:transparent'><![endif]-->
+<!--[if (mso)|(IE)]><td align='center' width='216' style='background-color:transparent;width:216px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;' valign='top'><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;'><![endif]-->
+<div class='col num4' style='max-width: 320px; min-width: 216px; display: table-cell; vertical-align: top; width: 216px;'>
+<div style='width:100% !important;'>
+<!--[if (!mso)&(!IE)]><!-->
+<div style='border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;'>
+<!--<![endif]-->
+<div></div>
+<!--[if (!mso)&(!IE)]><!-->
+</div>
+<!--<![endif]-->
+</div>
+</div>
+<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+<!--[if (mso)|(IE)]></td><td align='center' width='216' style='background-color:transparent;width:216px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;' valign='top'><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;'><![endif]-->
+<div class='col num4' style='max-width: 320px; min-width: 216px; display: table-cell; vertical-align: top; width: 216px;'>
+<div style='width:100% !important;'>
+<!--[if (!mso)&(!IE)]><!-->
+<div style='border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;'>
+<!--<![endif]-->
 <table cellpadding='0' cellspacing='0' class='social_icons' role='presentation' style='table-layout: fixed; vertical-align: top; border-spacing: 0; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;' valign='top' width='100%'>
 <tbody>
 <tr style='vertical-align: top;' valign='top'>
@@ -339,6 +345,19 @@ $message="
 </tr>
 </tbody>
 </table>
+<!--[if (!mso)&(!IE)]><!-->
+</div>
+<!--<![endif]-->
+</div>
+</div>
+<!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+<!--[if (mso)|(IE)]></td><td align='center' width='216' style='background-color:transparent;width:216px; border-top: 0px solid transparent; border-left: 0px solid transparent; border-bottom: 0px solid transparent; border-right: 0px solid transparent;' valign='top'><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 0px; padding-left: 0px; padding-top:5px; padding-bottom:5px;'><![endif]-->
+<div class='col num4' style='max-width: 320px; min-width: 216px; display: table-cell; vertical-align: top; width: 216px;'>
+<div style='width:100% !important;'>
+<!--[if (!mso)&(!IE)]><!-->
+<div style='border-top:0px solid transparent; border-left:0px solid transparent; border-bottom:0px solid transparent; border-right:0px solid transparent; padding-top:5px; padding-bottom:5px; padding-right: 0px; padding-left: 0px;'>
+<!--<![endif]-->
+<div></div>
 <!--[if (!mso)&(!IE)]><!-->
 </div>
 <!--<![endif]-->
@@ -377,7 +396,7 @@ $message="
 <!--[if mso]><table width='100%' cellpadding='0' cellspacing='0' border='0'><tr><td style='padding-right: 0px; padding-left: 0px; padding-top: 0px; padding-bottom: 0px; font-family: Georgia, serif'><![endif]-->
 <div style='color:#454545;font-family:Playfair Display, Georgia, serif;line-height:1.2;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;'>
 <div style='font-size: 14px; line-height: 1.2; color: #454545; font-family: Playfair Display, Georgia, serif; mso-line-height-alt: 17px;'>
-<p style='font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;'>2020 - All rigths reserved | <a href='mailto:company@email.com' style='text-decoration: none; color: #454545;' title='company@email.com'>sociallove@gmail.com</a></p>
+<p style='font-size: 14px; line-height: 1.2; word-break: break-word; text-align: center; mso-line-height-alt: 17px; margin: 0;'>All rigths reserved - 2020 | <a href='mailto:company@email.com' style='text-decoration: none; color: #454545;' title='company@email.com'>sociallove@gmail.com</a></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->

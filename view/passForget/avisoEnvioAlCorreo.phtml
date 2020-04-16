@@ -1,0 +1,46 @@
+<?php
+// necesitamos la trayectoria de la URL para formar las rutas:
+global $URL_PATH;
+global $login_url;
+\dawfony\Ti::extend("view/cabeceras/headerView.phtml");
+\dawfony\Ti::endExtend();
+?>
+
+<body class="imagen-fondo-body" style="background-image: url('<?= $URL_PATH ?>/assets/fotosInterfaces/fondoBody.png');
+    background-repeat: repeat;
+    background-color: #fbf6f9;">
+
+    <div class="jumbotron">
+        <header>
+            <div class="img-container img-logo-vip">
+                <img class="img-fluid img-logo " src="<?= $URL_PATH ?>/assets/fotosInterfaces/logo.png" data-srcpng="" alt="socialLoveLogo">
+                <h1 class="img-logo logo-h1 ">SOCIAL LOVE</h1>
+            </div>
+        </header>
+    </div>
+
+    <div class="container passforget-principal" id="">
+        <div class="passforget col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel-info-pass">
+                <div class="panel-head">
+                    <div class="panel-title">Recuperar Password</div>
+                </div>
+                <br>
+                <div style="padding-top:30px" class="panel-body">
+                    <span class="lead"> Se ha enviado un correo
+                        electrónico a la dirección de correo <b><?php  echo $email ?></b>
+                        con las instrucciones para el cambio de tu contraseña.
+                        Por favor verifica en tu bandeja la información enviada.</span>
+                </div><br><br><br>
+                <div class="text-center">
+                    <a class="btn btn-primary btn-large w-50" href="<?= $URL_PATH ?>/">Iniciar sesion</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <?php \dawfony\Ti::extend("view/cabeceras/footerView.phtml"); ?>
+    <?php \dawfony\Ti::endExtend(); ?>
+</body>

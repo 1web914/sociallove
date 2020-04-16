@@ -102,6 +102,14 @@ class Orm
         $sql = "INSERT INTO usuario (login, password, email, nombre, apellidos, edad, hechizos, genero, busco, ubicacion, rol_id, rango_id, foto_perfil, validacion, sobreti, gustos, loquebuscas, aficciones) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $bd->execute($sql, [$usuario->login, $usuario->password, $usuario->email, $usuario->nombre, $usuario->apellidos, $usuario->edad, $usuario->hechizos, $usuario->genero, $usuario->busco, $usuario->ubicacion, $usuario->rol_id, $usuario->rango_id, $usuario->foto, $validacion, $usuario->sobreti, $usuario->gustos, $usuario->loquebuscas, $usuario->aficciones]);
     }
+    function obtenerNumValidacion($email)
+    {
+        $bd = Klasto::getInstance();
+        $sql = "SELECT validacion FROM usuario WHERE email = ?";
+        return $bd->queryOne($sql, [$email]);
+        //SELECT validacion FROM `usuario` WHERE email = 'alba@gmail.com';
+        //return $bd->queryOne($sql, [$email])["COUNT(*)"];        
+    }
 
     /* ********* */
 
@@ -214,11 +222,11 @@ class Orm
     }
 
 
-    public function cambioPassword($newPass, $email)
+    public function cambioPassword($newPass)
     {
         return Klasto::getInstance()->execute(
-            "UPDATE `usuario` SET `password`=? WHERE email = ?",
-            [$newPass, $email]
+            "UPDATE `usuario` SET `password`= ? ",
+            [$newPass]
         );
 
     }
