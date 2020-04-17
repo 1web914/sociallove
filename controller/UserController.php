@@ -103,11 +103,11 @@ class UserController extends Controller
         $usuario->activada = "0";
        
         /*CHECKBOX AFICCIONES*/
-        if (is_array($_POST['aficciones'] ?? "")) {
+        if (is_array($_POST['aficiones'] ?? "")) {
             $selectedaf = '';
-            $num_af = count($_POST['aficciones']);
+            $num_af = count($_POST['aficiones']);
             $currentaf = 0;
-            foreach ($_POST['aficciones'] as $key => $v) {
+            foreach ($_POST['aficiones'] as $key => $v) {
                 if ($currentaf != $num_af - 1)
                     $selectedaf .= $v . ', ';
                 else
@@ -118,7 +118,7 @@ class UserController extends Controller
             $selectedaf = "";
         }
         //echo '<div>Has seleccionado: '.$selected.'</div>'; //los que ha seleccionado
-        $usuario->aficciones = $selectedaf;
+        $usuario->aficiones = $selectedaf;
         $usuario->busco = $_REQUEST["busco"];
         //foto del usuario
         $usuario->foto = $_FILES["foto"]["name"];
@@ -166,8 +166,8 @@ class UserController extends Controller
         global $URL_PATH;        
         
         if($accionUS == 0){           
-            $selectActivada = (new Orm)->dimeSiCuentaActivada($validar);           
-                if($selectActivada == 0) {
+            $selectActivada = (new Orm)->dimeSiCuentaActivada($validar);            
+                if($selectActivada === 0) {
                     //modificar 0 por 1
                     (new Orm)->poner1Activada($validar);
                     echo Ti::render("view/registro/cuentaActivada.phtml");

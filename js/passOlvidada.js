@@ -25,28 +25,32 @@ function passOlvidada(a) {
         return false;
 
     } else {
-        /* Voy hacer un fetch para ver si me devuelve true al hacer recaptcha */
-        /* window.location.replace(URL_PATH + "/api/recaptcha/" + captcha);  ESTO ES UNA PRUEBA PARA ER LO QUE NOS DARÍA ESTÁ
-        TODO COMENTADO EN EL API CONTROLLER PASSOLVIDADA, TENEMOS EL ERROR DEL FETCH,DE MOMENTO HASTA NUEVO AVISO LO DEJAMOS ASI. */
-        fetch(URL_PATH + "/api/recaptcha/" + captcha)
-            .then((res) => res.json())
-            .then((res) => {
-                //RES DEVUELVE TRUE;
-                //res = false; //pruebas
-                //alert(res);                
-                /*fetch envia la comprobacion a google y devuelve RES DEVUELVE TRUE; */           
-                alert("fetch ok")
-            if (res) {
-                    return true;
-                }
-                alert("error interno en captcha, intentalo mas tarde");
-                location.reload(true); //recargamos la pagina 
-            });
+        //seTtimeout para dar tiempo a la captcha y que no lance un pequeño error
+        setTimeout(
+            function () {
+                /* Voy hacer un fetch para ver si me devuelve true al hacer recaptcha */
+                /* window.location.replace(URL_PATH + "/api/recaptcha/" + captcha);  ESTO ES UNA PRUEBA PARA ER LO QUE NOS DARÍA ESTÁ
+                TODO COMENTADO EN EL API CONTROLLER PASSOLVIDADA, TENEMOS EL ERROR DEL FETCH,DE MOMENTO HASTA NUEVO AVISO LO DEJAMOS ASI. */
+                fetch(URL_PATH + "/api/recaptcha/" + captcha)
+                    .then((res) => res.json())
+                    .then((res) => {
+                        //RES DEVUELVE TRUE;                                       
+                        /*fetch envia la comprobacion a google y devuelve RES DEVUELVE TRUE; */
+                        //alert("fetch ok")
+                        if (res) {
+                            return true;
+                        }
+                        //si hay algun error en la captcha refresca la pagina
+                        //alert("error interno en captcha, intentalo mas tarde");
+                        location.reload(true); //recargamos la pagina 
+                    });
+            }, 3000);
+
     }
 }
 
 /********* Alberto **********/
-function recPassEmail(){
+function recPassEmail() {
     //$("#btn_modal").trigger("click");
     let email = $('#email').val();
     let campoEmail = $('#email');
@@ -65,7 +69,7 @@ function recPassEmail(){
                     document.getElementById("checkemail").innerHTML = "<i class='fa fa-check' style='color:green'>ok</i>";
                     campoEmail.addClass("is-valid");
                     document.getElementById("preboton").disabled = false;
-                } else {                    
+                } else {
                     document.getElementById("checkemail").innerHTML = "<a href='http://localhost" + URL_PATH + "'>Registrate aqu&iacute;</a>";
                     campoEmail.addClass("is-invalid");
                     document.getElementById("preboton").disabled = true;
@@ -76,11 +80,11 @@ function recPassEmail(){
 
 
 /* passOlvidada.phtml onload */
-function webpassOlvidadaLoad() {    
+function webpassOlvidadaLoad() {
     $("#loaderpost").css('visibility', 'hidden'); //oculto el loader
 }
 
 function webpassOlvidadaLoader() {
-    $("#loaderpost").css('visibility', 'visible'); 
+    $("#loaderpost").css('visibility', 'visible');
 
 }

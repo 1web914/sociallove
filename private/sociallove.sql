@@ -187,14 +187,14 @@ CREATE TABLE `usuario` (
   `sobreti` varchar(255) COLLATE utf8_spanish2_ci NOT NULL,
   `gustos` text COLLATE utf8_spanish2_ci NOT NULL,
   `loquebuscas` varchar(255) COLLATE utf8_spanish2_ci NOT NULL,
-  `aficciones` text COLLATE utf8_spanish2_ci NOT NULL
+  `aficiones` text COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`login`, `password`, `email`, `nombre`, `apellidos`, `edad`, `hechizos`, `genero`, `busco`, `ubicacion`, `rol_id`, `rango_id`, `foto_perfil`, `validacion`, `sobreti`, `gustos`, `loquebuscas`, `aficciones`) VALUES
+INSERT INTO `usuario` (`login`, `password`, `email`, `nombre`, `apellidos`, `edad`, `hechizos`, `genero`, `busco`, `ubicacion`, `rol_id`, `rango_id`, `foto_perfil`, `validacion`, `sobreti`, `gustos`, `loquebuscas`, `aficiones`) VALUES
 ('Aithor', '$2y$10$qi2vgQCkaFLFQhGpIg6aMOr3c3Fmnal49sdAa1bbFDT5Gzp7u2zU6', 'Thor9977@yahoo.com', 'Aitor', '', 27, 3, 'chico', 'chica', 'Alcobendas', 1, 0, 'chico15.jpg', '', '', '', '', ''),
 ('Alba', '$2y$10$GN5L9/OG0P5z7k51nwFqLeYJGmkTnAkvCV2BOkcuy8eEugF/2BLLW', 'alba@gmail.com', 'Alba', '', 24, 3, 'chica', 'chico', 'Aldaia', 1, 0, 'chica1.jpg', '', '', '', '', ''),
 ('Albert', '$2y$10$qi2vgQCkaFLFQhGpIg6aMOr3c3Fmnal49sdAa1bbFDT5Gzp7u2zU6', 'albert@hotmail.com', 'Albert', '', 26, 3, 'chico', 'chica', 'Barcelona', 1, 0, 'chico23.jpg', '', '', '', '', ''),
