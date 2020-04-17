@@ -99,8 +99,8 @@ class Orm
     function insertarUsuario($usuario, $validacion)
     {
         $bd = Klasto::getInstance();
-        $sql = "INSERT INTO usuario (login, password, email, nombre, apellidos, edad, hechizos, genero, busco, ubicacion, rol_id, rango_id, foto_perfil, validacion, sobreti, gustos, loquebuscas, aficciones) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        $bd->execute($sql, [$usuario->login, $usuario->password, $usuario->email, $usuario->nombre, $usuario->apellidos, $usuario->edad, $usuario->hechizos, $usuario->genero, $usuario->busco, $usuario->ubicacion, $usuario->rol_id, $usuario->rango_id, $usuario->foto, $validacion, $usuario->sobreti, $usuario->gustos, $usuario->loquebuscas, $usuario->aficciones]);
+        $sql = "INSERT INTO usuario (login, password, email, nombre, apellidos, edad, hechizos, genero, busco, ubicacion, rol_id, rango_id, foto_perfil, validacion, activada, sobreti, gustos, loquebuscas, aficciones) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $bd->execute($sql, [$usuario->login, $usuario->password, $usuario->email, $usuario->nombre, $usuario->apellidos, $usuario->edad, $usuario->hechizos, $usuario->genero, $usuario->busco, $usuario->ubicacion, $usuario->rol_id, $usuario->rango_id, $usuario->foto, $validacion, $usuario->activada, $usuario->sobreti, $usuario->gustos, $usuario->loquebuscas, $usuario->aficciones]);
     }
     function obtenerNumValidacion($email)
     {
@@ -110,6 +110,25 @@ class Orm
         //SELECT validacion FROM `usuario` WHERE email = 'alba@gmail.com';
         //return $bd->queryOne($sql, [$email])["COUNT(*)"];        
     }
+    
+    function dimeSiCuentaActivada($validacion)
+    {
+        $bd = Klasto::getInstance();            
+        $sql = "SELECT activada FROM usuario where validacion = ?";
+        $dato =  $bd->queryOne($sql, [$validacion]);  
+        return $dato["activada"];   //saco solo el 1
+        //SELECT activada from usuario where validacion = '134905271485'
+    }
+    
+    public function poner1Activada($validacion)
+    {
+        Klasto::getInstance()->execute(
+            "UPDATE usuario SET activada = '1' where validacion = ? ",
+            [$validacion]
+        );
+        //UPDATE usuario SET activada = '3' where validacion = '134905271485';
+    }   
+    
 
     /* ********* */
 

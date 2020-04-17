@@ -13,6 +13,7 @@ class Usuario{
     public $rol;
     public $compra_rango;
     public $validacion;
+    public $activada;//////////////añadi este 17/4/2020
     public $sobreti;
     public $gustos;
     public $loquebuscas;

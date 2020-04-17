@@ -1,8 +1,7 @@
-X REGISTRATE AQUI NO ENTRA AL FORMULARIO XQ ES POR POST.
-- tildes del email de verificacion. 
-- validar en la base de datos la validacion del email del usuario al registrarse..
+X tildes del email de verificacion. 
+X activacion de la cuenta en bd..despues de registrarse
 X comprobaciones en el cambio de contraseña
 X registrate con gmail para ver como se visualiza el email
-- loading cambioPass (captcha)
+X loading cambioPass (captcha)
 - cambiar lo del ojo svg
 - caducidad en el codigo de activacion

@@ -47,13 +47,11 @@ Macaw::post($URL_PATH . '/postregistro', "controller\UserController@formularioRe
 
 
 //Post-registro
-//
 Macaw::post($URL_PATH . '/registro', "controller\UserController@procesarRegistro");
 Macaw::get($URL_PATH . '/api/comprobarLogin/(:any)', "controller\ApiController@apiComprobarLogin");
-Macaw::get($URL_PATH . '/activada', "controller\UserController@cuentaActivada");
+Macaw::get($URL_PATH . '/activate/(:num)/(:any)', "controller\UserController@cuentaActivada");
 
 /* ******************************** */
-
 /* Password Olvidada */
 
 Macaw::get($URL_PATH . '/passOlvidada', "controller\UserController@passOlvidada");

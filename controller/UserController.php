@@ -100,7 +100,8 @@ class UserController extends Controller
         $usuario->rol_id = "1";
         $usuario->rango_id = "0";
         $usuario->hechizos = "3";
-
+        $usuario->activada = "0";
+       
         /*CHECKBOX AFICCIONES*/
         if (is_array($_POST['aficciones'] ?? "")) {
             $selectedaf = '';
@@ -149,18 +150,33 @@ class UserController extends Controller
             $fecha = idate("U"); //fecha en formato int
             $aleatorio = rand(2, 99);  //aleatorio entre 0 y 99
             $validacion = $fecha * $aleatorio;
-
+            
             $insert = (new Orm)->insertarUsuario($usuario, $validacion);/* Esa variable tampoco hace nada */
             $emaildestino = "$usuario->email"; //falta cambiarlo por  $usuario->email
-            $data = ["email" => $emaildestino];
+            $data = ["email" => $emaildestino];            
+            $token = $validacion;
             include('emailcfg/enviar-confirmacion.php');
             echo Ti::render("view/registro/registroCompleto.phtml", $data);
         }
-    }
-
-    public function cuentaActivada()
-    {
-        echo Ti::render("view/registro/cuentaActivada.phtml");
+    } 
+    
+    // activacion de la cuenta despues de registrar
+    public function cuentaActivada($accionUS,$validar)
+    {       
+        global $URL_PATH;        
+        
+        if($accionUS == 0){           
+            $selectActivada = (new Orm)->dimeSiCuentaActivada($validar);           
+                if($selectActivada == 0) {
+                    //modificar 0 por 1
+                    (new Orm)->poner1Activada($validar);
+                    echo Ti::render("view/registro/cuentaActivada.phtml");
+                } else {
+                    header("Location: $URL_PATH/");
+                }     
+        } 
+        
+       header("Location: $URL_PATH/");
     }
 
 
