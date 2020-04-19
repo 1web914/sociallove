@@ -38,11 +38,7 @@ global $login_url;
 
                     <form class="form-pass" action="<?= $URL_PATH ?>/restablecerPassFin" onsubmit="return changePass()" method="POST" autocomplete="off">
 
-                        <div style="margin-bottom: 20px">
-                        <!-- AQUÍ ESTÁ TODO EL TEMA DE LAS CONTRASEÑAS, NO ME SALE EL CHECKED
-                            TAMBIÉN DA ERROR A LA HORA DE MARCAR, LA PRIMERA PALABRA NO ME SALE.
-                            TAMPOCO RECONOCE SI SON IGUALES O QUE.
-                            UTILIZO EL TUYO YA QUE LO TENEMOS HECHO,NO VAMOS A CREAR MAS. -->
+                        <div style="margin-bottom: 20px">                        
                             <label for="password" class="col-form-label col-form-label-sm ml-3 style-font">Contraseña <i class="fa fa-lock" style="font-size:20px"></i>&nbsp;&nbsp;<span id="checkpass"></span></label>
                             <div class="col-sm-11">
                                 <input type="password" name="password" class="form-control form-control-sm" id="password" placeholder="Ejemplo123" onkeydown="plugPasswStreng()"  autocomplete="new-password" required>
@@ -53,8 +49,9 @@ global $login_url;
                                 <div id="divcomprobarsisoniguales"></div>
                             </div>
                         </div>
-
-
+                                                            
+                        <input type="hidden" name="oldToken" value="<?=$oldToken?>" />
+                        
                         <div style="margin-bottom:20px; margin-left:30%;" class="col-sm-5 controls">
                             <button type="submit" id="thesubmitBoton" class="btn btn-primary  boton-confirm-tarjet pedido-btn btn-large">Enviar</button>
                         </div>

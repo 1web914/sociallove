@@ -106,9 +106,25 @@ class Orm
     {
         $bd = Klasto::getInstance();
         $sql = "SELECT validacion FROM usuario WHERE email = ?";
-        return $bd->queryOne($sql, [$email]);
+        $dato = $bd->queryOne($sql, [$email]);
+        return $dato["validacion"]; // devuelvo numero
         //SELECT validacion FROM `usuario` WHERE email = 'alba@gmail.com';
         //return $bd->queryOne($sql, [$email])["COUNT(*)"];        
+    }
+    function existeNumValidacion($validacion)
+    {        
+        $bd = Klasto::getInstance();
+        $sql = "SELECT COUNT(*) FROM usuario WHERE validacion = ?";
+        return $bd->queryOne($sql, [$validacion])["COUNT(*)"];        
+    }
+    
+    
+    function cambiarValidacionCB($newToken,$oldToken)
+    {
+        Klasto::getInstance()->execute(
+            "UPDATE usuario SET validacion = ? where validacion = ?",
+            [$newToken,$oldToken]
+        );    
     }
     
     function dimeSiCuentaActivada($validacion)
@@ -125,16 +141,23 @@ class Orm
         Klasto::getInstance()->execute(
             "UPDATE usuario SET activada = '1' where validacion = ? ",
             [$validacion]
-        );
-        //UPDATE usuario SET activada = '3' where validacion = '134905271485';
+        );       
     }   
     
+    public function caducidadNumValidacion($email,$newToken)
+    {              
+        /* NOBORRAR encendemos el generador a los 15 minutos */        
+        //Klasto::getInstance()->execute("CALL aleatoriodb()");
+        //Klasto::getInstance()->execute("CALL onevento()");        
+        //Klasto::getInstance()->execute("CALL offevento()");
+        //Klasto::getInstance()->execute("CALL setglobalevent1()");
+        //Klasto::getInstance()->execute("CALL setglobalevent0()");        
+        Klasto::getInstance()->execute("CALL setglobalevent1()");
+        sleep(3);
+        Klasto::getInstance()->execute("CALL onevento()");         
+    }    
 
     /* ********* */
-
-
-
-
 
     /* sacamos datos del paquete de zona vip el nombre y precio */
     function obtenerPaquete($id)
@@ -239,13 +262,11 @@ class Orm
             [$idPedido]
         );
     }
-
-
-    public function cambioPassword($newPass)
+    public function cambioPassword($newPassHash,$newToken)
     {
         return Klasto::getInstance()->execute(
-            "UPDATE `usuario` SET `password`= ? ",
-            [$newPass]
+            "UPDATE `usuario` SET `password`= ? WHERE validacion = ? ",
+            [$newPassHash,$newToken]
         );
 
     }

@@ -178,6 +178,14 @@ class UserController extends Controller
         
        header("Location: $URL_PATH/");
     }
+    
+    function dameUnAleatorio()
+    {
+        //generamos un aleatorio para enviar el correo al usuario
+            $fechaInt = idate("U"); //fecha en formato int
+            $unAleatorio = rand(2, 99);  //aleatorio entre 0 y 99
+            return $fechaInt * $unAleatorio;        
+    }
 
 
     /* *********** */
@@ -228,25 +236,21 @@ class UserController extends Controller
         (new Orm)->eliminarDatosUsuarioCompra($cod_pedido);
         header("Location: $URL_PATH/listado");
     }
-
-
-
-    /* ANGEL PASSWORD FORGET */
-    /* Contraseña olvidada */
+    /* ANGEL & Albert PASSWORD FORGET */
+    /* Contraseña olvidada CAPTCHA EN esta vista */   
     public function passOlvidada()
     {        
         echo Ti::render("view/passForget/passOlvidada.phtml");
     }
     /* obtenemos token con el email */
     public function restablecePass(){        
-        /* AQUI ENVIO DEL EMAIL*/
+        /* ENVIO DEL EMAIL */
         $email = $_REQUEST["email"] ?? "";        
-        if($email != ""){ //si el mail es correcto pedimos token y mandamos email
-            //aqui con el email del usuario obtengo el token que luego lo enviaré al email
-            $tokenArr = (new Orm)->obtenerNumValidacion($email);
-            $emaildestino = $email;
-            $token = $tokenArr["validacion"];
-            include('emailcfg/enviar-recuPass.php');           
+        if($email != ""){ //mail correcto pedimos token y mandamos email
+            //obtengo el token con el mail, para insertarlo en el email
+            $token = (new Orm)->obtenerNumValidacion($email);            
+            $emaildestino = $email;            
+            include('emailcfg/enviar-recuPass.php');            
             $data = ["email" => $email];
             echo Ti::render("view/passForget/avisoEnvioAlCorreo.phtml", $data);                 
         } else { //si el mail esta vacio retorna al captcha
@@ -254,14 +258,29 @@ class UserController extends Controller
         }       
     }
     /* restablecemos la contraseña get*/   
-    public function cambioPass(){       
-        echo Ti::render("view/passForget/restablecerPass.phtml"); //formulario         
+    public function cambioPass($validUsuario){   
+        $existeNumBase = (new Orm)->existeNumValidacion($validUsuario);
+        $oldToken = $validUsuario;
+        if($existeNumBase) {                       
+            $dataHide = ["oldToken" => $oldToken];
+            echo Ti::render("view/passForget/restablecerPass.phtml", $dataHide); //formulario     
+            //(new Orm)->caducidadNumValidacion($email,$newToken); NOBORRAR
+        } else {
+            global $URL_PATH;
+            header("Location: $URL_PATH/");
+        }          
     }
     /* mostramos mensaje y actualizamos cambios en bd  post*/
-    public function restablecePassFin(){    
-        $newPass = $_REQUEST["password"] ?? "";
-        $newPassHash = password_hash($newPass, PASSWORD_DEFAULT);
-        (new Orm)->cambioPassword($newPassHash);
+    public function restablecePassFin(){
+        $oldToken = $_REQUEST["oldToken"] ?? "";
+        //cambio validacion    
+        $objeto = new UserController;            
+        $newToken = $objeto->dameUnAleatorio();            
+        (new Orm)->cambiarValidacionCB($newToken,$oldToken);        
+        //cambio contraseña del $newToken
+        $newPass = $_REQUEST["password"] ?? "";        
+        $newPassHash = password_hash($newPass, PASSWORD_DEFAULT);        
+        (new Orm)->cambioPassword($newPassHash,$newToken);
         echo Ti::render("view/passForget/passCambiada.phtml");
     }
 

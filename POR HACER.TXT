@@ -3,5 +3,4 @@ X activacion de la cuenta en bd..despues de registrarse
 X comprobaciones en el cambio de contraseña
 X registrate con gmail para ver como se visualiza el email
 X loading cambioPass (captcha)
-- cambiar lo del ojo svg
-- caducidad en el codigo de activacion
+x cambiar lo del ojo svg
