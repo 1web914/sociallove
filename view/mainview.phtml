@@ -59,7 +59,7 @@ global $login_url;
                                     </div>
                                 </li>
                             </ul>
-                            <form class="form-inline my-2 my-lg-1" action="<?= $URL_PATH ?>/busqueda" onsubmit="return validarBusqueda()" method="POST">
+                            <form class="form-inline my-2 my-lg-1" action="<?= $URL_PATH ?>/busqueda" onsubmit="return validarBusqueda()" method="GET">
                                 <input type="text" name="busquedaUsuario" id="busqueda" onkeypress="return buscarUsuario()" aria-label="Search" class="form-control form-control mr-sm-1" placeholder="Búsqueda por gustos,nombre,ubicacion o aficiones ">
                                 <button type="submit" class="btn btn-outline-light my-2 my-sm-0"><i class="fas fa-search "></i></button>
                             </form>

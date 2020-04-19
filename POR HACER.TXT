@@ -9,3 +9,4 @@ x cambiar lo del ojo svg
 - Hechizos al meter 10 amigos(10 nuevas entradas nombrando al login ya existente se le suman 5 hechizos cada 24 horas)
 - Modificar
 - chat
+- cambiar letras del aviso del email tras registrarse ponerlas como avisoEnvioAlCorreo.phtml
