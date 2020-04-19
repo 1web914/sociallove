@@ -36,6 +36,7 @@ global $URL_PATH;
                 <?php endforeach; ?>
             </div>
         </div>
+        <!-- PAGINACIÓN HAY QUE HACERLA -->
         <nav aria-label="...">
             <ul class="pagination">
                 <li class="page-item <?= ($pagina  <= 1 ? "disabled" : "") ?>">

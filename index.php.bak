@@ -32,11 +32,11 @@ Macaw::get($URL_PATH . '/listado', "controller\PostController@listadoSesionInici
 Macaw::get($URL_PATH . '/listado/page/(:num)', "controller\PostController@listadoSesionIniciada");
 
 //busqueda de personas
-Macaw::get($URL_PATH . '/busqueda', "controller\PostController@busquedaUsuario");
-Macaw::get($URL_PATH . '/busqueda/page/(:num)', "controller\PostController@busquedaUsuario");
-
+Macaw::post($URL_PATH . '/busqueda', "controller\PostController@busquedaUsuario");
 //mirar el correo
 Macaw::get($URL_PATH . '/correo', "controller\PostController@listaCorreo");
+
+
 
 /* ******** */
 //ver perfil

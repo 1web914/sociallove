@@ -5,6 +5,7 @@ global $login_url;
 \dawfony\Ti::extend("view/cabeceras/headerView.phtml");
 \dawfony\Ti::endExtend();
 ?>
+
 <body class="imagen-fondo-body" style="background-image: url('<?= $URL_PATH ?>/assets/fotosInterfaces/fondoBody.png');
     background-repeat: repeat;background-color: #fbf6f9;" onload="webpassOlvidadaLoad()">
 

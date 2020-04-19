@@ -2,10 +2,8 @@
 // necesitamos la trayectoria de la URL para formar las rutas:
 global $URL_PATH;
 global $login_url;
-
 \dawfony\Ti::extend("view/cabeceras/headerView.phtml");
 \dawfony\Ti::endExtend();
-
 ?>
 
 <body class="imagen-fondo-body" style="background-image: url('<?= $URL_PATH ?>/assets/fotosInterfaces/fondoBody.png');

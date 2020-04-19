@@ -97,7 +97,6 @@ function plugPasswStreng(a) {
     });
 }
 
-
 /* Sobreti counter oninput 1 metodo  */
 function sendCounter() {
     var textarea = document.getElementById("textarea"),

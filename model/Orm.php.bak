@@ -262,8 +262,6 @@ class Orm
             [$idPedido]
         );
     }
-    
-    /* Hacemos un cambio de password por que se le ha podido olvidar */
     public function cambioPassword($newPassHash,$newToken)
     {
         return Klasto::getInstance()->execute(
@@ -272,28 +270,4 @@ class Orm
         );
 
     }
-    /* busqueda de usuario por: nombre, ciudad, gustos y aficiones */
-    public function busquedaGenero($login){
-        return Klasto::getInstance()->queryone(
-            "SELECT busco from usuario where login=?",
-            [$login],"model\Usuario"
-        );
-    }
-    public function busquedaUsuario($pagina = 1,$busqueda,$login,$genero){
-        global $config;
-        $limite = $config["post_per_page"];
-        $offset = ($pagina - 1) * $limite;
-            return Klasto::getInstance()->query(
-                "SELECT foto_perfil as foto, login, edad,ubicacion,genero FROM usuario where ubicacion LIKE '%$busqueda%' and genero = ? or nombre LIKE '%$busqueda%' and genero = ? or gustos LIKE '%$busqueda%' and genero = ? or aficiones LIKE '%$busqueda%' and genero = ? EXCEPT(SELECT foto_perfil as foto, login, edad,ubicacion,genero FROM usuario where login = ?)  LIMIT $limite OFFSET $offset",
-            [$genero,$genero,$genero,$genero,$login],"model\Usuario"
-            );
-    }
-    public function contarPersonasBusqueda($genero,$busqueda){
-        return Klasto::getInstance()->queryOne(
-            "SELECT COUNT(genero) as personas FROM usuario where  ubicacion LIKE '%$busqueda%' and genero = ? or nombre LIKE '%$busqueda%' and genero = ? or gustos LIKE '%$busqueda%' and genero = ? or aficiones LIKE '%$busqueda%' and genero = ?",
-            [$genero,$genero,$genero,$genero,],"model\Usuario"
-        );
-    }
-    
 }
-

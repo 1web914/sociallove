@@ -13,49 +13,30 @@ class UserController extends Controller
     public function procesarLogin()
     {
         global $URL_PATH;
-        global $pass;
 
         $usuario = new Usuario;
         $email = $_REQUEST["email"];
         $usuario->email = $email;
-        $usuario->password = trim($_REQUEST["password"]);
-        $checkbox = $_POST["rememberme"] ?? "";
+        $usuario->password = $_REQUEST["password"];
         $hashpass = (new Orm)->comprobarUsuario($usuario);
         if (!password_verify($usuario->password, $hashpass["password"])) {
             $sacarListaMenu = (new PostController)->listaMain();
             $error_msg = "*Login o contraseña incorrecto";
             echo Ti::render("view/principal.phtml", compact("error_msg", "sacarListaMenu"));
         } else {
-            if ($checkbox == 'on') {
-                setcookie("usuario", trim($email), time() + (60 * 60));
-                setcookie("pass", trim($usuario->password), time() + (60 * 60)); //solo es una hora
-                /* DEJO COMENTADO QUE NO ENCUENTRO LA MANERA DE MANDAR EL PASSWORD CIFRADO
-                Y EN EL INPUT ME PONGA EL PASS ORIGINAL,POR QUE SI LO PONGO EN SESION, LUEGO AL DESCONECTAR SE BORRA.
-                HE INTENTADO PONER EL HASH PERO NO COINCIDEN,HE INTENTADO DESCIFRADO CON MD5 Y SHA1,TAMPOCO.
-                NO LLEVA MI NIVEL  HACER TANTO. */
-                session_start();
-                $_SESSION['login'] = $hashpass["login"];
-                $_SESSION['rol_id'] = $hashpass["rol"];
-                $_SESSION['fotoPerfil'] = $hashpass["foto"];
-                $_SESSION['genero'] = $hashpass["genero"];
-                header("Location: $URL_PATH/listado");
-            } else {
-                setcookie("usuario", "", time() - (60 * 60));
-                setcookie("pass", "", time() - (60 * 60));
-                session_start();
-                $_SESSION['login'] = $hashpass["login"];
-                $_SESSION['rol_id'] = $hashpass["rol"];
-                $_SESSION['fotoPerfil'] = $hashpass["foto"];
-                $_SESSION['genero'] = $hashpass["genero"];
-                header("Location: $URL_PATH/listado");
-            }
+
+            session_start();
+            $_SESSION['login'] = $hashpass["login"];
+            $_SESSION['rol_id'] = $hashpass["rol"];
+            $_SESSION['fotoPerfil'] = $hashpass["foto"];
+            $_SESSION['genero'] = $hashpass["genero"];
+            header("Location: $URL_PATH/listado");
         }
     }
 
     public function hacerLogout()
     {
         global $URL_PATH;
-        session_unset();
         session_destroy();
         header("Location: $URL_PATH/");
     }
@@ -121,7 +102,7 @@ class UserController extends Controller
         $usuario->hechizos = "3";
         $usuario->activada = "0";
        
-        /*CHECKBOX AFICIONES*/
+        /*CHECKBOX AFICCIONES*/
         if (is_array($_POST['aficiones'] ?? "")) {
             $selectedaf = '';
             $num_af = count($_POST['aficiones']);
@@ -177,8 +158,7 @@ class UserController extends Controller
             include('emailcfg/enviar-confirmacion.php');
             echo Ti::render("view/registro/registroCompleto.phtml", $data);
         }
-    }  
-    
+    } 
     
     // activacion de la cuenta despues de registrar
     public function cuentaActivada($accionUS,$validar)
@@ -256,7 +236,6 @@ class UserController extends Controller
         (new Orm)->eliminarDatosUsuarioCompra($cod_pedido);
         header("Location: $URL_PATH/listado");
     }
-    
     /* ANGEL & Albert PASSWORD FORGET */
     /* Contraseña olvidada CAPTCHA EN esta vista */   
     public function passOlvidada()
@@ -305,6 +284,5 @@ class UserController extends Controller
         echo Ti::render("view/passForget/passCambiada.phtml");
     }
 
-
-	/* ***** */
+/* ***** */
 }
