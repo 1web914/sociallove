@@ -1,0 +1,44 @@
+<?php
+// necesitamos la trayectoria de la URL para formar las rutas:
+global $URL_PATH;
+global $login_url;
+\dawfony\Ti::extend("view/cabeceras/headerView.phtml");
+\dawfony\Ti::endExtend();
+?>
+
+<body class="imagen-fondo-body" style="background-image: url('<?= $URL_PATH ?>/assets/fotosInterfaces/fondoBody.png');
+    background-repeat: repeat;background-color: #fbf6f9;" onload="webpassOlvidadaLoad()">
+
+    <div class="jumbotron">
+        <header>
+            <div class="img-container img-logo-vip">
+                <img class="img-fluid img-logo " src="<?= $URL_PATH ?>/assets/fotosInterfaces/logo.png" data-srcpng="" alt="socialLoveLogo">
+                <h1 class="img-logo logo-h1 ">SOCIAL LOVE</h1>
+            </div>
+        </header>
+    </div>
+
+    <div class="container passforget-principal" id="">
+        <div class="passforget col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel-info-pass">
+                <div class="panel-head">
+                    <div class="panel-title">Hechizos Gratuitos Completado</div>
+                </div>
+                <br />
+                <div style="padding-top:30px" class="panel-body text-center">
+                    <span class="lead text-dark">
+                        Muchas gracias <b><?=$login?></b> has completado el proceso, para obtener tus hechizos.<br />
+                        A partir de ahora tendrás 5 hechizos más cada 24 horas de forma ilimitada.
+                       <br /><br/>Haz clic para volver a tu pagina principal.
+                    </span>
+                    <div style="margin-bottom:10px; margin-left:30%;" class="col-sm-5 controls">
+                        <button type="button" class="btn btn-primary boton-confirm-tarjet pedido-btn btn-large" onclick="window.location=href='<?= $URL_PATH ?>/listado'">Volver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <?php \dawfony\Ti::extend("view/cabeceras/footerView.phtml"); ?>
+    <?php \dawfony\Ti::endExtend(); ?>
+</body>

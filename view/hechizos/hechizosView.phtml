@@ -1,0 +1,142 @@
+<?php
+/*  EN validarPreformulario.js esta la comprobacion js  alberto*/
+use dawfony\Ti;
+
+global $URL_PATH;
+?>
+
+<?php Ti::extend("view/mainview.phtml"); ?>
+
+<?php Ti::startBlock("content"); ?>
+<!-- Si hay sesion iniciada por login -->
+<?php if (isset($_SESSION["login"])) : ?>
+
+<div class="container">
+    <div class="hexizosBox">
+        <div class="passforget col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div class="panel-info-pass">
+                <div class="text-center">
+                    <form class="form-pass rounded" action="<?= $URL_PATH ?>/hechizos" method="POST" autocomplete="off" id="formularioHexizos">
+                        <div class="form-group row">
+                            <div class="col-sm-10 mx-auto">
+                                <span class="lead text-monospace">Invita a 10 amigos y te regalamos 5 hechizos cada 24 horas</span>
+                            </div>
+                        </div>
+                        <!-- ESTE -->
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+
+                                       <div class="col-md-10">
+                                             <span><input type="text" name="arrayx[]" class="form-control ax1" id="inputHechizos1" placeholder="Email" ></span>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <span class="oculto inputHechizos1" id="ppp"><i class="fa fa-heart fa-2x icn_red wow pulse" data-wow-iteration="infinite" data-wow-duration="500ms"></i></span>
+                                        </div>
+                                    </div><br>
+
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <span><input type="text" name="arrayx[]" class="form-control ax1 " id="inputHechizos2" placeholder="Email"  ></span>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="oculto inputHechizos2" id="qqq"><i class="fa fa-heart fa-2x icn_red wow pulse" data-wow-iteration="infinite" data-wow-duration="500ms"></i></div>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <span><input type="text" name="arrayx[]" class="form-control ax1 " id="inputHechizos3" placeholder="Email" ></span>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <span class="oculto inputHechizos3" id="rrr"><i class="fa fa-heart fa-2x icn_red wow pulse" data-wow-iteration="infinite" data-wow-duration="500ms"></i></span>
+                                        </div>
+                                    </div><br>                                
+                                 <div class="row">
+                                        <div class="col-md-10">
+                                            <span><input type="text" name="arrayx[]" class="form-control ax1 " id="inputHechizos4" placeholder="Email" ></span>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <span class="oculto inputHechizos4" id="sss"><i class="fa fa-heart fa-2x icn_red wow pulse" data-wow-iteration="infinite" data-wow-duration="500ms"></i></span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <span><input type="text" name="arrayx[]" class="form-control ax1 " id="inputHechizos5" placeholder="Email" ></span>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <span class="oculto inputHechizos5" id="ttt"><i class="fa fa-heart fa-2x icn_red wow pulse" data-wow-iteration="infinite" data-wow-duration="500ms"></i></span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <span><input type="text" name="arrayx[]" class="form-control ax1 " id="inputHechizos6" placeholder="Email" ></span>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <span class="oculto inputHechizos6" id="uuu"><i class="fa fa-heart fa-2x icn_red wow pulse" data-wow-iteration="infinite" data-wow-duration="500ms"></i></span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <span><input type="text" name="arrayx[]" class="form-control ax1 " id="inputHechizos7" placeholder="Email" ></span>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <span class="oculto inputHechizos7" id="vvv"><i class="fa fa-heart fa-2x icn_red wow pulse" data-wow-iteration="infinite" data-wow-duration="500ms"></i></span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <span><input type="text" name="arrayx[]" class="form-control ax1 " id="inputHechizos8" placeholder="Email" ></span>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <span class="oculto inputHechizos8" id="www"><i class="fa fa-heart fa-2x icn_red wow pulse" data-wow-iteration="infinite" data-wow-duration="500ms"></i></span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <span><input type="text" name="arrayx[]" class="form-control ax1 " id="inputHechizos9" placeholder="Email" ></span>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <span class="oculto inputHechizos9" id="www"><i class="fa fa-heart fa-2x icn_red wow pulse" data-wow-iteration="infinite" data-wow-duration="500ms"></i></span>
+                                        </div>
+                                    </div><br>
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                            <span><input type="text" name="arrayx[]" class="form-control ax1 " id="inputHechizos10" placeholder="Email" ></span>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <span class="oculto inputHechizos10" id="www"><i class="fa fa-heart fa-2x icn_red wow pulse" data-wow-iteration="infinite" data-wow-duration="500ms"></i></span>
+                                        </div>
+                                    </div>
+                                
+                                    <span id="checkemail" ></span><br>
+                                    
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--paso el login oculto-->
+                        <input type="hidden" name="login" value="<?=$login?>" />
+
+
+
+                        <div class="modal-footer d-flex justify-content-center" style="background-color:#1c2228">
+                            <a class="btn btn-unique style-font" style="color:White" href='<?= $URL_PATH ?>/listado'>Volver
+                                <i class="fa fa fa-times ml-1" style="color:white;font-size:20px"></i></a>
+                            <span style="width: 65px;"></span>
+                            <button class="btn btn-unique style-font" style="color:White" type="submit" id="thesubmitBoton"><i class="fas fa-paper-plane ml-1"></i>&nbsp;&nbsp;&nbsp;Enviar &nbsp;&nbsp;<span class="loader6" id="loaderpost"></span></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<?php endif; ?>
+<?php Ti::endBlock(); ?>
+
+
+<?php Ti::endExtend(); ?>

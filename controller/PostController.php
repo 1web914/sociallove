@@ -59,18 +59,18 @@ class PostController extends Controller
         echo json_encode($contador["contador"]);
     }
     //sacamos la busqueda de genero elegido por el usuario.
-    function listadoSesionIniciada($pagina = 1){
-
+    function listadoSesionIniciada($pagina = 1){        
+        session_start();        
         global $config;
         global $URL_PATH;
-        $login = $_SESSION["login"];
+        $login = $_SESSION["login"] ?? "";        
         $sacarLista = (new Orm)->listadoSesionIni($pagina,$login);
-        $hechizos = (new Orm)->contadorHechizos($login);
+        $hechizos = (new Orm)->contadorHechizos($login);         
+        $_SESSION['hechizos'] = $hechizos;       
         /* Para paginación */
         $cuenta = (new Orm)->contadorPersonas($login);
         $numpaginas = ceil ($cuenta->cantidadPersonas / $config["post_per_page"]);
-        $ruta = "$URL_PATH/listado/page/"; 
-
+        $ruta = "$URL_PATH/listado/page/";         
         echo Ti::render("view/principal.phtml", compact("sacarLista","hechizos","cuenta", "numpaginas", "pagina", "ruta")); 
 
     }

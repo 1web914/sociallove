@@ -3,6 +3,13 @@
 global $URL_PATH;
 global $login_url;
 
+/*facebookk*/
+require_once('configfb.php');
+$redirectTo = "http://localhost/sociallove/callbackphp"; //mandamos la peticion y a la vuelta va a este php
+$dataFb = ['email'];
+$fullURL = $handler->getLoginUrl($redirectTo, $dataFb);  //metemos el redirect y el email en fullURL
+/*facebookk*/
+
 \dawfony\Ti::extend("view/cabeceras/headerView.phtml");
 \dawfony\Ti::endExtend();
 
@@ -182,9 +189,11 @@ global $login_url;
                             <div class="text-center">
                                 <a href="" class="btn btn-block mb-4 flickr" data-toggle="modal" data-target="#modalContactForm">
                                     ME INSCRIBO</a>
-                            </div>
-                            <a href="<?= $login_url ?>" class="btn btn-block mb-4 btn-social btn-facebook style-font" id="fbook">
-                                <i class="fa fa-facebook"></i> Conexión vía Facebook </a>
+                            </div>                            
+                            <a href="<?php echo $fullURL ?>" class="btn btn-block mb-4 btn-social btn-facebook style-font" id="fbook">
+                                <i class="fa fa-facebook"></i> Conexión vía Facebook </a><!-url del sitio-http://localhost/sociallove/-->
+                            
+                            
 
                         </div>
                     </div>

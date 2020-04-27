@@ -7,6 +7,7 @@ require_once("funciones.php");
 use \model\Orm;
 use \dawfony\Ti;
 use model\Usuario;
+use model\UsuarioFace;
 
 class UserController extends Controller
 {
@@ -20,7 +21,7 @@ class UserController extends Controller
         $usuario->email = $email;
         $usuario->password = trim($_REQUEST["password"]);
         $checkbox = $_POST["rememberme"] ?? "";
-        $hashpass = (new Orm)->comprobarUsuario($usuario);
+        $hashpass = (new Orm)->comprobarUsuario($usuario);        
         if (!password_verify($usuario->password, $hashpass["password"])) {
             $sacarListaMenu = (new PostController)->listaMain();
             $error_msg = "*Login o contraseña incorrecto";
@@ -37,16 +38,16 @@ class UserController extends Controller
                 $_SESSION['login'] = $hashpass["login"];
                 $_SESSION['rol_id'] = $hashpass["rol"];
                 $_SESSION['fotoPerfil'] = $hashpass["foto"];
-                $_SESSION['genero'] = $hashpass["genero"];
+                $_SESSION['genero'] = $hashpass["genero"];                
                 header("Location: $URL_PATH/listado");
-            } else {
+            } else {                
                 setcookie("usuario", "", time() - (60 * 60));
                 setcookie("pass", "", time() - (60 * 60));
-                session_start();
-                $_SESSION['login'] = $hashpass["login"];
+                session_start(); 
+                $_SESSION['login'] = $hashpass["login"];                
                 $_SESSION['rol_id'] = $hashpass["rol"];
-                $_SESSION['fotoPerfil'] = $hashpass["foto"];
-                $_SESSION['genero'] = $hashpass["genero"];
+                $_SESSION['fotoPerfil'] = $hashpass["foto"];                
+                $_SESSION['genero'] = $hashpass["genero"];               
                 header("Location: $URL_PATH/listado");
             }
         }
@@ -55,6 +56,7 @@ class UserController extends Controller
     public function hacerLogout()
     {
         global $URL_PATH;
+        @session_start();  //pruebas xq a veces no cerraba bien la sesion
         session_unset();
         session_destroy();
         header("Location: $URL_PATH/");
@@ -199,7 +201,7 @@ class UserController extends Controller
        header("Location: $URL_PATH/");
     }
     
-    function dameUnAleatorio()
+    public function dameUnAleatorio()
     {
         //generamos un aleatorio para enviar el correo al usuario
             $fechaInt = idate("U"); //fecha en formato int
@@ -208,6 +210,185 @@ class UserController extends Controller
     }
 
 
+    public function callbackphp(){        
+        global $URL_PATH; 
+        require_once("configfb.php");
+        
+        try {
+            $accessToken = $handler->getAccessToken();
+        }catch(\Facebook\Exceptions\FacebookResponseException $e){
+            echo "Response Exception: " . $e->getMessage();
+            exit();
+        }catch(\Facebook\Exceptions\FacebookSDKException $e){
+            echo "SDK Exception: " . $e->getMessage();
+            exit();
+        }
+        
+        /*if(!$accessToken){
+            header('Location: login.php');    
+            exit();
+        }*/
+        
+        $oAuth2Client = $FBObject->getOAuth2Client();
+        if(!$accessToken->isLongLived())
+            $accessToken = $oAuth2Client->getLongLivedAccesToken($accessToken);
+
+            $response = $FBObject->get("/me?fields=id, first_name, last_name, email, gender, birthday, picture.type(large)", $accessToken);
+            $userData = $response->getGraphNode()->asArray();
+            $_SESSION['userData'] = $userData;
+            $_SESSION['access_token'] = (string) $accessToken;
+            
+            $fotoFB =  $_SESSION['userData']['picture']['url'];        
+            $id = $_SESSION['userData']['id'];
+            $nombre = $_SESSION['userData']['first_name'];
+            $apellido = $_SESSION['userData']['last_name'];
+            $email = $_SESSION['userData']['email'];
+            $genero = $_SESSION['userData']['gender']; //cambiar male           
+            if($genero === "male") {
+                $genero = "chico";
+            } else {
+                $genero = "chica";
+            }
+                
+            
+        
+            /* edad, objeto dentro de objeto + objeto extraigo la edad */
+            $objedad = $_SESSION['userData']['birthday'];
+            $edaddecoded = json_decode(json_encode($objedad), true);
+            $stringEdad = $edaddecoded['date']; //string(26) "1984-01-13 00:00:00.000000" 
+            $anio = (int)substr($stringEdad, 0, 4);  // 1984
+            $mes = (int)substr($stringEdad, 5, 8);   // 01
+            $dia = (int)substr($stringEdad, 8, 11);  // 13
+            $fecha_nacimiento = $dia . '-' . $mes . '-' . $anio;
+            $dia_actual = date("Y-m-d");
+            $edad_diff = date_diff(date_create($fecha_nacimiento), date_create($dia_actual));       
+            $edad = intval($edad_diff->format('%y')); //convertimos a int            
+            /* *** */
+        
+            //ya tenemos sus datos       
+            
+            //ahora habria que insertar los datos en la bd y luego logear al usuario automaticamente en la app
+            //habra que generarle una contraseña y guardarla tmbn en la bd de datos.
+            //header('Location: index.php'); aqui falla una vez logeado hay que redireccionarle al listado, mirar metodo del login de angel
+            //esto esta en index.php
+        
+            if(!isset($_SESSION['access_token'])){
+                header("Location: $URL_PATH/");
+                exit();
+            }
+        
+            // CREO EL USUARIO CON LOS DATOS DE FB
+            global $config;
+            global $URL_PATH;
+            $usuario = new UsuarioFace;
+            $usuario->login = $nombre.$apellido;            
+            $usuario->nombre = $nombre;
+            $usuario->apellidos = $apellido;
+            $usuario->email = $email;
+            $usuario->edad = $edad;                    
+            $usuario->rol_id = "1";
+            $usuario->rango_id = "0";
+            $usuario->hechizos = "3";
+            $usuario->genero = $genero;
+        
+            $usuario->activada = "1"; //este no necesita activarse ya que viene x facebook. 
+            $usuario->sobreti = "";
+            $usuario->ubicacion = "";
+            $usuario->gustos = "";
+            $usuario->loquebuscas = "";
+            $usuario->aficiones = "";
+            //pass aleaorio
+            $coctel = '0123456789abcdefghijklmnopqrstuvwxyz';            
+            $passAleatorio = substr(str_shuffle($coctel), 0, 10); // ej: 54esmdr0qf
+            $usuario->password = password_hash($passAleatorio, PASSWORD_DEFAULT);
+        
+            // num validacion
+            $fecha = idate("U"); //fecha en formato int
+            $aleatorio = rand(2, 99); //aleatorio entre 0 y 99
+            $validacion = $fecha * $aleatorio;
+            $usuario->validacion = $validacion;
+        
+            // busco 
+            if($genero === "chico") {
+                $usuario->busco = "chica";
+            } else {
+                $usuario->busco = "chico";
+            }
+         
+            // foto                    
+            $nombreDfoto =  $usuario->login.".jpg";                    
+            $imagen = file_get_contents($fotoFB);      
+            if ($genero === "male") {
+                file_put_contents("assets/fotosUsuarios/fotosChicos/" . $nombreDfoto , $imagen);
+            } else {
+                file_put_contents("assets/fotosUsuarios/fotosChicas/" . $nombreDfoto , $imagen);            
+            }
+            $usuario->foto_perfil = $nombreDfoto;
+            
+            /* FIN DE CREAR EL USUARIO */
+        
+        
+            // VERIFICAMOS CON LA BD
+            
+            $usuExiste = (new Orm)->comprobarUsuario($usuario); //si no existe false, si existe devuelve el objeto
+            
+            if($usuExiste) { //si existe le logeo 
+                setcookie("usuario", trim($usuExiste["email"]), time() + (60 * 60));
+                //setcookie("pass", trim($usuario->password), time() + (60 * 60)); //solo es una hora                
+                session_start();
+                $_SESSION['login'] = $usuExiste["login"];
+                $_SESSION['rol_id'] = $usuExiste["rol"];
+                $_SESSION['fotoPerfil'] = $usuExiste["foto"];
+                $_SESSION['genero'] = $usuExiste["genero"];                
+                header("Location: $URL_PATH/listado");
+                exit();
+                  
+            } else { //NO existe le añado a BD y le logeo                               
+                $insert = (new Orm)->insertarUsuarioFB($usuario, $validacion);
+                setcookie("usuario", trim($usuExiste["email"]), time() + (60 * 60));
+                //setcookie("pass", trim($usuario->password), time() + (60 * 60)); //solo es una hora                
+                session_start();
+                $_SESSION['login'] = $usuExiste["login"];
+                $_SESSION['rol_id'] = $usuExiste["rol"];
+                $_SESSION['fotoPerfil'] = $usuExiste["foto"];
+                $_SESSION['genero'] = $usuExiste["genero"];               
+                header("Location: $URL_PATH/listado");
+                exit();
+                
+            }         
+    }
+    
+    public function hechizosFormu($login) {
+        global $URL_PATH;
+        session_start();      
+        $arrcompletada = (new Orm)->checkSiInvitCompletada($login);            
+        $completada = $arrcompletada["invitaciones"]; //saco el valor del array          
+        if(!$arrcompletada) { // null = primera vez que entra; se crea el registro
+            //echo "null es la primera vez que entra el usuario, ahora lo inserto y le pongo valor 0";           
+            $invitaciones = 0;        
+            (new Orm)->insertUser1vezHechizos($login,$invitaciones);            
+            echo Ti::render("view/hechizos/hechizosView.phtml", compact('login'));
+        } elseif ($completada == 0) { // si es 0 = formulario incompleto
+            //echo "valor 0, incompleto, mostrar formulario";
+            $hechizos = $_SESSION['hechizos'];            
+            echo Ti::render("view/hechizos/hechizosView.phtml", compact('login')); 
+        } else { // si es 1 = completado
+            echo Ti::render("view/hechizos/hechizosViewCompleto.phtml", compact('login')); 
+        }    
+    }
+    
+    public function hechizosFormuPost(){
+        global $URL_PATH;
+        session_start();       
+        $arrEmailHechizos = $_REQUEST['arrayx'] ?? "";       
+        $updateEmails = implode(",", $arrEmailHechizos);
+        $login = $_SESSION['login'];
+        $invitaciones = 1; 
+        (new Orm)->insertMailsUsuario($login,$updateEmails,$invitaciones);       
+        echo Ti::render("view/hechizos/hechizosViewCompleto.phtml", compact('login'));   
+    }
+    
+    
     /* *********** */
 
     /* Hacemos pasarela de pago */

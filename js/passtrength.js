@@ -1,8 +1,6 @@
 /*!
  * passtrength.js
- * Original author: @adrisorribas
- * Further changes, comments: @adrisorribas
- * Licensed under the MIT license
+ * 
  */
 ;
 (function($, window, document, undefined) {

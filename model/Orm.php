@@ -102,6 +102,12 @@ class Orm
         $sql = "INSERT INTO usuario (login, password, email, nombre, apellidos, edad, hechizos, genero, busco, ubicacion, rol_id, rango_id, foto_perfil, validacion, activada, sobreti, gustos, loquebuscas, aficiones) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $bd->execute($sql, [$usuario->login, $usuario->password, $usuario->email, $usuario->nombre, $usuario->apellidos, $usuario->edad, $usuario->hechizos, $usuario->genero, $usuario->busco, $usuario->ubicacion, $usuario->rol_id, $usuario->rango_id, $usuario->foto, $validacion, $usuario->activada, $usuario->sobreti, $usuario->gustos, $usuario->loquebuscas, $usuario->aficiones]);
     }
+    function insertarUsuarioFB($usuario, $validacion)
+    {
+        $bd = Klasto::getInstance();
+        $sql = "INSERT INTO usuario (login, password, email, nombre, apellidos, edad, hechizos, genero, busco, ubicacion, rol_id, rango_id, foto_perfil, validacion, activada, sobreti, gustos, loquebuscas, aficiones) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $bd->execute($sql, [$usuario->login, $usuario->password, $usuario->email, $usuario->nombre, $usuario->apellidos, $usuario->edad, $usuario->hechizos, $usuario->genero, $usuario->busco, $usuario->ubicacion, $usuario->rol_id, $usuario->rango_id, $usuario->foto_perfil, $validacion, $usuario->activada, $usuario->sobreti, $usuario->gustos, $usuario->loquebuscas, $usuario->aficiones]);
+    }    
     function obtenerNumValidacion($email)
     {
         $bd = Klasto::getInstance();
@@ -134,7 +140,7 @@ class Orm
         $dato =  $bd->queryOne($sql, [$validacion]);  
         return $dato["activada"];   //saco solo el 1
         //SELECT activada from usuario where validacion = '134905271485'
-    }
+    }  
     
     public function poner1Activada($validacion)
     {
@@ -156,6 +162,30 @@ class Orm
         sleep(3);
         Klasto::getInstance()->execute("CALL onevento()");         
     }    
+    
+    public function checkSiInvitCompletada($login)
+    {   
+        $bd = Klasto::getInstance();
+        $sql = "SELECT invitaciones FROM emailhechizos WHERE login = ?";
+        $dato = $bd->queryOne($sql, [$login]);  
+        if($dato === null){return 0;}
+        return $dato;
+        //return $dato["invitaciones"]; // saco el numero        
+    }    
+    
+    public function insertUser1vezHechizos($login,$invitaciones)
+    {
+        $bd = Klasto::getInstance();
+        $sql = "INSERT INTO emailhechizos (login,invitaciones) VALUES (?, ?)";
+        $bd->execute($sql, [$login,$invitaciones]);
+    }
+    
+    public function insertMailsUsuario($login,$updateEmails,$invitaciones)
+    {
+        $bd = Klasto::getInstance();        
+        $sql = "UPDATE emailhechizos set emails = ?, invitaciones = ? where login = ?";       
+        $bd->execute($sql, [$updateEmails,$invitaciones,$login]);
+    }
 
     /* ********* */
 

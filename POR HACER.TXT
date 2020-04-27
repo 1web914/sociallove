@@ -1,3 +1,31 @@
+X no puede tener mismo login una persona con otra ni mismo email
+X añadir validacion de registro en el campo login (onchange)
+X añadir validacion de registro en el campo email 
+X sanitizar los campos del formulario
+X comprobacion de la contraseña. Iguales y fuerte
+X comprobar edad mayor de 18 años
+X comprobar campos vacios
+X validar el email con el correo
+X comprobar extension de foto en php?
+X verificar proteccion de fotos mayores a 10mb
+X cuenta redsociallove@gmail.com  -->  patata4444
+X comprobaciones con js en el pre registro
+X comprobar si hay campos vacios (onsubmit)
+X EDAD se introduce en el pre y se inserta en el post con js
+X las fuentes del post formulario
+X tratar la contraseña en el pre-registro (password+strength) https://www.jqueryscript.net/form/Visual-Password-Strength-Indicator-Plugin-For-jQuery-Passtrength-js.html
+X probar inyecciones de codigo en todos los campos del post registro
+X sin foto logo
+? generar numero aleatorio al enviar el mail, el usuario confirma y se comprueba con el numero aleatorio c
+X acabar el email de confirmacion
+X terminar el envio de mails
+X revisar con angel la herencia de plantillas
+X solucionado pequeño bug del pre-form en la contraseña
+X modificar email de activacion '4-mayo-2020' para prevenir errores en la tipografia
+X solucionado bug de los checkboxes
+X poner color rosita a los checkboxes
+X mejorar subida de ficheros
+X acabar el spinner
 X tildes del email de verificacion. 
 X activacion de la cuenta en bd..despues de registrarse
 X comprobaciones en el cambio de contraseña
@@ -5,8 +33,39 @@ X registrate con gmail para ver como se visualiza el email
 X loading cambioPass (captcha)
 x cambiar lo del ojo svg
 - Busqueda
-- Conexion Via facebook
-- Hechizos al meter 10 amigos(10 nuevas entradas nombrando al login ya existente se le suman 5 hechizos cada 24 horas)
+X Conexion Via facebook
+X Hechizos al meter 10 amigos(10 nuevas entradas nombrando al login ya existente se le suman 5 hechizos cada 24 horas)
 - Modificar
 - chat
-- cambiar letras del aviso del email tras registrarse ponerlas como avisoEnvioAlCorreo.phtml
+X cambiar letras del aviso del email tras registrarse ponerlas como avisoEnvioAlCorreo.phtml   class =text-dark
+X el usuario solo puede rellenarlo una vez luego mostrar mensaje al entrar en la vista desde php      
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
