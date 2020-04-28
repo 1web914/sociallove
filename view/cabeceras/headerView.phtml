@@ -38,10 +38,14 @@ global $login_url;
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <!-- CAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- SOCKETS -->
+    
     <!-- CSS PROPIO -->
     <link rel="stylesheet" type='text/css' href="<?= $URL_PATH ?>/css/cssMainView.css">
     <link rel="stylesheet" type='text/css' href="<?= $URL_PATH ?>/css/cssRegistroView.css">
-    <link rel="stylesheet" type='text/css' href="<?= $URL_PATH ?>/css/passtrength.css">
+    <link rel="stylesheet" type='text/css' href="<?= $URL_PATH ?>/css/passtrength.css">    
+    <link rel="stylesheet" type='text/css' href="<?= $URL_PATH ?>/css/jquery.mCustomScrollbar.css" />
+    
     <!-- DEJO ESTO PORQUE ME DA PROBLEMAS CON EL CSS AL METER UNA VARIABLE PHP ESTÁ INYECTADO DE MOMENTO A PINCHO EN LA MISMA LINEA -->
     <!-- <link rel='stylesheet' type='text/css' href='<?= $URL_PATH ?>/css/cssMain.php' /> -->
     <link rel="shortcut icon" href="<?= $URL_PATH ?>/assets/fotosInterfaces/logo-fb.png" />
@@ -66,7 +70,9 @@ global $login_url;
     <script src="<?= $URL_PATH ?>/js/changePass.js"></script>
     <!-- Alberto -->
     <script src="<?= $URL_PATH ?>/js/validacionPreFormulario.js"></script>
-
+    <script src="<?= $URL_PATH ?>/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="<?= $URL_PATH ?>/js/customizacionScrollers.js"></script>
+    
     <script>
         var URL_PATH = "<?= $URL_PATH ?>"; // Pasamos el URL_PATH de php a Javascript.
         var error = false; //esto es para el formulario login y  comprobamos si el email que ha introducido está bien sino que lo escriba de nuevo.

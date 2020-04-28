@@ -39,7 +39,7 @@ X Hechizos al meter 10 amigos(10 nuevas entradas nombrando al login ya existente
 - chat
 X cambiar letras del aviso del email tras registrarse ponerlas como avisoEnvioAlCorreo.phtml   class =text-dark
 X el usuario solo puede rellenarlo una vez luego mostrar mensaje al entrar en la vista desde php      
-
+- corregir linea 127 <script src="js/chatWindowx.js"></script>
 
      
 

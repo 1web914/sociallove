@@ -6,90 +6,208 @@ global $URL_PATH;
 ?>
 
 <?php Ti::extend("view/mainview.phtml"); ?>
-
+<link rel="stylesheet" href="css/chatcss.css">
 <?php Ti::startBlock("content"); ?>
 <!-- Si hay sesion iniciada por login -->
 <?php if (isset($_SESSION["login"])) : ?>
 
-    <div class="container">
-        <!-- ruta para conseguir mas hechizos al clikeo manda a otra pagina para ingresar email nuevo. -->
-        <a href="<?= $URL_PATH ?>/hechizos/<?= $_SESSION["login"] ?>">
-            <div class="imagen-fondo-sesion">
-                <!-- Redireccionar para meter emails y consiga 10 hechizos -->
-            </div>
-        </a>
-        <div class="container fondo-personas">
-            <div class="grid-container-sesion container-fluid">
-                <!-- ********************** Fotos de personas (chicas) imaginarias para hacer al usuario que se registre ******************************************* -->
-                <?php foreach ($sacarLista as $sacarListaSesion) :  ?>
-                    <div class="container-images-sesion container-fluid">
-                        <img class="imagenes-genero-sesion" src="<?= $URL_PATH ?>/assets/fotosUsuarios/fotos<?= $sacarListaSesion->genero?>s/<?= $sacarListaSesion->foto ?>" alt="no_foto">
-                        <!-- crear ruta para que nos lleve al perfil del usuario clickeado con su login-->
-                        <a href="<?= $URL_PATH ?>/perfilUsuario/<?= $sacarListaSesion->login ?>">
-                            <div class="middle">
-                                <div class="text style-font">
-                                    <b><?= $sacarListaSesion->login ?></b><br><?= $sacarListaSesion->edad ?> años<br> <?= $sacarListaSesion->ubicacion ?>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                <?php endforeach; ?>
+
+<div id="superponiendo">
+    <div id="contactform" class="container">
+        <div id="contact-button">
+            <div class="rotated-text">Ricardo</div>
+        </div>
+        <div class="p-2">
+            <div class="text-white text-center py-2" id="cabeceradelxat">
+                <h4><u>Sara</u>&nbsp;<i class="fa fa-commenting-o"></i></h4>
             </div>
         </div>
-        <nav aria-label="...">
-            <ul class="pagination">
-                <li class="page-item <?= ($pagina  <= 1 ? "disabled" : "") ?>">
-                    <a class="page-link" href="<?= $ruta . ($pagina - 1) ?>" tabindex="-1" aria-disabled="true">Anterior</a>
-                </li>
-                <?php
+
+
+        <div class="row justify-content-center">
+
+            <div class="col-sm-12 col-md-12 col-lg-12 pb-0" id="ventanaXatRosa">
+
+                <div id="formuXat" class="mCustomScrollbar" data-mcs-theme="dark-thin">
+                    <div class="card rounded-0" id="fondoBurbujastext">
+
+                        <div class="card-body p-0">
+                            <!--Body-->
+                            <div class="bubbleWrapper">
+                                <div class="inlineContainer">
+                                    <img class="inlineIcon" src="https://in.bmscdn.com/iedb/artist/images/website/poster/large/leonardo-dicaprio-1273-24-03-2017-17-58-52.jpg">
+                                    <div class="otherBubble other">
+                                        No ninjas!
+                                    </div><span class="other">08:41</span>
+                                </div>
+                            </div>
+
+
+                            <div class="bubbleWrapper">
+                                <div class="inlineContainer own">
+                                    <img class="inlineIcon" src="https://www.pakartot.lt/assets/upload/images/02/348x348/1408957219-42202.jpeg">
+
+                                    <div class="ownBubble own">
+                                        The first
+                                    </div>
+                                </div><span class="own">08:55</span>
+                            </div>
+
+
+                            <div class="bubbleWrapper">
+                                <div class="inlineContainer">
+                                    <img class="inlineIcon" src="https://in.bmscdn.com/iedb/artist/images/website/poster/large/leonardo-dicaprio-1273-24-03-2017-17-58-52.jpg">
+                                    <div class="otherBubble other">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Proin turpis ipsum, cursus sit amet bibendum sit amet,
+                                        suscipit sed nunc. Nulla convallis augue justo,
+
+                                    </div>
+                                </div><span class="other">08:41</span>
+                            </div>
+
+                            <div class="bubbleWrapper">
+                                <div class="inlineContainer own">
+                                    <img class="inlineIcon" src="https://www.pakartot.lt/assets/upload/images/02/348x348/1408957219-42202.jpeg">
+
+                                    <div class="ownBubble own">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Proin turpis ipsum, cursus sit amet bibendum sit amet,
+
+                                    </div>
+                                </div><span class="own">08:55</span>
+                            </div>
+
+                            <div class="bubbleWrapper">
+                                <div class="inlineContainer">
+                                    <img class="inlineIcon" src="https://in.bmscdn.com/iedb/artist/images/website/poster/large/leonardo-dicaprio-1273-24-03-2017-17-58-52.jpg">
+                                    <div class="otherBubble other">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Proin turpis ipsum, cursus sit amet bibendum sit amet,
+                                        suscipit sed nunc. Nulla convallis augue justo,
+
+                                    </div>
+                                </div><span class="other">08:41</span>
+                            </div>
+
+                            <div class="bubbleWrapper">
+                                <div class="inlineContainer own">
+                                    <img class="inlineIcon" src="https://www.pakartot.lt/assets/upload/images/02/348x348/1408957219-42202.jpeg">
+
+                                    <div class="ownBubble own">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Proin turpis ipsum, cursus sit amet bibendum sit amet,
+
+                                    </div>
+                                </div><span class="own">08:55</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="input-group mb-2">
+
+                    <input type="text" class="form-control mt-2" id="company" name="company" placeholder="">
+                    <div class="input-group-prepend">
+                        <button class="input-group-text mt-2"><i class="fa fa-commenting-o text-info"></i></button>
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/chatWindowx.js"></script>
+
+
+
+
+<div class="container">
+    <!-- ruta para conseguir mas hechizos al clikeo manda a otra pagina para ingresar email nuevo. -->
+    <a href="<?= $URL_PATH ?>/hechizos/<?= $_SESSION["login"] ?>">
+        <div class="imagen-fondo-sesion">
+            <!-- Redireccionar para meter emails y consiga 10 hechizos -->
+        </div>
+    </a>
+    <div class="container fondo-personas">
+        <div class="grid-container-sesion container-fluid">
+            <!-- ********************** Fotos de personas (chicas) imaginarias para hacer al usuario que se registre ******************************************* -->
+            <?php foreach ($sacarLista as $sacarListaSesion) :  ?>
+            <div class="container-images-sesion container-fluid">
+                <img class="imagenes-genero-sesion" src="<?= $URL_PATH ?>/assets/fotosUsuarios/fotos<?= $sacarListaSesion->genero?>s/<?= $sacarListaSesion->foto ?>" alt="no_foto">
+                <!-- crear ruta para que nos lleve al perfil del usuario clickeado con su login-->
+                <a href="<?= $URL_PATH ?>/perfilUsuario/<?= $sacarListaSesion->login ?>">
+                    <div class="middle">
+                        <div class="text style-font">
+                            <b><?= $sacarListaSesion->login ?></b><br><?= $sacarListaSesion->edad ?> años<br> <?= $sacarListaSesion->ubicacion ?>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <nav aria-label="...">
+        <ul class="pagination">
+            <li class="page-item <?= ($pagina  <= 1 ? "disabled" : "") ?>">
+                <a class="page-link" href="<?= $ruta . ($pagina - 1) ?>" tabindex="-1" aria-disabled="true">Anterior</a>
+            </li>
+            <?php
                 for ($i = 1; $i <= $numpaginas; $i++):?>
 
-                    <li class="page-item ">
-                        <a class="page-link" href="<?= $ruta ?><?= $i ?>"><?= $i ?></a>
-                    </li>
+            <li class="page-item ">
+                <a class="page-link" href="<?= $ruta ?><?= $i ?>"><?= $i ?></a>
+            </li>
 
-                <?php
+            <?php
                     endfor;
                 ?>
-                <li class="page-item <?= ($pagina + 1 > $numpaginas ? "disabled" : "") ?>">
-                    <a class="page-link" href="<?= $ruta . ($pagina + 1) ?>" aria-disabled="true">Siguiente</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-    <!-- Aqui el nuevo cuerpo  que será igual asi pero quitando varias cosas y añadiendo otras -->
+            <li class="page-item <?= ($pagina + 1 > $numpaginas ? "disabled" : "") ?>">
+                <a class="page-link" href="<?= $ruta . ($pagina + 1) ?>" aria-disabled="true">Siguiente</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<!-- Aqui el nuevo cuerpo  que será igual asi pero quitando varias cosas y añadiendo otras -->
 <?php else : ?>
-    <div class="container-fluid container">
-        <div class="container fondo-personas">
-            <br>
-            <hr>
-            <p class="p-listado">ELLOS ESTÁN EN LA TIENDA</p>
+<div class="container-fluid container">
+    <div class="container fondo-personas">
+        <br>
+        <hr>
+        <p class="p-listado">ELLOS ESTÁN EN LA TIENDA</p>
 
-            <!-- ********************** Fotos de personas (chicos) imaginarias para hacer al usuario que se registre ******************************************* -->
-            <div class="grid-container-chicosFondo container">
-                <a data-toggle="modal" data-target="#modalContactForm"><img src="<?= $URL_PATH ?>/assets/fotosInterfaces/tatuados.jpg" width="350px" height="350px" alt="tatuado"></a>
-                <a data-toggle="modal" data-target="#modalContactForm"><img src="<?= $URL_PATH ?>/assets/fotosInterfaces/romanticos.jpg" width="350px" height="350px" alt="romantico"></a>
-                <a data-toggle="modal" data-target="#modalContactForm"><img src="<?= $URL_PATH ?>/assets/fotosInterfaces/gafas.jpg" width="350px" height="350px" alt="gafas"></a>
-            </div>
-            <hr>
-            <p class="p-listado">ELLAS TAMBIÉN ESTÁN EN LA TIENDA</p>
-            <div class="grid-container-chicos container ">
-                <!-- ********************** Fotos de personas (chicas) imaginarias para hacer al usuario que se registre ******************************************* -->
-                <?php foreach ($sacarListaMenu as $sacarMujeresListaMenu) :  ?>
-                    <div class="container-images">
-                        <img class="grid-item imagenes-genero" src="<?= $URL_PATH ?>/assets/fotosUsuarios/fotosChicas/<?= $sacarMujeresListaMenu["fotos"] ?>" width="160px" height="160px" alt="chica1">
-                        <a href="#" data-toggle="modal" data-target="#modalContactForm">
-                            <div class="middle">
-                                <div class="text style-font">
-                                    <b><?= $sacarMujeresListaMenu["login"] ?></b><br><?= $sacarMujeresListaMenu["edad"] ?> años<br> <?= $sacarMujeresListaMenu["ubicacion"] ?>
-                                </div>
-                            </div>
-                        </a>
+        <!-- ********************** Fotos de personas (chicos) imaginarias para hacer al usuario que se registre ******************************************* -->
+        <div class="grid-container-chicosFondo container">
+            <a data-toggle="modal" data-target="#modalContactForm"><img src="<?= $URL_PATH ?>/assets/fotosInterfaces/tatuados.jpg" width="350px" height="350px" alt="tatuado"></a>
+            <a data-toggle="modal" data-target="#modalContactForm"><img src="<?= $URL_PATH ?>/assets/fotosInterfaces/romanticos.jpg" width="350px" height="350px" alt="romantico"></a>
+            <a data-toggle="modal" data-target="#modalContactForm"><img src="<?= $URL_PATH ?>/assets/fotosInterfaces/gafas.jpg" width="350px" height="350px" alt="gafas"></a>
+        </div>
+        <hr>
+        <p class="p-listado">ELLAS TAMBIÉN ESTÁN EN LA TIENDA</p>
+        <div class="grid-container-chicos container ">
+            <!-- ********************** Fotos de personas (chicas) imaginarias para hacer al usuario que se registre ******************************************* -->
+            <?php foreach ($sacarListaMenu as $sacarMujeresListaMenu) :  ?>
+            <div class="container-images">
+                <img class="grid-item imagenes-genero" src="<?= $URL_PATH ?>/assets/fotosUsuarios/fotosChicas/<?= $sacarMujeresListaMenu["fotos"] ?>" width="160px" height="160px" alt="chica1">
+                <a href="#" data-toggle="modal" data-target="#modalContactForm">
+                    <div class="middle">
+                        <div class="text style-font">
+                            <b><?= $sacarMujeresListaMenu["login"] ?></b><br><?= $sacarMujeresListaMenu["edad"] ?> años<br> <?= $sacarMujeresListaMenu["ubicacion"] ?>
+                        </div>
                     </div>
-                <?php endforeach; ?>
+                </a>
             </div>
+            <?php endforeach; ?>
         </div>
     </div>
+</div>
 <?php endif; ?>
 <?php Ti::endBlock(); ?>
 

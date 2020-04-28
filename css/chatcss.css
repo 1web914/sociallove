@@ -1,0 +1,65 @@
+        .p-3 {
+           -moz-box-shadow: inset 0 0 5px #000000;
+           -webkit-box-shadow: inset 0 0 5px #000000;
+           box-shadow: inset 0 0 5px #000000;
+            border-radius: 1px;
+        }
+        .form-control:focus {
+            box-shadow: 0 1px 1px rgba(245, 142, 3, 0.075) inset, 0 0 8px rgba(245, 142, 3, 0.6);
+            border-color: white;            
+        }
+        #contactform { /*caja rosa*/
+            width: 400px;
+            left: -405px; 
+            margin: 25px 0;
+            position: fixed;
+            box-shadow: 0 0 12px 0 #333;
+            height:auto;
+        }
+
+        #contact-button {            
+            width: 13%;
+            padding: 5% 5%;
+            cursor: pointer;
+            margin-left: 380px;
+            margin-top: 43px;
+            font-size: 21px;
+            color: #fff;
+            position: absolute;
+        }
+
+        #contact-button, #contactform {/*caja rosa*/
+            background-color: #ff69b4; /*color ventana desplegable*/
+            border-radius: 0 15px 15px 0;
+            border: 0px solid white;
+            border-left: none;
+        }
+
+        .rotated-text {
+            display: inline-block;
+            white-space: nowrap;
+            -webkit-transform: translate(1.1em,0) rotate(90deg);
+            -moz-transform: translate(1.1em,0) rotate(90deg);
+            -o-transform: translate(1.1em,0) rotate(90deg);
+            transform: translate(1.1em,0) rotate(90deg);
+            -webkit-transform-origin: 0 0;
+            -moz-transform-origin: 0 0;
+            -o-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -ms-transform-origin: none;
+            -ms-writing-mode: tb-rl;
+        }
+
+        .rotated-text:before {
+            content: "";
+            float: left;
+            margin-top: 100%;
+        }
+
+        .border-primary {
+            border:none;
+        }
+        .cstm-icon {
+            padding-left: 6px;
+            font-size: 20px;
+        }
