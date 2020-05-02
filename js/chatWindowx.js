@@ -21,3 +21,4 @@ var n =
 document.getElementById("contact-button").onclick = function () {
     a ? (e(n, "left", 800, 0, -405), a = !1) : (e(n, "left", 800, -405, 0), a = !0)
 }
+

@@ -39,14 +39,34 @@ X Hechizos al meter 10 amigos(10 nuevas entradas nombrando al login ya existente
 - chat
 X cambiar letras del aviso del email tras registrarse ponerlas como avisoEnvioAlCorreo.phtml   class =text-dark
 X el usuario solo puede rellenarlo una vez luego mostrar mensaje al entrar en la vista desde php      
-- corregir linea 127 <script src="js/chatWindowx.js"></script>
+- cuando el usuario acepte la invitacion se agrega una linea en la tabla chat
 
-     
+<!-- ventana de chat con ratchet -->
+
+deber hacer en el metodo de post controller function listadoSesionIniciada($pagina = 1){
+como 2 vistas. 
+-si el usuario a ha aceptado al usuario b --> mostrar principal.phtml con chat
+ si no --> mostrar la principal sin el chat.
+X inyectar la foto de perfil session. tienes el codigo en principal.phtml
+
+problemas sin resolver:
+- si un usuario acepta a 2 personas como cuadras los chats, en la pantalla.
+- desactivar el scroll del chat cuando se mueva manualmente
 
 
+/**************************************
+pasos chats ratchet
+lola acepta a pepe. y se crea una linea en la tabla chat de la bd.
 
+el usuario se loguea, y antes de loguearse:
 
+el orm debe preguntar a la base si aaalola puede hablar con pepe 
 
+como existe   aaalola  |  pepe
+
+	pues se abre la vista con el chat. 
+
+si no existe pues se abre la vista sin chat.*/
 
 
 

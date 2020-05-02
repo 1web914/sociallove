@@ -1,6 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 require 'cargarconfig.php';
+require __DIR__ . '/vendor/autoload.php';
 use NoahBuscher\Macaw\Macaw;
 use controller\PruebaController;
 

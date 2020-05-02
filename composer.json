@@ -3,7 +3,8 @@
     "description": "proyecto de fin de grado",
     "type": "project",
     "require": {
-        "victorjfg/dawfony": "dev-master"
+        "victorjfg/dawfony": "dev-master",
+        "cboden/ratchet": "dev-master"
     },
     "require-dev": {
         "noahbuscher/macaw": "dev-master",

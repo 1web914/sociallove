@@ -186,6 +186,29 @@ class Orm
         $sql = "UPDATE emailhechizos set emails = ?, invitaciones = ? where login = ?";       
         $bd->execute($sql, [$updateEmails,$invitaciones,$login]);
     }
+    
+    /*xat*/
+    
+    public function dimeSiActivoXat($login) {
+        $bd = Klasto::getInstance();
+        $sql = "SELECT chateacon FROM chat WHERE login = ? ";        
+        $obj = $bd->query($sql,[$login]);
+        return $obj;     
+    }
+    
+    public function dameFotoPerfilB($xateaCon) {
+        $bd = Klasto::getInstance();
+        $sql = "SELECT foto_perfil from usuario where login = ? ";
+        $dato =  $bd->queryOne($sql, [$xateaCon]);  
+        return $dato["foto_perfil"]; 
+    }
+    
+    public function dameGeneroPerfilB($xateaCon) {
+        $bd = Klasto::getInstance();
+        $sql = "SELECT genero from usuario where login = ? ";
+        $dato =  $bd->queryOne($sql, [$xateaCon]);  
+        return $dato["genero"]; 
+    }
 
     /* ********* */
 

@@ -2,8 +2,14 @@
 
 use dawfony\Ti;
 global $URL_PATH;
+$session = mt_rand(1,999);
+
 /* extract($data); */
 ?>
+<script>
+        var loginSesion = "<?= $_SESSION["login"] ?>"; 
+</script>
+
 <div class="container-fluid">
             <footer class="rounded p-4 mt-2 text-center bg-footer myfont">
                 <div>
@@ -31,3 +37,6 @@ global $URL_PATH;
                 © <?= date("Y") ?> 2ºDAW
             </footer>
         </div>
+        
+<!--<script src="<?= $URL_PATH ?>/js/chatWindowx.js"></script>
+

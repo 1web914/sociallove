@@ -59,20 +59,63 @@ class PostController extends Controller
         echo json_encode($contador["contador"]);
     }
     //sacamos la busqueda de genero elegido por el usuario.
-    function listadoSesionIniciada($pagina = 1){        
-        session_start();        
-        global $config;
-        global $URL_PATH;
-        $login = $_SESSION["login"] ?? "";        
-        $sacarLista = (new Orm)->listadoSesionIni($pagina,$login);
-        $hechizos = (new Orm)->contadorHechizos($login);         
-        $_SESSION['hechizos'] = $hechizos;       
-        /* Para paginación */
-        $cuenta = (new Orm)->contadorPersonas($login);
-        $numpaginas = ceil ($cuenta->cantidadPersonas / $config["post_per_page"]);
-        $ruta = "$URL_PATH/listado/page/";         
-        echo Ti::render("view/principal.phtml", compact("sacarLista","hechizos","cuenta", "numpaginas", "pagina", "ruta")); 
+    function listadoSesionIniciada($pagina = 1){       
+        session_start();
+        $login = $_SESSION["login"] ?? "";         
+        $activarXat = (new Orm)->dimeSiActivoXat($login);       
+        foreach ($activarXat as $key => $value) { //recorro objeto con array dentro
+            // Comprobar si tiene subnivel
+            if (is_array($value)) {
+                foreach ($value as $k => $v) {
+                    //echo $k . ": " . $v . "<br>";
+                    $xateaCon = $v; //solapa del chat
+                    //echo $xateaCon;
+                }
+            }
+            else {
+                //echo $key . ": " . $value . "<br>";
+            }
+        }   
+        
+        if($activarXat){
+            /*alberto*/                    
+            global $config;
+            global $URL_PATH;            
+            $login = $_SESSION["login"] ?? ""; 
+            $genero = $_SESSION["genero"];
+            $fotoPerfil = $_SESSION["fotoPerfil"]; 
+            if ($genero == "chico") { $fotoPerfil = "assets/fotosUsuarios/fotosChicos/".$fotoPerfil;
+            } else { $fotoPerfil = "assets/fotosUsuarios/fotosChicas/".$fotoPerfil;}
+            
+            $fotoPerfilB = (new Orm)->dameFotoPerfilB($xateaCon);   
+            $generoPerfilB = (new Orm)->dameGeneroPerfilB($xateaCon);            
+            if ($generoPerfilB == "chica") { $fotoPerfilB = "assets/fotosUsuarios/fotosChicas/".$fotoPerfilB;
+            } else { $fotoPerfilB = "assets/fotosUsuarios/fotosChicos/".$fotoPerfilB; }
+            
+            
+            $sacarLista = (new Orm)->listadoSesionIni($pagina,$login);
+            $hechizos = (new Orm)->contadorHechizos($login);         
+            $_SESSION['hechizos'] = $hechizos;       
+            /* Para paginación */
+            $cuenta = (new Orm)->contadorPersonas($login);
+            $numpaginas = ceil ($cuenta->cantidadPersonas / $config["post_per_page"]);
+            $ruta = "$URL_PATH/listado/page/";         
+            echo Ti::render("view/principalxat.phtml", compact("sacarLista","hechizos","cuenta", "numpaginas", "pagina", "ruta", "login","fotoPerfil","fotoPerfilB","xateaCon")); 
+        } else {
+            /*angel*/                   
+            global $config;
+            global $URL_PATH;
+            $login = $_SESSION["login"] ?? "";        
+            $sacarLista = (new Orm)->listadoSesionIni($pagina,$login);
+            $hechizos = (new Orm)->contadorHechizos($login);         
+            $_SESSION['hechizos'] = $hechizos;       
+            /* Para paginación */
+            $cuenta = (new Orm)->contadorPersonas($login);
+            $numpaginas = ceil ($cuenta->cantidadPersonas / $config["post_per_page"]);
+            $ruta = "$URL_PATH/listado/page/";         
+            echo Ti::render("view/principal.phtml", compact("sacarLista","hechizos","cuenta", "numpaginas", "pagina", "ruta")); 
 
+        }
     }
 
     //busqueda de usuario FALTA PONER TODO EL ORM Y EL LISTADO.ESTO ES UNA PRUEBA DE RECOGIDA PARÁMETROS.

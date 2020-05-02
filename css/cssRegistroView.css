@@ -3,8 +3,6 @@
 
 /***chat**/
 
-
-
 #superponiendo  {
     width:300px;
     position: sticky;
@@ -21,13 +19,19 @@
     padding-top: 0rem !important;
 }
 
+#fondoBurbujastext {
+    border:0px;
+}
+
 #formuXat { /*caja conversaciones*/
     width:100%;
     display:flex;    
     height: 350px; /*ajustar elto ventana de conversaciones dentro de la caja rosa PX*/		
-	background: #f1f1f1;
-	overflow-y: scroll;
-    border-radius: 16px;        
+	background: white;
+	overflow-y: none;
+    border-radius: 16px;    
+   /* background-image: url("../assets/fotosInterfaces/fondoBody.png");
+    background-repeat: repeat;*/
 }
 
 #ventanaXatRosa {
@@ -42,41 +46,46 @@
 
 
 .bubbleWrapper { /*fondo chat*/
-    background-image: url("../assets/fotosInterfaces/fondoBody.png");
-    background-repeat: repeat;
-	padding: 5px 5px;
+   /* background-image: url("../assets/fotosInterfaces/fondoBody.png");
+    background-repeat: repeat;*/
+	padding: 2px;
 	display: flex;    
 	justify-content: flex-end;
 	flex-direction: column;
 	align-self: flex-end;
     color: black;
+    border:0px;   
 }
 .inlineContainer {
-  display: inline-flex;
+  display: inline-flex;   
+    
 }
 .inlineContainer.own {
   flex-direction: row-reverse;
 }
 .inlineIcon {
-  width:30px;
-  object-fit: contain;
+    margin-top:  10px;
+    width:30px;
+    height:30px;
+    border-radius: 16px;
+  /*object-fit: contain;*/
 }
 .ownBubble { /**conversacionB*/
 	min-width: 60px;
 	max-width: 700px;
-	padding: 14px 18px;
-    margin: 6px 20px;
+	padding: 10px 14px;
+    margin: 6px 10px;
 	background-color: #FEF5CD;/*color amarillo conversacionB*/
 	border-radius: 16px 16px 0 16px;
 	border: 1px solid #443f56;
     font-size: 13px;
  
 }
-.otherBubble {/**conversacionA*/
+.otherBubble {/**conversacionA*/    
 	min-width: 60px;
 	max-width: 700px;
-	padding: 14px 18px;
-    margin: 6px 40px;
+	padding: 10px 14px; /*arriba derecha*/
+    margin: 6px 10px;
 	background-color: #ffb4d2; /*color rosa conversacionA*/
 	border-radius: 16px 16px 16px 0;
 	border: 1px solid #54788e;
@@ -94,7 +103,10 @@ span.other{
   color: grey;
 }
 
-
+#chat_input {
+ width:100%;
+    border-radius: 10px;
+}
 
 /*****background post-registro****/
 
